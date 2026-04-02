@@ -1,0 +1,19 @@
+dataset_name: VISPDAT
+
+raw_root: /Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/raw/hmls
+processed_root: /Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/pairwise_comparisons/hmls
+
+prompt_filename: prompt.txt
+selected_households_filename: selected_households.csv
+responses_dirname: responses
+flat_selected_dirname: _selected_jsons
+
+tie_sheet_mode: full_ordered_matrix
+clear_flat_selected_dir: true
+
+selected_filters:
+  drop_missing_uid: true
+  drop_missing_band: true
+
+run_settings:
+  repeats_per_ordered_pair: 10

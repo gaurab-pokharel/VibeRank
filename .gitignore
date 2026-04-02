@@ -7,3 +7,63 @@ data/processed/
 results/logs/
 *.egg-info/
 .DS_Store
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test / coverage / type-check caches
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# Virtual environments
+# =========================
+.venv/
+venv/
+env/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+*.pem
+*.key
+
+# =========================
+# Local-only data
+# Keep all proprietary data out of git
+# =========================
+data/raw/
+data/interim/
+data/processed/
+
+# =========================
+# OS / editor junk
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
