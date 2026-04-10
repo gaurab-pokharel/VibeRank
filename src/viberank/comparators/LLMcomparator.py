@@ -5,6 +5,9 @@ from typing import Iterable
 
 from viberank.comparators.base import Comparator
 
+from vllm import LLM, SamplingParams
+
+
 class LLMComparator(Comparator):
     """_summary_
 
@@ -19,11 +22,12 @@ class LLMComparator(Comparator):
             data_folder = "data_folder",
             prompt_path = None,
             logger = None,
-            model_name="meta-llama/Llama-3.1-8B-Instruct",
+            
             temperature=0.0,
             max_tokens=256,
             timeout=120,
-    ):
+            llm_name='qwen' # qwen, llama
+    ): 
         super().__init__(
             items=items,
             num_samples=num_samples,
@@ -33,28 +37,62 @@ class LLMComparator(Comparator):
             logger=logger,
         )
 
-        self.api_base_url = self.api_base_url.restrip('/')
-        self.model_name = model_name
+        #self.api_base_url = self.api_base_url.restrip('/')
+        #self.model_name = model_name
         self.temperature = temperature
-        self.map_tokens = max_tokens
+        self.max_tokens = max_tokens
         self.timeout = timeout
+        if llm_name =='llama':
+            MODEL_NAME = "meta-llama/Meta-Llama-3-8B-Instruct"
+            self.llm = LLM(
+                model=MODEL_NAME,
+                trust_remote_code=False
+            )
+            self.sampling_params =  SamplingParams(
+                temperature=self.temperature,
+                max_tokens=self.max_tokens,
+            )
+        elif llm_name == 'qwen':
+            MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
+            self.llm = LLM(
+                model=MODEL_NAME,
+                trust_remote_code=False
+            )
+            self.sampling_params =  SamplingParams(
+                temperature=self.temperature,
+                max_tokens=self.max_tokens,
+            )
+        print('initialized LLM')
 
 
     def call_llm(self, prompt):
-        url = f"{self.api_base_url}/completions"
+        #print('llm being called')
+        """url = f"{self.api_base_url}/completions"
 
         payload = {
             "model": self.model_name,
             "prompt": prompt,
             "temperature": self.temperature,
             "max_tokens": self.max_tokens,
-        }
+        }"""
 
-        response = requests.post(url, json=payload, timeout=self.timeout)
-        response.raise_for_status()
+        #response = requests.post(url, json=payload, timeout=self.timeout)
+        #response.raise_for_status()
 
-        data = response.json()
-        return data["choices"][0]["text"]
+
+
+        #data = response.json()
+        """
+            The LLM is no longer deployed on a server. Its part of this class
+        """
+        outputs = self.llm.generate([prompt],self.sampling_params)
+        raw_text = outputs[0].outputs[0].text.strip()
+
+        # for debugging print the raw texts
+        print(raw_text) 
+
+
+        return raw_text
     
     def _parse_winner(self, text):
         """
