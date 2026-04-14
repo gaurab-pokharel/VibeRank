@@ -117,64 +117,62 @@ class Comparator(ABC):
     # Logging helpers
     # ------------------------------------------------------------------
 
-    def register_pair_view(self, item_i, item_j, order, left_item, right_item, prompt):
-        """
-        Register one ordered prompt view with the logger, if a logger exists.
-
-        Intended use:
-        - call once for forward
-        - call once for backward
-        The logger itself can decide whether to deduplicate.
-        """
-        if self.logger is None:
-            return
-
-        self.logger.register_pair_view(
-            item_a=str(item_i),
-            item_b=str(item_j),
-            order=order,
-            left_item=str(left_item),
-            right_item=str(right_item),
-            prompt=prompt,
-        )
+    def register_pair_view(
+        self,
+        *,
+        tie_index,
+        item_i,
+        item_j,
+        order,
+        left_item,
+        right_item,
+        prompt,
+    ):
+        if self.logger is not None:
+            self.logger.register_pair_view(
+                tie_index=tie_index,
+                item_a=item_i,
+                item_b=item_j,
+                order=order,
+                left_item=left_item,
+                right_item=right_item,
+                prompt=prompt,
+            )
 
     def log_raw_response(
         self,
+        *,
+        tie_index,
         item_i,
         item_j,
         order,
         repeat_index,
         raw_response,
-        seed=None,
         left_item=None,
         right_item=None,
         latency_ms=None,
         error=None,
+        seed=None,
         extra=None,
     ):
-        """
-        Log one raw LLM response, if a logger exists.
-        """
-        if self.logger is None:
-            return
-
-        self.logger.log_response(
-            item_a=str(item_i),
-            item_b=str(item_j),
-            order=order,
-            repeat_index=repeat_index,
-            seed=seed,
-            raw_response=raw_response,
-            left_item=None if left_item is None else str(left_item),
-            right_item=None if right_item is None else str(right_item),
-            latency_ms=latency_ms,
-            error=error,
-            extra=extra,
-        )
+        if self.logger is not None:
+            self.logger.log_response(
+                tie_index=tie_index,
+                item_a=item_i,
+                item_b=item_j,
+                order=order,
+                repeat_index=repeat_index,
+                seed=seed,
+                raw_response=raw_response,
+                left_item=left_item,
+                right_item=right_item,
+                latency_ms=latency_ms,
+                error=error,
+                extra=extra,
+            )
 
     def flush_logs(self):
-        """Flush logger buffer, if a logger exists."""
-        if self.logger is not None and hasattr(self.logger, "flush"):
+        if self.logger is not None:
             self.logger.flush()
 
     def close_logger(self):

@@ -1,33 +1,33 @@
 import time
-import re
-import requests
 from typing import Iterable
 
 from viberank.comparators.base import Comparator
-
 from vllm import LLM, SamplingParams
 
 
 class LLMComparator(Comparator):
-    """_summary_
+    """
+    Real LLM-backed comparator using local vLLM.
 
-    Real LLM-backed comparator using a local vLLM/OpenAI-style server.
+    Resume behavior:
+    - compare_items() scans the JSONL log for completed (tie_index, repeat_index)
+    - fully completed tie indices are skipped
+    - partially completed tie indices resume only from missing repeats
     """
 
     def __init__(
-            self,
-            items,
-            num_samples = 1,
-            results_folder = 'comparison_results',
-            data_folder = "data_folder",
-            prompt_path = None,
-            logger = None,
-            
-            temperature=0.0,
-            max_tokens=256,
-            timeout=120,
-            llm_name='qwen' # qwen, llama
-    ): 
+        self,
+        items,
+        num_samples=1,
+        results_folder='comparison_results',
+        data_folder="data_folder",
+        prompt_path=None,
+        logger=None,
+        temperature=0.0,
+        max_tokens=256,
+        timeout=120,
+        llm_name='qwen',   # qwen, llama
+    ):
         super().__init__(
             items=items,
             num_samples=num_samples,
@@ -37,69 +37,51 @@ class LLMComparator(Comparator):
             logger=logger,
         )
 
-        #self.api_base_url = self.api_base_url.restrip('/')
-        #self.model_name = model_name
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.timeout = timeout
-        if llm_name =='llama':
-            MODEL_NAME = "meta-llama/Meta-Llama-3-8B-Instruct"
+
+        if llm_name == 'llama':
+            model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
             self.llm = LLM(
-                model=MODEL_NAME,
-                trust_remote_code=False
+                model=model_name,
+                trust_remote_code=False,
             )
-            self.sampling_params =  SamplingParams(
+            self.sampling_params = SamplingParams(
                 temperature=self.temperature,
                 max_tokens=self.max_tokens,
             )
+
         elif llm_name == 'qwen':
-            MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
+            model_name = "Qwen/Qwen2.5-7B-Instruct"
             self.llm = LLM(
-                model=MODEL_NAME,
-                trust_remote_code=False
+                model=model_name,
+                trust_remote_code=False,
             )
-            self.sampling_params =  SamplingParams(
+            self.sampling_params = SamplingParams(
                 temperature=self.temperature,
                 max_tokens=self.max_tokens,
             )
+        else:
+            raise ValueError(f"Unknown llm_name: {llm_name}")
+
         print('initialized LLM')
 
-
     def call_llm(self, prompt):
-        #print('llm being called')
-        """url = f"{self.api_base_url}/completions"
-
-        payload = {
-            "model": self.model_name,
-            "prompt": prompt,
-            "temperature": self.temperature,
-            "max_tokens": self.max_tokens,
-        }"""
-
-        #response = requests.post(url, json=payload, timeout=self.timeout)
-        #response.raise_for_status()
-
-
-
-        #data = response.json()
-        """
-            The LLM is no longer deployed on a server. Its part of this class
-        """
-        outputs = self.llm.generate([prompt],self.sampling_params)
+        outputs = self.llm.generate([prompt], self.sampling_params)
         raw_text = outputs[0].outputs[0].text.strip()
 
-        # for debugging print the raw texts
-        print(raw_text) 
-
+        # Debug print
+        print(raw_text)
 
         return raw_text
-    
+
     def _parse_winner(self, text):
         """
-        Will have to reimplement with a second level LLM call 
+        Existing parser retained here because your current compare()
+        still updates the win matrix. If later you fully switch to
+        raw-output-only logging, this can be removed.
         """
-
-
         text = " ".join(text.strip().split())
 
         if "Emergency Shelter Household 1. Transitional Housing: Household 2." in text:
@@ -109,18 +91,19 @@ class LLMComparator(Comparator):
             return "left"
 
         raise ValueError(f"Could not parse winner from response: {text!r}")
- 
 
-    def compare(self, item_i, item_j):
+    def compare(self, item_i, item_j, tie_index=None, completed_repeats=None):
         if item_i == item_j:
             raise ValueError("Cannot compare an item to itself.")
 
         left_item = item_i
         right_item = item_j
-
         prompt = self.get_prompt(left_item, right_item)
 
+        completed_repeats = completed_repeats or set()
+
         self.register_pair_view(
+            tie_index=tie_index,
             item_i=item_i,
             item_j=item_j,
             order="as_given",
@@ -133,6 +116,13 @@ class LLMComparator(Comparator):
         right_wins_count = 0
 
         for repeat_index in range(self.num_samples):
+            if repeat_index in completed_repeats:
+                print(
+                    f"Skipping already-logged repeat: "
+                    f"tie_index={tie_index}, repeat_index={repeat_index}"
+                )
+                continue
+
             raw_response = None
             latency_ms = None
             error_msg = None
@@ -163,6 +153,7 @@ class LLMComparator(Comparator):
                 error_msg = str(e)
 
             self.log_raw_response(
+                tie_index=tie_index,
                 item_i=item_i,
                 item_j=item_j,
                 order="as_given",
@@ -181,9 +172,27 @@ class LLMComparator(Comparator):
             "right_wins": right_wins_count,
             "num_trials": self.num_samples,
         }
-    
+
     def compare_items(self, tie_sheet: Iterable[tuple]):
-        for a, b in tie_sheet:
+        tie_sheet = list(tie_sheet)
+
+        completed = {}
+        if self.logger is not None:
+            completed = self.logger.load_completed_repeats()
+
+        total = len(tie_sheet)
+
+        for tie_index, (a, b) in enumerate(tie_sheet, start=0):
+            done_repeats = completed.get(tie_index, set())
+
+            if len(done_repeats) >= self.num_samples:
+                print(
+                    f"Skipping completed pair "
+                    f"tie_index={tie_index} "
+                    f"({len(done_repeats)}/{self.num_samples} repeats already logged)"
+                )
+                continue
+
             if isinstance(a, int) and isinstance(b, int):
                 item_i = self.get_item(a)
                 item_j = self.get_item(b)
@@ -191,10 +200,21 @@ class LLMComparator(Comparator):
                 item_i = a
                 item_j = b
 
-            self.compare(item_i, item_j)
+            print(
+                f"Processing tie_index={tie_index} "
+                f"with {len(done_repeats)}/{self.num_samples} repeats already logged "
+                f"({tie_index + 1}/{total})"
+            )
+
+            self.compare(
+                item_i,
+                item_j,
+                tie_index=tie_index,
+                completed_repeats=done_repeats,
+            )
 
         self.flush_logs()
         return self.win_matrix
-    
+
     def reset_comparator(self):
         self.reset_win_matrix()
