@@ -1,6 +1,6 @@
 import sys
 from pathlib import Path
-sys.path.insert(0, str(Path.cwd().parents[0] / "src"))
+sys.path.insert(0, "/projects/simlai1/Viberank/VibeRank/src")
 from datetime import datetime
 from pathlib import Path
 
@@ -22,7 +22,7 @@ Ported over to a py file to fascilitate running on slurm
 
 
 
-config_path = Path("../configs/datasets/hmls.yaml")
+config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/hmls.yaml")
 
 dataloader = HMISPairwiseDataLoader.from_yaml(config_path)
 dataloader.prepare()

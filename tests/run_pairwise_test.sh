@@ -21,7 +21,7 @@ echo "Started: $(date)"
 cd /projects/simlai1/Viberank/VibeRank
 
 # activate environment
-source /source /projects/simlai1/Viberank/VibeRank/.venv/bin/activate
+source /projects/simlai1/Viberank/VibeRank/.venv/bin/activate
 
 echo "Python: $(which python)"
 python --version
