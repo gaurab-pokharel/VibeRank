@@ -18,10 +18,10 @@ echo "Host: $(hostname)"
 echo "Started: $(date)"
 
 # move to project root
-cd /home/mfarabi/VibeRank
+cd /projects/simlai1/Viberank/VibeRank
 
 # activate environment
-source /home/mfarabi/vllm-env/bin/activate
+source /source /projects/simlai1/Viberank/VibeRank/.venv/bin/activate
 
 echo "Python: $(which python)"
 python --version
