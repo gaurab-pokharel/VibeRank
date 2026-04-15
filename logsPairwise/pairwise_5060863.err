@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/projects/simlai1/Viberank/VibeRank/tests/test_pairwise.py", line 31, in <module>
-    log_path = dataloader.config.responses_dirname / f"{run_id}.jsonl"
-               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
-TypeError: unsupported operand type(s) for /: 'str' and 'str'
