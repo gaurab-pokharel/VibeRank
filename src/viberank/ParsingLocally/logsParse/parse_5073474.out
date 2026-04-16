@@ -1,0 +1,91 @@
+JobID: 5073474
+Host: tc-dgx001
+Started: Wed Apr 15 01:28:33 AM EDT 2026
+Python: /projects/simlai1/Viberank/VibeRank/.venv/bin/python
+Python 3.12.12
+Wed Apr 15 01:28:33 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:0F:00.0 Off |                    0 |
+| N/A   30C    P0             60W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Loaded 720 response rows
+====================================================================================================
+ORIGINAL TEXT:
+Emergency Shelter Household 1. Transitional Housing: Household 2.
+
+Household 1 is currently staying in shelters and has a chronic health issue, which might make it difficult to access housing. However, they do not seem to have immediate health crises or other severe issues that would necessitate immediate transitional housing. On the other hand, Household 2 is sleeping outdoors, which is more dangerous and less stable, and they have a physical disability that limits their ability to live independently. Additionally, they have experienced a relationship breakdown leading to their current homelessness, which suggests they may need more support to find stable housing. Therefore, prioritizing Household 2 for transitional housing seems more appropriate to address their immediate and long-term needs. 
+
+Household 1 can be provided with emergency shelter to ensure their immediate safety and basic needs are met, while they can be referred to other services that might help them in the long term.
+
+LABEL: 1
+GENERATED TEXT: '1'
+
+====================================================================================================
+ORIGINAL TEXT:
+Emergency Shelter Household 1. Transitional Housing: Household 2.
+
+Household 1 is currently staying in shelters and has a chronic health issue, which might make it difficult to access housing. However, they do not seem to have immediate health crises or other severe issues that would necessitate immediate transitional housing. 
+
+Household 2, on the other hand, is sleeping outdoors, which is a more precarious situation, and they have a physical disability that limits their ability to live independently. Additionally, their current homelessness is due to a relationship breakdown, and they have experienced trauma, which could benefit from the support and case management provided by transitional housing. Therefore, prioritizing Household 2 for transitional housing seems more appropriate. 
+
+Given the models predicting a lower likelihood of needing future services if given transitional housing, Household 2 would likely benefit more from the long-term support and resources provided by transit
+
+LABEL: 1
+GENERATED TEXT: '1'
+
+====================================================================================================
+ORIGINAL TEXT:
+Emergency Shelter Household 1. Transitional Housing: Household 2.
+
+Household 1 is currently staying in shelters and has a chronic health issue, which might make it difficult to access housing. However, they do not seem to have immediate health crises or other severe issues that would necessitate immediate transitional housing. 
+
+Household 2, on the other hand, is sleeping outdoors, which is a more precarious situation, and they have a physical disability that limits their ability to live independently. Additionally, their current homelessness is due to a relationship breakdown, and they have experienced trauma, which could benefit from the support and case management provided by transitional housing. Therefore, prioritizing Household 2 for transitional housing seems more appropriate. 
+
+Given the models predicting a lower likelihood of needing future services if given transitional housing, Household 2 would likely benefit more from the long-term support and resources provided by transit
+
+LABEL: 1
+GENERATED TEXT: '1'
+
+====================================================================================================
+ORIGINAL TEXT:
+Emergency Shelter Household 1. Transitional Housing: Household 2.
+
+Household 1 is currently staying in shelters and has a chronic health issue, which might make it difficult to access housing. However, they do not seem to have immediate health crises or other severe issues that would necessitate immediate transitional housing. 
+
+Household 2, on the other hand, is sleeping outdoors, which is a more precarious situation, and they have a physical disability that limits their ability to live independently. Additionally, their current homelessness is due to a relationship breakdown, and they have experienced trauma, which could benefit from the support and case management provided by transitional housing. Therefore, prioritizing Household 2 for transitional housing seems more appropriate. 
+
+Given the models predicting a lower likelihood of needing future services if given transitional housing, Household 2 would likely benefit more from the long-term support and resources provided by transit
+
+LABEL: 1
+GENERATED TEXT: '1'
+
+====================================================================================================
+ORIGINAL TEXT:
+Emergency Shelter Household 1. Transitional Housing: Household 2.
+
+Household 1 is currently staying in shelters and has a chronic health issue, which might make it difficult to access housing. However, they do not seem to have immediate health crises or other severe issues that would necessitate immediate transitional housing. 
+
+Household 2, on the other hand, is sleeping outdoors, which is a more precarious situation, and they have a physical disability that limits their ability to live independently. Additionally, their current homelessness is due to a relationship breakdown, and they have experienced trauma, which could benefit from the support and case management provided by transitional housing. Therefore, prioritizing Household 2 for transitional housing seems more appropriate. 
+
+Given the models predicting a lower likelihood of needing future services if given transitional housing, Household 2 would likely benefit more from the long-term support and resources provided by transit
+
+LABEL: 1
+GENERATED TEXT: '1'
+
+Saved parsed results to: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/responses/Vispdat_llama_parsed.csv
+Finished: Wed Apr 15 01:29:35 AM EDT 2026

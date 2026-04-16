@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -9,12 +10,12 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # =========================
 # Config
 # =========================
-MODEL_NAME = "meta-llama/Llama-3.1-8B-Instruct"
-INPUT_JSONL = Path(r"\projects\simlai1\Viberank\data\VibeRank\raw\hmls\VISPDAT\responses\Vispdat_qwen_run.jsonl")
-OUTPUT_CSV = Path(r"\projects\simlai1\Viberank\data\VibeRank\raw\hmls\VISPDAT\responses\Vispdat_llama_parsed.csv")
+MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
+INPUT_JSONL = Path("/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/responses/Vispdat_qwen_run.jsonl")
+OUTPUT_CSV = Path("/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/responses/Vispdat_qwen_parsed.csv")
 
 MAX_INPUT_CHARS = 4000
-MAX_NEW_TOKENS = 8
+MAX_NEW_TOKENS = 32
 
 
 # =========================
@@ -23,7 +24,7 @@ MAX_NEW_TOKENS = 8
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    torch_dtype="auto",
+    dtype="auto",
     device_map="auto",
 )
 
@@ -54,10 +55,11 @@ def load_jsonl(path: Path) -> pd.DataFrame:
 def preprocess_text(raw_response: str) -> str:
     text = str(raw_response).strip()
 
-    # Remove obvious trailing special tokens if present
-    text = text.replace("<|eot_id|>", "").strip()
+    # Remove obvious special tokens / junk
+    text = text.replace("<|eot_id|>", " ")
+    text = text.replace("<|end_of_text|>", " ")
+    text = re.sub(r"\s+", " ", text).strip()
 
-    # Keep size manageable
     if len(text) > MAX_INPUT_CHARS:
         text = text[:MAX_INPUT_CHARS]
 
@@ -71,31 +73,82 @@ def build_messages(raw_response: str):
         {
             "role": "system",
             "content": (
-                "You are a deterministic information extractor. "
-                "Return only one label from the allowed set."
+                "You are a deterministic information extraction system. "
+                "Your job is to read messy text and extract only the final housing allocation decisions. "
+                "You must follow the output format exactly. "
+                "Do not explain. Do not summarize. Do not add extra words."
             ),
         },
         {
             "role": "user",
             "content": (
-                "You are performing extraction only.\n\n"
-                "Return exactly one label:\n"
-                "1\n"
-                "2\n"
-                "U\n\n"
-                "Extraction rule:\n"
-                "- If the text explicitly says Emergency Shelter was given to Household 1, return 1.\n"
-                "- If the text explicitly says Emergency Shelter was given to Household 2, return 2.\n"
-                "- Otherwise return U.\n\n"
-                "Do not explain.\n"
-                "Do not analyze.\n"
-                "Do not infer.\n"
-                "Use only the explicit assignment stated in the text.\n\n"
-                f"Text:\n{text}\n\n"
-                "Label:"
+                "Extract the final assignment decisions from the text below.\n\n"
+                "There are exactly two programs:\n"
+                "1. Emergency Shelter\n"
+                "2. Transitional Housing\n\n"
+                "For each program, identify which household is assigned to it.\n\n"
+                "FINAL DECISION RULE:\n"
+                "- The text may contain reasoning, repetition, or multiple mentions.\n"
+                "- Use the final explicit assignment stated in the text.\n"
+                "- Ignore explanations and justification.\n"
+                "- Ignore special tokens such as <|eot_id|>.\n\n"
+                "OUTPUT RULES:\n"
+                "- Output exactly one line.\n"
+                "- Output exactly in this format:\n"
+                "Emergency Shelter: Household X; Transitional Housing: Household Y\n"
+                "- Replace X and Y with either 1 or 2.\n"
+                "- Do not output anything else.\n"
+                "- Do not use markdown.\n"
+                "- Do not use bullet points.\n"
+                "- Do not use quotes.\n"
+                "- Do not explain your answer.\n\n"
+                "EXAMPLE OF A VALID OUTPUT:\n"
+                "Emergency Shelter: Household 1; Transitional Housing: Household 2\n\n"
+                "TEXT TO PARSE:\n"
+                f"<<<\n{text}\n>>>"
             ),
         },
     ]
+
+
+# =========================
+# Output parsing
+# =========================
+def extract_household_assignments(generated_text: str) -> dict:
+    """
+    Expected model output:
+    Emergency Shelter: Household 1; Transitional Housing: Household 2
+    """
+    result = {
+        "emergency_shelter_household": None,
+        "transitional_housing_household": None,
+        "parse_status": "failed",
+    }
+
+    text = generated_text.strip()
+
+    es_match = re.search(
+        r"Emergency Shelter\s*:\s*Household\s*([12])",
+        text,
+        flags=re.IGNORECASE,
+    )
+    th_match = re.search(
+        r"Transitional Housing\s*:\s*Household\s*([12])",
+        text,
+        flags=re.IGNORECASE,
+    )
+
+    if es_match:
+        result["emergency_shelter_household"] = f"Household {es_match.group(1)}"
+    if th_match:
+        result["transitional_housing_household"] = f"Household {th_match.group(1)}"
+
+    if es_match and th_match:
+        result["parse_status"] = "ok"
+    elif es_match or th_match:
+        result["parse_status"] = "partial"
+
+    return result
 
 
 def parse_one(raw_response: str) -> dict:
@@ -117,6 +170,8 @@ def parse_one(raw_response: str) -> dict:
         **inputs,
         max_new_tokens=MAX_NEW_TOKENS,
         do_sample=False,
+        temperature=None,
+        top_p=None,
         pad_token_id=tokenizer.pad_token_id,
         eos_token_id=tokenizer.eos_token_id,
     )
@@ -128,18 +183,13 @@ def parse_one(raw_response: str) -> dict:
         skip_special_tokens=True,
     ).strip()
 
-    normalized = generated_text.upper().strip()
-
-    if normalized.startswith("1"):
-        label = "1"
-    elif normalized.startswith("2"):
-        label = "2"
-    else:
-        label = "U"
+    extracted = extract_household_assignments(generated_text)
 
     return {
-        "parsed_label": label,
         "generated_text": generated_text,
+        "emergency_shelter_household": extracted["emergency_shelter_household"],
+        "transitional_housing_household": extracted["transitional_housing_household"],
+        "parse_status": extracted["parse_status"],
         "prompt": prompt,
     }
 
@@ -154,22 +204,15 @@ responses_df = responses_df[responses_df["raw_response"].notna()].copy()
 
 print(f"Loaded {len(responses_df)} response rows")
 
-# Test a few first
-for x in responses_df["raw_response"].head(5):
-    result = parse_one(x)
-    print("=" * 100)
-    print("ORIGINAL TEXT:")
-    print(x[:1000])
-    print()
-    print("LABEL:", result["parsed_label"])
-    print("GENERATED TEXT:", repr(result["generated_text"]))
-    print()
+
 
 # Full run
 parsed = responses_df["raw_response"].apply(parse_one)
 
-responses_df["parsed_label"] = parsed.apply(lambda x: x["parsed_label"])
 responses_df["generated_text"] = parsed.apply(lambda x: x["generated_text"])
+responses_df["emergency_shelter_household"] = parsed.apply(lambda x: x["emergency_shelter_household"])
+responses_df["transitional_housing_household"] = parsed.apply(lambda x: x["transitional_housing_household"])
+responses_df["parse_status"] = parsed.apply(lambda x: x["parse_status"])
 
 responses_df.to_csv(OUTPUT_CSV, index=False)
 print(f"Saved parsed results to: {OUTPUT_CSV}")
