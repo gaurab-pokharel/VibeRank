@@ -37,7 +37,7 @@ class LLMComparator(Comparator):
             prompt_path=prompt_path,
             logger=logger,
         )
-
+        self.rng_seed = rng_seed
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.timeout = timeout
