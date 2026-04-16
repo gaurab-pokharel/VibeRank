@@ -42,8 +42,8 @@ class LLMComparator(Comparator):
         self.max_tokens = max_tokens
         self.timeout = timeout
 
-        if llm_name == 'llama70':
-            model_name = "meta-llama/Llama-3.1-70B-Instruct"
+        if llm_name == 'llama7':
+            model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
             self.llm = LLM(
                 model=model_name,
                 trust_remote_code=False,
@@ -53,8 +53,8 @@ class LLMComparator(Comparator):
                 max_tokens=self.max_tokens,
             )
 
-        elif llm_name == 'deepseek70':
-            model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
+        elif llm_name == 'deepseek8B':
+            model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
             self.llm = LLM(
                 model=model_name,
                 trust_remote_code=False,
@@ -79,7 +79,7 @@ class LLMComparator(Comparator):
             raise ValueError(f"Unknown llm_name: {llm_name}")
 
         print('initialized LLM')
-        
+
     def _seed_for_call(self, tie_index, repeat_index):
         """
         Deterministic per-call seed.

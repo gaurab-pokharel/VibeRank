@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J pairwise-qwen
+#SBATCH -J pairwise-llama
 #SBATCH --account=simlai1
 #SBATCH --partition=a100_normal_q
 #SBATCH --nodes=1
