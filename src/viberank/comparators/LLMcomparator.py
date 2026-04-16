@@ -27,6 +27,7 @@ class LLMComparator(Comparator):
         max_tokens=256,
         timeout=120,
         llm_name='qwen',   # qwen, llama
+        rng_seed = 10
     ):
         super().__init__(
             items=items,
@@ -41,8 +42,19 @@ class LLMComparator(Comparator):
         self.max_tokens = max_tokens
         self.timeout = timeout
 
-        if llm_name == 'llama':
-            model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
+        if llm_name == 'llama70':
+            model_name = "meta-llama/Llama-3.1-70B-Instruct"
+            self.llm = LLM(
+                model=model_name,
+                trust_remote_code=False,
+            )
+            self.sampling_params = SamplingParams(
+                temperature=self.temperature,
+                max_tokens=self.max_tokens,
+            )
+
+        elif llm_name == 'deepseek70':
+            model_name = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
             self.llm = LLM(
                 model=model_name,
                 trust_remote_code=False,
@@ -62,19 +74,41 @@ class LLMComparator(Comparator):
                 temperature=self.temperature,
                 max_tokens=self.max_tokens,
             )
+   
         else:
             raise ValueError(f"Unknown llm_name: {llm_name}")
 
         print('initialized LLM')
-
-    def call_llm(self, prompt):
-        outputs = self.llm.generate([prompt], self.sampling_params)
+        
+    def _seed_for_call(self, tie_index, repeat_index):
+        """
+        Deterministic per-call seed.
+        Same (tie_index, repeat_index, rng_seed) => same seed every rerun.
+        Different repeats => different seeds.
+        """
+        tie_index = -1 if tie_index is None else int(tie_index)
+        return (
+            int(self.rng_seed) * 1_000_003
+            + tie_index * 9_176
+            + int(repeat_index) * 101
+        ) % (2**31 - 1)
+    
+    def call_llm(self, prompt, tie_index=None, repeat_index=None):
+        seed = self._seed_for_call(tie_index, repeat_index)
+        sampling_params = SamplingParams(
+                temperature=self.temperature,
+                max_tokens=self.max_tokens,
+                seed = seed
+            )
+        outputs = self.llm.generate([prompt], sampling_params)
         raw_text = outputs[0].outputs[0].text.strip()
 
         # Debug print
         print(raw_text)
 
         return raw_text
+
+   
 
     def _parse_winner(self, text):
         """
