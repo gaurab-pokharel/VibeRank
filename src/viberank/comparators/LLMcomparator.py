@@ -94,7 +94,7 @@ class LLMComparator(Comparator):
         ) % (2**31 - 1)
     
     def call_llm(self, prompt, tie_index=None, repeat_index=None):
-        seed = self._seed_for_call(tie_index, repeat_index)
+        seed = self._seed_for_call(tie_index,repeat_index)
         sampling_params = SamplingParams(
                 temperature=self.temperature,
                 max_tokens=self.max_tokens,
@@ -163,7 +163,7 @@ class LLMComparator(Comparator):
 
             try:
                 t0 = time.time()
-                raw_response = self.call_llm(prompt)
+                raw_response = self.call_llm(prompt,tie_index,repeat_index)
                 latency_ms = int((time.time() - t0) * 1000)
 
                 winner_side = self._parse_winner(raw_response)
