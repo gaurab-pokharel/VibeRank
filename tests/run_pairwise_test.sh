@@ -5,7 +5,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=4
-#SBATCH --time=0-12:00:00
+#SBATCH --time=0-3:00:00
 #SBATCH --gres=gpu:1
 #SBATCH --output=logsPairwise/pairwise_%j.out
 #SBATCH --error=logsPairwise/pairwise_%j.err
