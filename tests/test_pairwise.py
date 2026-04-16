@@ -27,7 +27,7 @@ config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/hmls.ya
 dataloader = HMISPairwiseDataLoader.from_yaml(config_path)
 dataloader.prepare()
 
-run_id = "Vispdat_qwen_run" #datetime.now().strftime("dummy_vispdat_%Y%m%d_%H%M%S")
+run_id = "Vispdat_llama70_run" #datetime.now().strftime("dummy_vispdat_%Y%m%d_%H%M%S")
 log_path = dataloader.config.responses_dir / f"{run_id}.jsonl"
 
 logger = JSONLResponseLogger(
@@ -44,7 +44,7 @@ comp = LLMComparator(
     llm_name = 'llama70',
     timeout= 120,
     max_tokens = 256,
-    temperature = 0.0
+    temperature = 0.1
 )
 
 
