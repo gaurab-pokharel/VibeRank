@@ -3,7 +3,7 @@ dataset_name: VISPDAT
 raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/hmls
 processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/pairwise_comparisons/hmls
 
-prompt_filename: prompt.txt
+prompt_filename: prompt_clarified.txt
 selected_households_filename: selected_households.csv
 responses_dirname: responses
 flat_selected_dirname: _selected_jsons
