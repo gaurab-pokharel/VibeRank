@@ -90,8 +90,124 @@ def parse_dummy_winner(raw_response):
         return m.group(1)
     return None
 
+def parse_winner_from_transitional_housing(value):
+    """
+    Convert transitional_housing_household into winner label "1" or "2".
 
-def build_trial_df_from_jsonl(log_path, winner_parser=parse_dummy_winner):
+    Expected inputs:
+        "Household 1"
+        "Household 2"
+
+    Returns:
+        "1" or "2"
+
+    Raises:
+        ValueError for invalid values.
+    """
+    if pd.isna(value):
+        return None
+
+    value = str(value).strip()
+
+    if value == "Household 1":
+        return "1"
+    elif value == "Household 2":
+        return "2"
+
+    raise ValueError(f"Could not parse winner from transitional_housing_household={value!r}")
+
+
+def build_trial_df_from_csv(csv_path, winner_parser=parse_winner_from_transitional_housing):
+    df = pd.read_csv(csv_path).copy()
+
+    if df.empty:
+        raise ValueError("No rows found in CSV.")
+
+    required_cols = ["transitional_housing_household", "left_item", "right_item"]
+    missing_cols = [c for c in required_cols if c not in df.columns]
+    if missing_cols:
+        raise ValueError(f"CSV is missing required columns: {missing_cols}")
+
+    # winner_parser should return "1" or "2"
+    df["winner_side"] = df["transitional_housing_household"].apply(winner_parser)
+
+    df = df.dropna(subset=["left_item", "right_item", "winner_side"]).copy()
+
+    df["left_item"] = df["left_item"].astype(str)
+    df["right_item"] = df["right_item"].astype(str)
+    df["winner_side"] = df["winner_side"].astype(str)
+
+    # Convert winner side into actual winner UUID
+    df["winner_item"] = np.where(
+        df["winner_side"] == "1",
+        df["left_item"],
+        np.where(
+            df["winner_side"] == "2",
+            df["right_item"],
+            np.nan
+        )
+    )
+
+    df = df.dropna(subset=["winner_item"]).copy()
+    df["winner_item"] = df["winner_item"].astype(str)
+
+    df = df[["left_item", "right_item", "winner_item"]].copy()
+
+    print(df.head())
+    return df
+
+def _parse_winner(text):
+    """
+    Returns:
+        "1" or "2"
+
+    Looks through the first few non-empty cleaned lines and extracts
+    whoever gets Transitional Housing.
+    """
+    if not text or not str(text).strip():
+        raise ValueError("Empty response text.")
+
+    import re
+
+    raw_lines = str(text).splitlines()
+
+    cleaned_lines = []
+    for line in raw_lines:
+        line = line.strip()
+        if not line:
+            continue
+
+        # remove common special/control tokens
+        line = re.sub(r"<\|.*?\|>", "", line)
+        line = re.sub(r"</?think>", "", line, flags=re.IGNORECASE)
+        line = line.strip()
+
+        if line:
+            cleaned_lines.append(line)
+
+    if not cleaned_lines:
+        raise ValueError("No usable lines found in response text.")
+
+    # Only inspect the first few meaningful lines
+    candidate_lines = cleaned_lines[:5]
+
+    patterns = [
+        r"Transitional Housing:\s*Household\s*([12])\b",
+        r"Transitional Housing:\s*([12])\b",
+    ]
+
+    for line in candidate_lines:
+        for pattern in patterns:
+            match = re.search(pattern, line, flags=re.IGNORECASE)
+            if match:
+                return match.group(1)
+
+    raise ValueError(
+        f"Could not parse winner from first meaningful lines: {candidate_lines!r}"
+    )
+
+
+def build_trial_df_from_jsonl(log_path, winner_parser=_parse_winner):
     records = load_jsonl(log_path)
 
     response_records = [r for r in records if r.get("event") == "response"]
@@ -100,6 +216,7 @@ def build_trial_df_from_jsonl(log_path, winner_parser=parse_dummy_winner):
     if df.empty:
         raise ValueError("No response records found in log.")
 
+    # Parse winner side: "1" means left won, "2" means right won
     df["winner_item"] = df["raw_response"].apply(winner_parser)
 
     # keep only rows where parser succeeded
@@ -109,7 +226,25 @@ def build_trial_df_from_jsonl(log_path, winner_parser=parse_dummy_winner):
     df["right_item"] = df["right_item"].astype(str)
     df["winner_item"] = df["winner_item"].astype(str)
 
+    # Convert winner side into actual winner UID
+    df["winner_item"] = np.where(
+        df["winner_item"] == "1",
+        df["left_item"],
+        np.where(
+            df["winner_item"] == "2",
+            df["right_item"],
+            np.nan
+        )
+    )
+
+    df = df.dropna(subset=["winner_item"]).copy()
+    df = df[["left_item", "right_item", "winner_item"]].copy()
+
+    print(df.head())
     return df
+
+
+
 
 def bernoulli_certainty(p):
     """
@@ -141,6 +276,7 @@ def build_directional_probability_matrix(selected_df, trials_df):
 
     for i, row_uid in enumerate(items):
         for j, col_uid in enumerate(items):
+            #print('gets in innter loop')
             if i == j:
                 continue
 
@@ -151,9 +287,18 @@ def build_directional_probability_matrix(selected_df, trials_df):
 
             if len(directed_trials) == 0:
                 continue
+            
+            if row_uid == '588' and col_uid=='51360':
+                print('row first')
+                print(directed_trials)
+            
+            if col_uid == '588' and row_uid=='51360':
+                print('col fiorst')
+                print(directed_trials)
 
             p_row_beats_col = (directed_trials["winner_item"] == row_uid).mean()
-
+    
+            #p_row_beats_col = len(directed_trials)
             prob_matrix[i, j] = p_row_beats_col
             n_matrix[i, j] = len(directed_trials)
 
@@ -211,6 +356,12 @@ def make_color_matrix(selected_df, prob_matrix):
 
 
 
+from pathlib import Path
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+
 def plot_pairwise_stability_heatmap(
     selected_df,
     prob_matrix,
@@ -219,10 +370,21 @@ def plot_pairwise_stability_heatmap(
     figsize=(10, 8),
     save_path=None,
     annotate=True,
+    include_uid=True,
 ):
     color_matrix = make_color_matrix(selected_df, prob_matrix)
 
-    labels = selected_df["display_label"].tolist()
+    if include_uid:
+        labels = [
+            f"{label}\nUID: {uid}"
+            for label, uid in zip(
+                selected_df["display_label"].astype(str),
+                selected_df["Client Uid"].astype(str),
+            )
+        ]
+    else:
+        labels = selected_df["display_label"].astype(str).tolist()
+
     n = len(labels)
 
     fig, ax = plt.subplots(figsize=figsize)
@@ -282,11 +444,11 @@ def plot_pairwise_stability_heatmap(
     ax.set_xlabel("Household shown second")
     ax.set_ylabel("Household shown first")
 
-    plt.subplots_adjust(bottom=0.18)
+    plt.subplots_adjust(bottom=0.22, left=0.22)
 
     fig.text(
         0.5, 0.08,
-        "Cell value = P(row household beats column household | row shown first, column shown second). \n"
+        "Cell value = P(row household beats column household | row shown first, column shown second).\n"
         "Hue = band of the favored household; intensity = higher certainty / lower variance.",
         ha="center",
         va="center",
@@ -307,11 +469,12 @@ def make_heatmap_for_run(
     log_path,
     title=None,
     save_path=None,
-    winner_parser=parse_dummy_winner,
+    winner_parser=_parse_winner,
 ):
     selected_df = load_selected_households(selected_csv)
-    trials_df = build_trial_df_from_jsonl(log_path, winner_parser=winner_parser)
-
+    #print(selected_df)
+    trials_df = build_trial_df_from_csv(log_path, winner_parser=parse_winner_from_transitional_housing)#build_trial_df_from_jsonl(log_path, winner_parser=winner_parser)
+    #trials_df = build_trial_df_from_jsonl(log_path, winner_parser=winner_parser)
     prob_matrix, n_matrix = build_directional_probability_matrix(
         selected_df, trials_df
     )

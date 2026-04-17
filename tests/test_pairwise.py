@@ -44,7 +44,8 @@ comp = LLMComparator(
     llm_name = 'llama7',
     timeout= 120,
     max_tokens = 256,
-    temperature = 0.1
+    temperature = 0.1,
+    prompt_path='prompt_vulnerability.txt'
 )
 
 
