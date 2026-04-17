@@ -7,11 +7,11 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --time=0-3:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsPairwise/pairwise_%j.out
-#SBATCH --error=logsPairwise/pairwise_%j.err
+#SBATCH --output=logsPairwiseVul/pairwise_vulnerability_%j.out
+#SBATCH --error=logsPairwiseVul/pairwise_vulnerability_%j.err
 
 set -euo pipefail
-mkdir -p logsPairwise
+mkdir -p logsPairwiseVul
 
 echo "JobID: ${SLURM_JOB_ID}"
 echo "Host: $(hostname)"
