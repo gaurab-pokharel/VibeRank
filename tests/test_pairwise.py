@@ -35,9 +35,10 @@ logger = JSONLResponseLogger(
     flush_every=1,
     store_prompts=True,
 )
-
+kwargs = dataloader.get_comparator_kwargs()
+kwargs["prompt_path"] = "prompt_vulnerability.txt"
 comp = LLMComparator(
-    **dataloader.get_comparator_kwargs(),
+    **kwargs,
     num_samples=dataloader.config.run_settings.get("repeats_per_ordered_pair", 10),
     logger = logger,
     rng_seed=42, 
@@ -45,7 +46,7 @@ comp = LLMComparator(
     timeout= 120,
     max_tokens = 256,
     temperature = 0.1,
-    prompt_path='prompt_vulnerability.txt'
+    #prompt_path='prompt_vulnerability.txt'
 )
 
 
