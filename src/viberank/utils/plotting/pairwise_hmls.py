@@ -256,6 +256,58 @@ def bernoulli_certainty(p):
         return np.nan
     return 1.0 - 4.0 * p * (1.0 - p)
 
+def parse_more_vulnerable_household(value):
+    if pd.isna(value):
+        return np.nan
+
+    s = str(value).strip()
+
+    if s == "Household 1":
+        return "1"
+    elif s == "Household 2":
+        return "2"
+    else:
+        return np.nan
+
+
+def build_trial_df_from_vulnerablecsv(csv_path, winner_parser=parse_more_vulnerable_household):
+    df = pd.read_csv(csv_path).copy()
+
+    if df.empty:
+        raise ValueError("No rows found in CSV.")
+
+    required_cols = ["more_vulnerable_household", "left_item", "right_item"]
+    missing_cols = [c for c in required_cols if c not in df.columns]
+    if missing_cols:
+        raise ValueError(f"CSV is missing required columns: {missing_cols}")
+
+    # winner_parser should return "1" or "2"
+    df["winner_side"] = df["more_vulnerable_household"].apply(winner_parser)
+
+    df = df.dropna(subset=["left_item", "right_item", "winner_side"]).copy()
+
+    df["left_item"] = df["left_item"].astype(str)
+    df["right_item"] = df["right_item"].astype(str)
+    df["winner_side"] = df["winner_side"].astype(str)
+
+    # Convert winner side into actual winner UUID
+    df["winner_item"] = np.where(
+        df["winner_side"] == "1",
+        df["left_item"],
+        np.where(
+            df["winner_side"] == "2",
+            df["right_item"],
+            np.nan
+        )
+    )
+
+    df = df.dropna(subset=["winner_item"]).copy()
+    df["winner_item"] = df["winner_item"].astype(str)
+
+    df = df[["left_item", "right_item", "winner_item"]].copy()
+
+    print(df.head())
+    return df
 
 def build_directional_probability_matrix(selected_df, trials_df):
     """
@@ -473,8 +525,9 @@ def make_heatmap_for_run(
 ):
     selected_df = load_selected_households(selected_csv)
     #print(selected_df)
-    trials_df = build_trial_df_from_csv(log_path, winner_parser=parse_winner_from_transitional_housing)#build_trial_df_from_jsonl(log_path, winner_parser=winner_parser)
+    #trials_df = build_trial_df_from_csv(log_path, winner_parser=parse_winner_from_transitional_housing)#build_trial_df_from_jsonl(log_path, winner_parser=winner_parser)
     #trials_df = build_trial_df_from_jsonl(log_path, winner_parser=winner_parser)
+    trials_df = build_trial_df_from_vulnerablecsv(log_path)#build_trial_df_from_jsonl(log_path, winner_parser=winner_parser)
     prob_matrix, n_matrix = build_directional_probability_matrix(
         selected_df, trials_df
     )
