@@ -27,7 +27,7 @@ config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/hmls.ya
 dataloader = HMISPairwiseDataLoader.from_yaml(config_path)
 dataloader.prepare()
 
-run_id = "Vispdat_qwen_withvulnerability" #datetime.now().strftime("dummy_vispdat_%Y%m%d_%H%M%S")
+run_id = "Vispdat_deepseek8B_withvulnerability" #datetime.now().strftime("dummy_vispdat_%Y%m%d_%H%M%S")
 log_path = dataloader.config.responses_dir / f"{run_id}.jsonl"
 
 logger = JSONLResponseLogger(
@@ -36,13 +36,13 @@ logger = JSONLResponseLogger(
     store_prompts=True,
 )
 kwargs = dataloader.get_comparator_kwargs()
-kwargs["prompt_path"] = "prompt_vulnerability.txt"
+kwargs["prompt_path"] = "/projects/simlai1/Viberank/data/raw/hmls/prompt_vulnerability.txt"
 comp = LLMComparator(
     **kwargs,
     num_samples=dataloader.config.run_settings.get("repeats_per_ordered_pair", 10),
     logger = logger,
     rng_seed=42, 
-    llm_name = 'qwen',
+    llm_name = 'deepseek8B',
     timeout= 120,
     max_tokens = 256,
     temperature = 0.1,
@@ -55,7 +55,7 @@ runner = PairwiseExperimentRunner(
     logger=logger,
     comparator=comp,
     run_id=run_id,
-    model_name="qwen",
+    model_name="deepseek8B",
     prompt_version=dataloader.config.prompt_filename,
 )
 

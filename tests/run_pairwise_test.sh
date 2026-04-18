@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J pairwise-llama
+#SBATCH -J pairwise-llama1
 #SBATCH --account=simlai1
 #SBATCH --partition=a100_normal_q
 #SBATCH --nodes=1
@@ -7,8 +7,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --time=0-3:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsPairwiseVul/pairwise_vulnerability_%j.out
-#SBATCH --error=logsPairwiseVul/pairwise_vulnerability_%j.err
+#SBATCH --output=logsPairwiseVul/pairwise_vulnerabilityllama7_%j.out
+#SBATCH --error=logsPairwiseVul/pairwise_vulnerabilityllama7_%j.err
 
 set -euo pipefail
 mkdir -p logsPairwiseVul
