@@ -7,8 +7,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --time=0-3:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsParseVul/parse_%j.out
-#SBATCH --error=logsParseVul/parse_%j.err
+#SBATCH --output=logsParseVulVifspdat/parse_%j.out
+#SBATCH --error=logsParseVulVifspdat/parse_%j.err
 
 set -euo pipefail
 mkdir -p logsParse
