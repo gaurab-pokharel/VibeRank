@@ -7,8 +7,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --time=0-3:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsPairwiseVul/pairwise_vulnerabilityDeepSeek8Vifspdat_%j.out
-#SBATCH --error=logsPairwiseVul/pairwise_vulnerabilityDeepseek8Vifspdat_%j.err
+#SBATCH --output=logsPairwiseVul/pairwise_vulnerabilityqwentay_%j.out
+#SBATCH --error=logsPairwiseVul/pairwise_vulnerabilityqwentay_%j.err
 
 set -euo pipefail
 mkdir -p logsPairwiseVul
