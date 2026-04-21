@@ -11,13 +11,11 @@ class JSONLResponseLogger:
     """
     Append-only logger for raw LLM pairwise comparison responses.
 
-    This version assumes the tie sheet is directed:
-        (A, B) and (B, A) are distinct comparisons.
-
-    So:
-    - pair_key is directional
-    - pair_view is stored once per directed pair
-    - response records are logged per directed pair
+    Resume logic:
+    - each response record stores tie_index and repeat_index
+    - on restart, we scan the JSONL and reconstruct which
+      (tie_index, repeat_index) attempts already exist
+    - any logged response counts as completed, even if it has error != None
     """
 
     def __init__(
@@ -33,7 +31,7 @@ class JSONLResponseLogger:
         self.flush_every = flush_every
         self.store_prompts = store_prompts
         self._buffer: list[str] = []
-        self._seen_views: set[str] = set()
+        self._seen_views: set[tuple[int, str]] = set()
 
     @staticmethod
     def _now() -> str:
@@ -89,6 +87,7 @@ class JSONLResponseLogger:
     def register_pair_view(
         self,
         *,
+        tie_index: int,
         item_a: str,
         item_b: str,
         order: str,
@@ -97,23 +96,18 @@ class JSONLResponseLogger:
         prompt: str,
     ) -> None:
         """
-        Registers the rendered prompt once for one directed comparison.
-
-        In the full ordered-matrix setup:
-            item_a -> item_b
-        is distinct from:
-            item_b -> item_a
-
-        Usually order will just be "as_given".
+        Stores the rendered prompt once per tie_index.
         """
         pair_key = self.pair_key(item_a, item_b)
+        seen_key = (tie_index, pair_key)
 
-        if pair_key in self._seen_views:
+        if seen_key in self._seen_views:
             return
 
         record = {
             "event": "pair_view",
             "timestamp": self._now(),
+            "tie_index": tie_index,
             "pair_key": pair_key,
             "pair_direction": [str(item_a), str(item_b)],
             "order": order,
@@ -126,17 +120,18 @@ class JSONLResponseLogger:
             record["prompt"] = prompt
 
         self._write_record(record)
-        self._seen_views.add(pair_key)
+        self._seen_views.add(seen_key)
 
     def log_response(
         self,
         *,
+        tie_index: int,
         item_a: str,
         item_b: str,
         order: str,
         repeat_index: int,
         seed: Optional[int],
-        raw_response: str,
+        raw_response: Optional[str],
         left_item: Optional[str] = None,
         right_item: Optional[str] = None,
         latency_ms: Optional[float] = None,
@@ -146,6 +141,7 @@ class JSONLResponseLogger:
         record = {
             "event": "response",
             "timestamp": self._now(),
+            "tie_index": tie_index,
             "pair_key": self.pair_key(item_a, item_b),
             "pair_direction": [str(item_a), str(item_b)],
             "order": order,
@@ -180,6 +176,49 @@ class JSONLResponseLogger:
             record["extra"] = extra
         self._write_record(record)
         self.flush()
+
+    def load_completed_repeats(self) -> dict[int, set[int]]:
+        """
+        Reconstruct completed work from the JSONL log.
+
+        Returns:
+            completed[tie_index] = {repeat_index_1, repeat_index_2, ...}
+
+        Any logged response counts as completed, even if error != None.
+        This matches your desired behavior.
+        """
+        completed: dict[int, set[int]] = {}
+
+        if not self.log_path.exists():
+            return completed
+
+        with open(self.log_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError:
+                    # ignore a possibly truncated final line after a crash
+                    continue
+
+                if record.get("event") != "response":
+                    continue
+
+                tie_index = record.get("tie_index")
+                repeat_index = record.get("repeat_index")
+
+                if tie_index is None or repeat_index is None:
+                    continue
+
+                if tie_index not in completed:
+                    completed[tie_index] = set()
+
+                completed[tie_index].add(repeat_index)
+
+        return completed
 
     def __enter__(self) -> "JSONLResponseLogger":
         return self

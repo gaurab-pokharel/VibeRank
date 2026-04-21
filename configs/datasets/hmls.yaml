@@ -1,9 +1,9 @@
-dataset_name: VISPDAT
+dataset_name: TAYVISPDAT #VIFSPDAT #VISPDAT
 
-raw_root: /Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/raw/hmls
-processed_root: /Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/pairwise_comparisons/hmls
+raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/hmls
+processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/pairwise_comparisons/hmls
 
-prompt_filename: prompt.txt
+prompt_filename: prompt_vulnerability.txt
 selected_households_filename: selected_households.csv
 responses_dirname: responses
 flat_selected_dirname: _selected_jsons
