@@ -1,4 +1,4 @@
-from src.viberank.rankers.base import Ranker 
+from viberank.rankers.base import Ranker 
 import random 
 import numpy as np 
 import os 
