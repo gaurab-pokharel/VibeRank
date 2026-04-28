@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_rank_centrality.py", line 26, in <module>
+    dataloader = RankCentralityDataLoader.from_yaml(config_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/datasets/hmls_rc_dataloader.py", line 88, in from_yaml
+    return cls(RankCentralityConfig.from_yaml(config_path))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/datasets/hmls_rc_dataloader.py", line 33, in from_yaml
+    dataset_name=data["dataset_name"],
+                 ~~~~^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not subscriptable

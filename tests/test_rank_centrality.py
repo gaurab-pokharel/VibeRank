@@ -21,7 +21,7 @@ from viberank.comparators.dummy import DummyComparator
 
 
 # %%
-config_path = Path("../configs/datasets/rc_vispdat.yaml")
+config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/rc_vispdat.yaml")
 
 dataloader = RankCentralityDataLoader.from_yaml(config_path)
 dataloader.prepare()
@@ -60,7 +60,7 @@ comp_kwargs = dataloader.get_comparator_kwargs()
 comp_kwargs["prompt_path"] = "/projects/simlai1/Viberank/data/raw/hmls/prompt_vulnerability.txt"
 
 # %%
-
+pairs = comp_kwargs.pop("pairs", None)
 comp = LLMComparator(
     **comp_kwargs,
     num_samples=dataloader.config.run_settings.get("repeats_per_ordered_pair", 10),
@@ -78,8 +78,8 @@ runner = RankCentralityExperimentRunner(
     dataloader=dataloader,
     logger=logger,
     comparator=comp,
-    run_id="rc_vispdat_dummy_001",
-    model_name="dummy",
+    run_id="rc_vispdat_qwen_001",
+    model_name="qwen",
     prompt_version="v1",
 )
 
@@ -87,7 +87,7 @@ runner = RankCentralityExperimentRunner(
 result = runner.run()
 
 # %%
-result
+print(result)
 
 # %%
 

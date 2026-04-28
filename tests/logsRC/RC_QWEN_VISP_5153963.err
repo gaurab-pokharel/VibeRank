@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_rank_centrality.py", line 64, in <module>
+    comp = LLMComparator(
+           ^^^^^^^^^^^^^^
+TypeError: LLMComparator.__init__() got an unexpected keyword argument 'pairs'
