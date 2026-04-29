@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH -J parse-llama
+#SBATCH -J parse-vifspdat
 #SBATCH --account=simlai1
-#SBATCH --partition=a100_normal_q
+#SBATCH --partition=h200_normal_q
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=4
 #SBATCH --time=0-3:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsParseVulVifspdat/parse_%j.out
-#SBATCH --error=logsParseVulVifspdat/parse_%j.err
+#SBATCH --output=logsParseVulTayu/parse_%j.out
+#SBATCH --error=logsParseVulTayu/parse_%j.err
 
 set -euo pipefail
 mkdir -p logsParse
