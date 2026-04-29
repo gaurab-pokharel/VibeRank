@@ -1,4 +1,4 @@
-dataset_name: VISPDAT
+dataset_name: VIFSPDAT
 
 raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/hmls
 processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/rank_centrality/hmls
@@ -22,7 +22,7 @@ selected_filters:
   drop_missing_band: true
 
 run_settings:
-  # model, temperature, repetitions, etc. — consumed downstream
+  # model, temperature, repetitions, etc. — consumed downstream IS IT THOUGHT?
   model: claude-sonnet-4-20250514
   temperature: 0.0
   num_repetitions: 1

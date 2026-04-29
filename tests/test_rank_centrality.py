@@ -26,7 +26,7 @@ config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/rc_visp
 dataloader = RankCentralityDataLoader.from_yaml(config_path)
 dataloader.prepare()
 
-run_id = datetime.now().strftime("QWEN_vispdat_%Y%m%d_%H%M%S")
+run_id = datetime.now().strftime("QWEN_vifspdat_%Y%m%d_%H%M%S")
 log_path = dataloader.config.responses_dir / f"{run_id}.jsonl"
 
 logger = JSONLResponseLogger(
@@ -78,7 +78,7 @@ runner = RankCentralityExperimentRunner(
     dataloader=dataloader,
     logger=logger,
     comparator=comp,
-    run_id="rc_vispdat_qwen_001",
+    run_id="rc_vifspdat_qwen_001",
     model_name="qwen",
     prompt_version="v1",
 )
