@@ -1,4 +1,4 @@
-# %%
+ # %%
 
 
 # %%
@@ -26,7 +26,7 @@ config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/rc_visp
 dataloader = RankCentralityDataLoader.from_yaml(config_path)
 dataloader.prepare()
 
-run_id = datetime.now().strftime("DS_TAY_%Y%m%d_%H%M%S")
+run_id = datetime.now().strftime("deepseek8B_vispdat_%Y%m%d_%H%M%S")
 log_path = dataloader.config.responses_dir / f"{run_id}.jsonl"
 
 logger = JSONLResponseLogger(
@@ -78,8 +78,8 @@ runner = RankCentralityExperimentRunner(
     dataloader=dataloader,
     logger=logger,
     comparator=comp,
-    run_id="rc_tay_DS_001",
-    model_name="DS",
+    run_id="rc_vispdat_deepseek8B_001",
+    model_name="qwen",
     prompt_version="v1",
 )
 

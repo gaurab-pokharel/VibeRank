@@ -243,17 +243,17 @@ def parse_vulnerability_jsonl_to_csv(
 # lets parse all 3 together in same session
 
 parse_vulnerability_jsonl_to_csv(
-    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/LLAMA_vispdat_20260428_184821.jsonl",
-    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/ParseLLAMA_vispdat_20260428_184821.csv",
+    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/llama_TAY_20260501_140015.jsonl",
+    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/llama_TAY_parsed.csv",
 )
 
 parse_vulnerability_jsonl_to_csv(
-    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/deepseek8B_vispdat_20260428_203611.jsonl",
-    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/Parseddeepseek8B_vispdat_20260428_203611.csv",
+    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/QWEN_TAY_20260430_235107.jsonl",
+    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/ParsedQWEN_TAY.csv",
 )
 
 parse_vulnerability_jsonl_to_csv(
-    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/QWEN_vispdat_20260428_133227.jsonl",
-    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/QWEN_vispdat_20260428_133227.csv",
+    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DS_TAY_20260501_140142.jsonl",
+    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DS_TAY_parsed.csv",
 )
 
