@@ -1,4 +1,4 @@
-dataset_name: TAYVISPDAT
+dataset_name: VIFSPDAT
 
 raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/hmls
 processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/rank_centrality/hmls
@@ -26,3 +26,10 @@ run_settings:
   model: claude-sonnet-4-20250514
   temperature: 0.0
   num_repetitions: 1
+
+household_source: all
+tie_sheet_mode: unordered_pairs
+tie_sheet_fraction: 0.40
+tie_sheet_seed: 42
+verbose: true
+progress_every: 500
