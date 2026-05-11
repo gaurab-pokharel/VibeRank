@@ -1,0 +1,4 @@
+version,dataset,model,file,naive_count,formula_count,complete_check,formula_valid,num_nodes,expected_edges,actual_edges,num_missing_edges,missing_edges,num_random_tie_pairs,random_tie_pairs,num_all_indeterminate_pairs,all_indeterminate_pairs,num_unknown_pairs,unknown_pairs,num_edges_created,num_pooled_rows
+pooled_3_models_majority,VISPDAT,POOLED_3_MODELS,POOLED_3_MODEL_FILES,52,52,passed,True,30,435,435,0,[],5,"[(588, 284566), (353058, 234634), (325477, 218687), (262923, 18), (211435, 352916)]",0,[],0,[],435,13048
+pooled_3_models_majority,VIFSPDAT,POOLED_3_MODELS,POOLED_3_MODEL_FILES,53,53,passed,True,30,435,435,0,[],3,"[(355004, 336774), (286810, 239880), (55440, 336774)]",0,[],0,[],435,13050
+pooled_3_models_majority,TAYVISPDAT,POOLED_3_MODELS,POOLED_3_MODEL_FILES,37,37,passed,True,30,435,435,0,[],4,"[(301098, 275125), (53565, 298032), (338127, 338384), (244505, 245661)]",0,[],0,[],435,13050
