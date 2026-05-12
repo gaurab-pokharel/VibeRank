@@ -152,38 +152,50 @@ class LLMComparator(Comparator):
 
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
+    
+    def load_item_data(self, item):
+        """Load a single household JSON record."""
+        item_path = self.get_item_path(item)
+        if not item_path.exists():
+            raise FileNotFoundError(f"Household JSON not found: {item_path}")
 
-    def get_prompt(self, left_item, right_item):
-        left_data = self._load_item_json(left_item)
-        right_data = self._load_item_json(right_item)
+        with open(item_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    
+    def build_household_block(
+        self,
+        item_i,
+        item_j,
+        left_label="Household 1",
+        right_label="Household 2",
+    ):
+        """
+        Build the JSON block inserted into the prompt.
+        """
+        households = {
+            left_label: self.load_item_data(item_i),
+            right_label: self.load_item_data(item_j),
+        }
+        return json.dumps(households, indent=4, ensure_ascii=False)
+
+    def get_prompt(self, left_item, right_item, replacement_token="<insert block data>", left_label="Household 1", right_label="Household 2"):
+        
 
         if self._prompt_template_cache is None:
             with open(self.prompt_path, "r", encoding="utf-8") as f:
                 self._prompt_template_cache = f.read()
         prompt_template = self._prompt_template_cache
 
-        left_json_str = json.dumps(left_data, indent=2, ensure_ascii=False)
-        right_json_str = json.dumps(right_data, indent=2, ensure_ascii=False)
+        household_block = self.build_household_block(
+            item_i=left_item,
+            item_j=right_item,
+            left_label=left_label,
+            right_label=right_label,
+        )
 
         prompt = prompt_template
 
-        replacements = {
-            "{household_1}": left_json_str,
-            "{household_2}": right_json_str,
-            "{household1}": left_json_str,
-            "{household2}": right_json_str,
-            "{left_household}": left_json_str,
-            "{right_household}": right_json_str,
-            "{left_item}": str(left_item),
-            "{right_item}": str(right_item),
-            "{item_i}": str(left_item),
-            "{item_j}": str(right_item),
-        }
-
-        for key, value in replacements.items():
-            prompt = prompt.replace(key, value)
-
-        return prompt
+        return prompt.replace(replacement_token, household_block)
 
     # ------------------------------------------------------------------
     # LLM calling / fake local responses
