@@ -578,6 +578,8 @@ class LLMComparator(Comparator):
                     prompts,
                     batch_tasks=batch_tasks,
                 )
+                print("DEBUG len(raw_responses):", len(raw_responses))
+                print("DEBUG first raw response:", repr(raw_responses[0]) if raw_responses else "EMPTY")
 
                 batch_latency_ms = int((time.time() - batch_t0) * 1000)
                 avg_latency_ms = int(batch_latency_ms / max(1, len(batch_tasks)))
@@ -647,20 +649,21 @@ class LLMComparator(Comparator):
                 except Exception as e:
                     error_msg = str(e)
 
-                self.log_raw_response(
-                    tie_index=tie_index,
-                    item_i=left_item,
-                    item_j=right_item,
-                    order="as_given",
-                    repeat_index=repeat_index,
-                    raw_response=raw_response,
-                    left_item=left_item,
-                    right_item=right_item,
-                    latency_ms=latency_ms,
-                    error=error_msg,
-                )
-
-            self.flush_logs()
+                if self.logger is not None:
+                    self.logger.log_response(
+                        item_a=left_item,
+                        item_b=right_item,
+                        order="as_given",
+                        repeat_index=repeat_index,
+                        seed=self._seed_for_call(tie_index, repeat_index),
+                        raw_response=raw_response,
+                        left_item=left_item,
+                        right_item=right_item,
+                        latency_ms=latency_ms,
+                        error=error_msg,
+                        extra={"tie_index": tie_index},
+                    )
+                    self.logger.flush()
 
         return self.win_matrix
 
