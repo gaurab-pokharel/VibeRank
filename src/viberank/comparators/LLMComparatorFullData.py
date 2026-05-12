@@ -154,8 +154,29 @@ class LLMComparator(Comparator):
             return json.load(f)
     
     def load_item_data(self, item):
-        """Load a single household JSON record."""
-        item_path = self.get_item_path(item)
+        item = str(item)
+
+        # Preferred full-data mode: use exact JSON paths from dataloader.
+        # This is necessary because households live inside high/medium/low folders.
+        if self.item_json_paths is not None:
+            if item not in self.item_json_paths:
+                raise KeyError(
+                    f"Missing JSON path for item={item}. "
+                    f"Available item_json_paths keys sample: "
+                    f"{list(self.item_json_paths.keys())[:10]}"
+                )
+
+            item_path = Path(self.item_json_paths[item])
+
+            if not item_path.exists():
+                raise FileNotFoundError(f"Household JSON not found: {item_path}")
+
+            with open(item_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+
+        # Backward-compatible fallback.
+        item_path = Path(self.data_folder) / f"{item}.json"
+
         if not item_path.exists():
             raise FileNotFoundError(f"Household JSON not found: {item_path}")
 
