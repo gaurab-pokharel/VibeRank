@@ -36,6 +36,7 @@ class LLMComparator(Comparator):
         llm_name="qwen",  # qwen, llama7, deepseek8B, local_test
         rng_seed=10,
         local_test_mode=False,
+        batch_size=64
     ):
         # If base Comparator dislikes None data_folder, "." is harmless because
         # no-copy mode overrides get_prompt() and uses item_json_paths.
@@ -65,6 +66,8 @@ class LLMComparator(Comparator):
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.timeout = timeout
+        self.batch_size = int(batch_size)
+        self._prompt_template_cache = None
 
         self.local_test_mode = bool(local_test_mode) or llm_name in {
             "local_test",
@@ -154,8 +157,10 @@ class LLMComparator(Comparator):
         left_data = self._load_item_json(left_item)
         right_data = self._load_item_json(right_item)
 
-        with open(self.prompt_path, "r", encoding="utf-8") as f:
-            prompt_template = f.read()
+        if self._prompt_template_cache is None:
+            with open(self.prompt_path, "r", encoding="utf-8") as f:
+                self._prompt_template_cache = f.read()
+        prompt_template = self._prompt_template_cache
 
         left_json_str = json.dumps(left_data, indent=2, ensure_ascii=False)
         right_json_str = json.dumps(right_data, indent=2, ensure_ascii=False)
@@ -242,9 +247,71 @@ class LLMComparator(Comparator):
         outputs = self.llm.generate([prompt], sampling_params)
         raw_text = outputs[0].outputs[0].text.strip()
 
-        print(raw_text)
+        #print(raw_text)
 
         return raw_text
+
+    # batched call to llm for speedup
+
+    def call_llm_batch(self, prompts, batch_tasks=None):
+        """
+        Batched vLLM call.
+
+        Args:
+            prompts:
+                List of prompt strings.
+            batch_tasks:
+                Optional list of task dicts. Used only for deterministic
+                local_test_mode responses.
+
+        Returns:
+            List[str] raw model responses.
+        """
+
+        prompts = list(prompts)
+
+        if len(prompts) == 0:
+            return []
+
+        if self.local_test_mode:
+            raw_texts = []
+
+            if batch_tasks is None:
+                batch_tasks = [
+                    {"tie_index": None, "repeat_index": i}
+                    for i in range(len(prompts))
+                ]
+
+            for task in batch_tasks:
+                raw_texts.append(
+                    self._mock_llm_response(
+                        tie_index=task.get("tie_index"),
+                        repeat_index=task.get("repeat_index"),
+                    )
+                )
+
+            return raw_texts
+
+        if self.llm is None or self.SamplingParams is None:
+            raise RuntimeError(
+                "Real LLM is not initialized. Use local_test_mode=True "
+                "or initialize with a valid llm_name."
+            )
+
+        sampling_params = self.SamplingParams(
+            temperature=self.temperature,
+            max_tokens=self.max_tokens,
+        )
+
+        outputs = self.llm.generate(prompts, sampling_params)
+
+        raw_texts = []
+        for output in outputs:
+            raw_texts.append(output.outputs[0].text.strip())
+
+        return raw_texts
+
+
 
     # ------------------------------------------------------------------
     # Parsing
@@ -363,6 +430,12 @@ class LLMComparator(Comparator):
 
     def compare_items(self, tie_sheet: Iterable[tuple] | None = None, max_pairs=None):
         """
+        Batched tie sheet loop.
+
+        This replaces the old one-prompt-at-a-time loop with batched vLLM calls.
+        Existing compare() is kept for backward compatibility, but this function
+        now does the fast path directly.
+
         Args:
             tie_sheet:
                 Optional tie sheet. If None, uses self.tie_sheet.
@@ -388,7 +461,12 @@ class LLMComparator(Comparator):
         if self.logger is not None:
             completed = self.logger.load_completed_repeats()
 
-        total = len(tie_sheet)
+        total_pairs = len(tie_sheet)
+
+        print(f"Preparing batched comparison tasks for {total_pairs} pairs...")
+        print(f"Batch size: {self.batch_size}")
+
+        tasks = []
 
         for tie_index, (a, b) in enumerate(tie_sheet, start=0):
             done_repeats = completed.get(tie_index, set())
@@ -408,20 +486,148 @@ class LLMComparator(Comparator):
                 item_i = str(a)
                 item_j = str(b)
 
-            print(
-                f"Processing tie_index={tie_index} "
-                f"with {len(done_repeats)}/{self.num_samples} repeats already logged "
-                f"({tie_index + 1}/{total})"
-            )
+            left_item = str(item_i)
+            right_item = str(item_j)
 
-            self.compare(
-                item_i,
-                item_j,
+            prompt = self.get_prompt(left_item, right_item)
+
+            self.register_pair_view(
                 tie_index=tie_index,
-                completed_repeats=done_repeats,
+                item_i=left_item,
+                item_j=right_item,
+                order="as_given",
+                left_item=left_item,
+                right_item=right_item,
+                prompt=prompt,
             )
 
-        self.flush_logs()
+            for repeat_index in range(self.num_samples):
+                if repeat_index in done_repeats:
+                    continue
+
+                tasks.append(
+                    {
+                        "tie_index": tie_index,
+                        "item_i": left_item,
+                        "item_j": right_item,
+                        "left_item": left_item,
+                        "right_item": right_item,
+                        "repeat_index": repeat_index,
+                        "prompt": prompt,
+                    }
+                )
+
+        total_tasks = len(tasks)
+
+        print(f"Total unfinished LLM calls to run: {total_tasks}")
+
+        if total_tasks == 0:
+            print("Nothing to run. All requested comparisons are already completed.")
+            self.flush_logs()
+            return self.win_matrix
+
+        batch_size = max(1, int(self.batch_size))
+
+        for start in range(0, total_tasks, batch_size):
+            end = min(start + batch_size, total_tasks)
+            batch_tasks = tasks[start:end]
+            prompts = [task["prompt"] for task in batch_tasks]
+
+            print(
+                f"Running batch {start // batch_size + 1} "
+                f"({start + 1}-{end}/{total_tasks})"
+            )
+
+            batch_t0 = time.time()
+
+            try:
+                raw_responses = self.call_llm_batch(
+                    prompts,
+                    batch_tasks=batch_tasks,
+                )
+
+                batch_latency_ms = int((time.time() - batch_t0) * 1000)
+                avg_latency_ms = int(batch_latency_ms / max(1, len(batch_tasks)))
+
+                batch_errors = [None] * len(batch_tasks)
+
+            except Exception as batch_error:
+                print(f"Batch failed, falling back to one-by-one calls: {batch_error}")
+
+                raw_responses = []
+                batch_errors = []
+                avg_latency_ms = None
+
+                for task in batch_tasks:
+                    try:
+                        single_t0 = time.time()
+
+                        raw_text = self.call_llm(
+                            task["prompt"],
+                            tie_index=task["tie_index"],
+                            repeat_index=task["repeat_index"],
+                        )
+
+                        raw_responses.append(raw_text)
+                        batch_errors.append(None)
+
+                    except Exception as single_error:
+                        raw_responses.append(None)
+                        batch_errors.append(str(single_error))
+
+            for task, raw_response, batch_error in zip(
+                batch_tasks,
+                raw_responses,
+                batch_errors,
+            ):
+                tie_index = task["tie_index"]
+                left_item = task["left_item"]
+                right_item = task["right_item"]
+                repeat_index = task["repeat_index"]
+
+                latency_ms = avg_latency_ms
+                error_msg = batch_error
+
+                try:
+                    if raw_response is None:
+                        raise ValueError(error_msg or "No raw response returned.")
+
+                    winner_side = self._parse_winner(raw_response)
+
+                    if winner_side == "left":
+                        winner_item = left_item
+                        loser_item = right_item
+
+                    elif winner_side == "right":
+                        winner_item = right_item
+                        loser_item = left_item
+
+                    else:
+                        raise ValueError(f"Unexpected winner_side: {winner_side}")
+
+                    winner_idx = self.get_index(winner_item)
+                    loser_idx = self.get_index(loser_item)
+
+                    self.win_matrix[winner_idx, loser_idx] += 1
+                    self.num_comparisons += 1
+
+                except Exception as e:
+                    error_msg = str(e)
+
+                self.log_raw_response(
+                    tie_index=tie_index,
+                    item_i=left_item,
+                    item_j=right_item,
+                    order="as_given",
+                    repeat_index=repeat_index,
+                    raw_response=raw_response,
+                    left_item=left_item,
+                    right_item=right_item,
+                    latency_ms=latency_ms,
+                    error=error_msg,
+                )
+
+            self.flush_logs()
 
         return self.win_matrix
 

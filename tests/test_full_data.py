@@ -56,9 +56,10 @@ comp = LLMComparator(
     rng_seed=42, 
     llm_name = 'qwen', # deepseek8B / llama7 / qwen
     timeout= 120,
-    max_tokens = 256,
+    max_tokens = 8,
     temperature = 0.1,
-    local_test_mode = False
+    local_test_mode = False,
+    batch_size=64
     #prompt_path='prompt_vulnerability.txt'
 )
 
