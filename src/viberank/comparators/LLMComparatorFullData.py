@@ -651,6 +651,7 @@ class LLMComparator(Comparator):
 
                 if self.logger is not None:
                     self.logger.log_response(
+                        tie_index=tie_index,
                         item_a=left_item,
                         item_b=right_item,
                         order="as_given",
