@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_full_data.py", line 28, in <module>
+    dataloader = HMISPairwiseDataLoader.from_yaml(config_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/datasets/hmls_dataloader_all.py", line 117, in from_yaml
+    return cls(HMISPairwiseConfig.from_yaml(config_path))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/datasets/hmls_dataloader_all.py", line 44, in from_yaml
+    with open(config_path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../configs/datasets/rc_full_data.yaml'
