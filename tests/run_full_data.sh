@@ -7,8 +7,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --time=0-12:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsRC/FullData_QWEN_tay_%j.out
-#SBATCH --error=logsRC/FullData_QWEN_tay_%j.err
+#SBATCH --output=logsRC/FullData_llama_tay_%j.out
+#SBATCH --error=logsRC/FullData_llama_tay_%j.err
 cd /projects/simlai1/Viberank/VibeRank/tests
 set -euo pipefail
 mkdir -p logsPairwiseVul
