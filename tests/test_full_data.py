@@ -69,7 +69,7 @@ runner = RankCentralityExperimentRunner(
     logger=logger,
     comparator=comp,
     run_id="aies_TAYvispdat_llama_001",
-    model_name="qwen",
+    model_name="llama7",
     prompt_version="v1",
 )
 
