@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -J RCQwenvispdat
+#SBATCH -J RCQwentayvispdat1
 #SBATCH --account=simlai1
 #SBATCH --partition=a100_normal_q
 #SBATCH --nodes=1
@@ -7,8 +7,8 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --time=0-12:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsRC/FullData_QWEN_VISP_%j.out
-#SBATCH --error=logsRC/FullData_QWEN_VISP_%j.err
+#SBATCH --output=logsRC/FullData_QWEN_tay_%j.out
+#SBATCH --error=logsRC/FullData_QWEN_tay_%j.err
 cd /projects/simlai1/Viberank/VibeRank/tests
 set -euo pipefail
 mkdir -p logsPairwiseVul
