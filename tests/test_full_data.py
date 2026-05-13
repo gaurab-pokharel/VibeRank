@@ -28,7 +28,7 @@ config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/rc_full
 dataloader = HMISPairwiseDataLoader.from_yaml(config_path)
 dataloader.prepare()
 
-run_id = datetime.now().strftime("AIES_TAYvispdat_llama7_NewFixedLogger")
+run_id = datetime.now().strftime("AIES_vispdat_llama7_NewFixedLogger")
 log_path = dataloader.config.responses_dir / f"{run_id}.jsonl"
 
 logger = JSONLResponseLogger(
@@ -68,7 +68,7 @@ runner = RankCentralityExperimentRunner(
     dataloader=dataloader,
     logger=logger,
     comparator=comp,
-    run_id="aies_TAYvispdat_llama_001",
+    run_id="aies_vispdat_llama_001",
     model_name="llama7",
     prompt_version="v1",
 )
