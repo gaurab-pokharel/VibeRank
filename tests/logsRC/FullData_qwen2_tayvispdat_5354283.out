@@ -1,0 +1,454 @@
+JobID: 5354283
+Host: tc-gpu004
+Started: Thu May 14 04:22:35 PM EDT 2026
+Python: /projects/simlai1/Viberank/VibeRank/.venv/bin/python
+Python 3.12.12
+Thu May 14 16:22:35 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:0B:00.0 Off |                    0 |
+| N/A   46C    P0             66W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[HMISPairwiseDataLoader] ================================================================================
+[HMISPairwiseDataLoader] Starting dataloader.prepare()
+[HMISPairwiseDataLoader] dataset_name: TAYVISPDAT
+[HMISPairwiseDataLoader] household_source: all
+[HMISPairwiseDataLoader] raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/hmls
+[HMISPairwiseDataLoader] processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/rank_centrality/hmls
+[HMISPairwiseDataLoader] responses_dir: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses
+[HMISPairwiseDataLoader] ================================================================================
+[HMISPairwiseDataLoader] Loading ALL households from raw JSON folders
+[HMISPairwiseDataLoader] raw_dataset_dir: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT
+[HMISPairwiseDataLoader] Found 4 candidate priority-band folders
+[HMISPairwiseDataLoader] [1/4] Scanning band='responses' with 0 JSON files
+[HMISPairwiseDataLoader] [2/4] Scanning band='high' with 231 JSON files
+[HMISPairwiseDataLoader] [3/4] Scanning band='low' with 49 JSON files
+[HMISPairwiseDataLoader] [4/4] Scanning band='medium' with 281 JSON files
+[HMISPairwiseDataLoader] Total raw household JSONs found: 561
+[HMISPairwiseDataLoader]   validated 1/561 JSON paths
+[HMISPairwiseDataLoader]   validated 500/561 JSON paths
+[HMISPairwiseDataLoader]   validated 561/561 JSON paths
+[HMISPairwiseDataLoader] Validated 561 JSON paths
+[HMISPairwiseDataLoader] Finished loading all households: 561
+[HMISPairwiseDataLoader] Building uid -> json_path mapping
+[HMISPairwiseDataLoader] Built item_json_paths mapping for 561 households
+[HMISPairwiseDataLoader] Building item list
+[HMISPairwiseDataLoader] Built item list with 561 households
+[HMISPairwiseDataLoader] Building tie sheet
+[HMISPairwiseDataLoader] num_items: 561
+[HMISPairwiseDataLoader] tie_sheet_mode: unordered_pairs
+[HMISPairwiseDataLoader] tie_sheet_fraction: 0.4
+[HMISPairwiseDataLoader] tie_sheet_seed: 42
+[HMISPairwiseDataLoader] Candidate pairs before sampling: 157,080
+[HMISPairwiseDataLoader] Pairs to keep after sampling: 62,832
+[HMISPairwiseDataLoader] Finished tie sheet: 62,832 pairs
+[HMISPairwiseDataLoader] First 10 pairs: [('10337', '11261'), ('10337', '206350'), ('10337', '211125'), ('10337', '219124'), ('10337', '219496'), ('10337', '231371'), ('10337', '233532'), ('10337', '240530'), ('10337', '242710'), ('10337', '243171')]
+[HMISPairwiseDataLoader] Ensured responses_dir exists: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses
+[HMISPairwiseDataLoader] Finished dataloader.prepare()
+[HMISPairwiseDataLoader] ================================================================================
+INFO 05-14 16:23:00 [utils.py:233] non-default args: {'disable_log_stats': True, 'model': 'Qwen/Qwen2.5-7B-Instruct'}
+INFO 05-14 16:23:00 [model.py:549] Resolved architecture: Qwen2ForCausalLM
+INFO 05-14 16:23:00 [model.py:1678] Using max model len 32768
+INFO 05-14 16:23:00 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 05-14 16:23:00 [vllm.py:790] Asynchronous scheduling is enabled.
+(EngineCore pid=907808) INFO 05-14 16:23:03 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='Qwen/Qwen2.5-7B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen2.5-7B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=Qwen/Qwen2.5-7B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=907808) INFO 05-14 16:23:05 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.128.9.204:34983 backend=nccl
+(EngineCore pid=907808) INFO 05-14 16:23:05 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=907808) INFO 05-14 16:23:06 [gpu_model_runner.py:4735] Starting to load model Qwen/Qwen2.5-7B-Instruct...
+(EngineCore pid=907808) INFO 05-14 16:23:07 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=907808) INFO 05-14 16:23:07 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=907808) INFO 05-14 16:23:07 [weight_utils.py:848] Prefetching checkpoint files into page cache started (in background)
+(EngineCore pid=907808) INFO 05-14 16:23:09 [weight_utils.py:825] Prefetching checkpoint files: 10% (1/4)
+(EngineCore pid=907808) INFO 05-14 16:23:10 [weight_utils.py:825] Prefetching checkpoint files: 20% (2/4)
+(EngineCore pid=907808) INFO 05-14 16:23:10 [weight_utils.py:825] Prefetching checkpoint files: 30% (3/4)
+(EngineCore pid=907808) INFO 05-14 16:23:16 [weight_utils.py:825] Prefetching checkpoint files: 40% (4/4)
+(EngineCore pid=907808) INFO 05-14 16:23:16 [weight_utils.py:843] Prefetching checkpoint files into page cache finished in 8.31s
+(EngineCore pid=907808) INFO 05-14 16:23:18 [default_loader.py:384] Loading weights took 10.21 seconds
+(EngineCore pid=907808) INFO 05-14 16:23:18 [gpu_model_runner.py:4820] Model loading took 14.25 GiB memory and 11.814487 seconds
+(EngineCore pid=907808) INFO 05-14 16:23:23 [backends.py:1051] Using cache directory: /home/mfarabi/.cache/vllm/torch_compile_cache/541638f45c/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=907808) INFO 05-14 16:23:23 [backends.py:1111] Dynamo bytecode transform time: 4.74 s
+(EngineCore pid=907808) INFO 05-14 16:23:25 [backends.py:285] Directly load the compiled graph(s) for compile range (1, 8192) from the cache, took 1.156 s
+(EngineCore pid=907808) INFO 05-14 16:23:25 [decorators.py:303] Directly load AOT compilation from path /home/mfarabi/.cache/vllm/torch_compile_cache/torch_aot_compile/9666a6dc1607644238139c00c9c14681e00b8c1ac3f2162b761b230688397a84/rank_0_0/model
+(EngineCore pid=907808) INFO 05-14 16:23:25 [monitor.py:48] torch.compile took 6.12 s in total
+(EngineCore pid=907808) INFO 05-14 16:23:25 [monitor.py:76] Initial profiling/warmup run took 0.24 s
+(EngineCore pid=907808) INFO 05-14 16:23:34 [kv_cache_utils.py:829] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=512
+(EngineCore pid=907808) INFO 05-14 16:23:34 [gpu_model_runner.py:5876] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=35 (largest=256)
+(EngineCore pid=907808) INFO 05-14 16:23:35 [gpu_model_runner.py:5955] Estimated CUDA graph memory: 0.55 GiB total
+(EngineCore pid=907808) INFO 05-14 16:23:36 [gpu_worker.py:436] Available KV cache memory: 55.9 GiB
+(EngineCore pid=907808) INFO 05-14 16:23:36 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9069 to maintain the same effective KV cache size.
+(EngineCore pid=907808) INFO 05-14 16:23:36 [kv_cache_utils.py:1319] GPU KV cache size: 1,046,736 tokens
+(EngineCore pid=907808) INFO 05-14 16:23:36 [kv_cache_utils.py:1324] Maximum concurrency for 32,768 tokens per request: 31.94x
+(EngineCore pid=907808) INFO 05-14 16:23:39 [gpu_model_runner.py:6046] Graph capturing finished in 3 secs, took 0.47 GiB
+(EngineCore pid=907808) INFO 05-14 16:23:39 [gpu_worker.py:597] CUDA graph pool memory: 0.47 GiB (actual), 0.55 GiB (estimated), difference: 0.07 GiB (15.2%).
+(EngineCore pid=907808) INFO 05-14 16:23:39 [core.py:283] init engine (profile, create kv cache, warmup model) took 20.96 seconds
+initialized real LLM: Qwen/Qwen2.5-7B-Instruct
+[HMISPairwiseDataLoader] ================================================================================
+[HMISPairwiseDataLoader] Starting dataloader.prepare()
+[HMISPairwiseDataLoader] dataset_name: TAYVISPDAT
+[HMISPairwiseDataLoader] household_source: all
+[HMISPairwiseDataLoader] raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/hmls
+[HMISPairwiseDataLoader] processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/rank_centrality/hmls
+[HMISPairwiseDataLoader] responses_dir: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses
+[HMISPairwiseDataLoader] ================================================================================
+[HMISPairwiseDataLoader] Loading ALL households from raw JSON folders
+[HMISPairwiseDataLoader] raw_dataset_dir: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT
+[HMISPairwiseDataLoader] Found 4 candidate priority-band folders
+[HMISPairwiseDataLoader] [1/4] Scanning band='responses' with 0 JSON files
+[HMISPairwiseDataLoader] [2/4] Scanning band='high' with 231 JSON files
+[HMISPairwiseDataLoader] [3/4] Scanning band='low' with 49 JSON files
+[HMISPairwiseDataLoader] [4/4] Scanning band='medium' with 281 JSON files
+[HMISPairwiseDataLoader] Total raw household JSONs found: 561
+[HMISPairwiseDataLoader]   validated 1/561 JSON paths
+[HMISPairwiseDataLoader]   validated 500/561 JSON paths
+[HMISPairwiseDataLoader]   validated 561/561 JSON paths
+[HMISPairwiseDataLoader] Validated 561 JSON paths
+[HMISPairwiseDataLoader] Finished loading all households: 561
+[HMISPairwiseDataLoader] Building uid -> json_path mapping
+[HMISPairwiseDataLoader] Built item_json_paths mapping for 561 households
+[HMISPairwiseDataLoader] Building item list
+[HMISPairwiseDataLoader] Built item list with 561 households
+[HMISPairwiseDataLoader] Building tie sheet
+[HMISPairwiseDataLoader] num_items: 561
+[HMISPairwiseDataLoader] tie_sheet_mode: unordered_pairs
+[HMISPairwiseDataLoader] tie_sheet_fraction: 0.4
+[HMISPairwiseDataLoader] tie_sheet_seed: 42
+[HMISPairwiseDataLoader] Candidate pairs before sampling: 157,080
+[HMISPairwiseDataLoader] Pairs to keep after sampling: 62,832
+[HMISPairwiseDataLoader] Finished tie sheet: 62,832 pairs
+[HMISPairwiseDataLoader] First 10 pairs: [('10337', '11261'), ('10337', '206350'), ('10337', '211125'), ('10337', '219124'), ('10337', '219496'), ('10337', '231371'), ('10337', '233532'), ('10337', '240530'), ('10337', '242710'), ('10337', '243171')]
+[HMISPairwiseDataLoader] Ensured responses_dir exists: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses
+[HMISPairwiseDataLoader] Finished dataloader.prepare()
+[HMISPairwiseDataLoader] ================================================================================
+Preparing batched comparison tasks for 62832 pairs...
+Batch size: 64
+Total unfinished LLM calls to run: 125664
+Running batch 1 (1-64/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness (greater than 10 times in the last three years) compared to Household 1 (4 times). Additionally, Household 2 is currently unable to care for their basic needs, which suggests a higher likelihood of needing assistance again in'
+Running batch 2 (65-128/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Both households have similar histories of homelessness and have experienced violence within their families, which contributes to their vulnerability. However, Household 1 reports that they are currently unable to care for their basic needs, which suggests a higher likelihood of needing assistance again in the near future. In contrast'
+Running batch 3 (129-192/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent and recent episodes of homelessness, has utilized more crisis services, and has a higher number of interactions with police, indicating a higher likelihood of needing assistance again within the next two years. While both households have faced similar personal challenges, the more frequent'
+Running batch 4 (193-256/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced homelessness multiple times in the last three years (4 times). Additionally, they have spent nights in jail, prison, or detention, indicating a higher likelihood of legal issues and instability. They'
+Running batch 5 (257-320/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (greater than 10 times in the last three years) and has experienced violence among family members, which contributed to their homelessness. Additionally, they have been living outdoors and have not been able to care for their basic needs,'
+Running batch 6 (321-384/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of experiencing homelessness, multiple hospitalizations, and legal issues, indicating a higher likelihood of needing assistance again within the next two years. Additionally, their engagement in risky behaviors and avoidance of medical help further contribute to their vulnerability. While Household 1'
+Running batch 7 (385-448/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced homelessness more frequently (greater than 10 times in the last three years) compared to Household 2, who has experienced homelessness three times. Additionally, Household 1 has a history'
+Running batch 8 (449-512/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (greater than 10 times in the last three years) and has been homeless for one year or more. Additionally, Household 1 has experienced violence among family members, which is a significant factor in future housing instability. In'
+Running batch 9 (513-576/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (over 10 times in the last three years) and has been without stable housing for over a year. Additionally, they experienced violence among family members and an unhealthy or abusive relationship, which are significant factors contributing to their vulnerability'
+Running batch 10 (577-640/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of emergency department visits, hospitalizations, and use of crisis services, indicating a higher likelihood of needing ongoing medical and support services. Additionally, Household 2 has experienced more severe and frequent homelessness, with multiple hospitalizations and legal issues, suggesting'
+Running batch 11 (641-704/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent and recent homelessness, has received more intensive medical care, and has faced more severe and recent incidents of violence and self-harm. These factors suggest a higher likelihood of needing assistance again within the next two years compared to Household 1.'
+Running batch 12 (705-768/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness, more frequent use of emergency services, and a higher number of negative experiences and behaviors that contribute to housing instability, such as being attacked, engaging in risky behaviors, and having legal issues. Additionally, Household 1 has a history'
+Running batch 13 (769-832/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more vs. less than one year), more frequent experiences of homelessness in the last three years (4 times vs. 2 times), and a higher number of health and service utilization indicators (e.g., emergency'
+Running batch 14 (833-896/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more vs. less than one year), more frequent experiences of homelessness in the last three years (4 times vs. 1 time), and a higher number of health and service utilization indicators (e.g., more'
+Running batch 15 (897-960/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of homelessness (greater than 10 times in the last three years) compared to Household 1 (4 times). Additionally, Household 2 has reported more frequent use of emergency services and has a higher number of nights spent outdoors, indicating'
+Running batch 16 (961-1024/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness more frequently (greater than 10 times in the last three years) compared to Household 1 (4 times). Additionally, Household 2 has a longer history of homelessness (less than 1 year) and has received more emergency medical care'
+Running batch 17 (1025-1088/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of experiencing homelessness, multiple visits to emergency departments, and a history of being attacked or beaten up. Additionally, Household 1 has a history of engaging in risky behaviors and has faced more legal issues, which increases the likelihood of needing assistance again'
+Running batch 18 (1089-1152/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of experiencing homelessness, more frequent use of emergency services, and a history of self-harm and risky behaviors, which suggests a higher likelihood of needing homeless services again within the next two years. Household 2, while also experiencing homelessness, has'
+Running batch 19 (1153-1216/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of hospital visits and emergency services use, indicating a higher likelihood of needing ongoing medical care. Additionally, Household 2 has experienced more severe forms of violence and abuse, including being attacked or beaten up and having attempted self-harm, which suggests'
+Running batch 20 (1217-1280/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced homelessness more frequently (greater than 10 times in the last three years) compared to Household 2 (2 times in the last three years). Additionally, Household 1 has a'
+Running batch 21 (1281-1344/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced homelessness more frequently (greater than 10 times in the last three years) compared to Household 2, who has been homeless for less than a year and has experienced homelessness four times'
+Running batch 22 (1345-1408/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of experiencing homelessness, multiple visits to emergency departments and hospitals, and interactions with law enforcement. These factors indicate a higher likelihood of needing homeless services again within the next two years. Additionally, the household has faced multiple forms of family and personal conflicts'
+Running batch 23 (1409-1472/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness (4 times in the last three years) compared to Household 1 (2 times). Additionally, Household 2 has spent more time in unstable housing (one year or more) and has had to deal with legal issues related to debt'
+Running batch 24 (1473-1536/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness more recently (less than one year ago) compared to Household 1 (less than one year ago vs. one year or more). Additionally, Household 2 has utilized crisis services four times in the last three years, indicating a higher frequency of'
+Running batch 25 (1537-1600/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has been homeless for a longer period (one year or more) compared to Household 1 (less than 1 year). Additionally, Household 2 has received care at an emergency department twice in the last three years, indicating a higher frequency of health-related issues'
+Running batch 26 (1601-1664/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has been homeless for a longer period ("One year or more" since permanent, stable housing) compared to Household 1 ("Less than 1 year"). Additionally, Household 2 has received care at an emergency department or room in the last three years, indicating'
+Running batch 27 (1665-1728/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has been homeless for a longer period (one year or more) and has experienced homelessness more frequently (3 times in the last three years) compared to Household 1 (less than 1 year and 2 times). Additionally, Household 2 has a history'
+Running batch 28 (1729-1792/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a longer history of homelessness (1 episode in the last three years compared to 2 for Household 1), and has received more intensive medical care (3 hospitalizations as an inpatient). Additionally, Household 2 has engaged more frequently with crisis services and'
+Running batch 29 (1793-1856/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness (2 times in the last three years) and has a longer history of unstable housing (one year or more since permanent, stable housing). Additionally, Household 2 has engaged with crisis services and police, indicating a higher likelihood of needing'
+Running batch 30 (1857-1920/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a longer history of homelessness (one year or more since permanent, stable housing) and has experienced homelessness multiple times in the last three years. They have also received emergency medical care multiple times, spent nights in jail, and have legal issues that could lead to'
+Running batch 31 (1921-1984/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher number of emergency department and hospital visits (7 vs. 0), indicating a higher likelihood of needing medical assistance. Additionally, Household 1 has a history of self-harm ("Yes" vs. "No" for Household 2), which'
+Running batch 32 (1985-2048/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness multiple times in the last three years (7 times), which is significantly higher than Household 1 (1 time). Additionally, Household 2 is currently unable to care for their basic needs, which indicates a higher level of vulnerability. While both households'
+Running batch 33 (2049-2112/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of emergency department visits, hospitalizations, and crisis service use, indicating a higher likelihood of needing ongoing support. Additionally, Household 1 has a history of more frequent homelessness (1 time vs. greater than 10 times for Household'
+Running batch 34 (2113-2176/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of emergency department and hospital visits (7 times), indicating a higher likelihood of needing medical assistance. Additionally, Household 1 has a history of mental health issues and has threatened or attempted to harm themselves, which suggests a higher risk of future instability'
+Running batch 35 (2177-2240/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness, more frequent use of emergency services, and a higher number of risk factors such as mental health issues, involvement in risky behaviors, and a history of violence and abuse. These factors suggest a higher likelihood of needing homeless services again within'
+Running batch 36 (2241-2304/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness (4 times in the last three years) compared to Household 1 (1 time in the last three years). Additionally, Household 2 has a longer history of unstable housing (less than 1 year since permanent, stable housing)'
+Running batch 37 (2305-2368/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (greater than 10 times in the last three years) and has experienced more severe and frequent interactions with law enforcement (1 instance) compared to Household 2 (3 instances). Additionally, Household 1 has a history of'
+Running batch 38 (2369-2432/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness more frequently (4 times in the last three years) compared to Household 1 (more than 10 times). Additionally, Household 2 has received care at an emergency department and been hospitalized as an inpatient, indicating a higher likelihood of'
+Running batch 39 (2433-2496/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of emergency department visits, hospitalizations, and nights spent in jail, indicating a higher likelihood of needing ongoing support and services. Additionally, Household 2 lacks planned activities that make them feel happy and fulfilled, suggesting a lower sense of stability and'
+Running batch 40 (2497-2560/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness in the last three years (6 times compared to more than 10 times for Household 1). Additionally, Household 2 has received care at an emergency department or room, and has owed money to a person or entity, which'
+Running batch 41 (2561-2624/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a history of frequent emergency department visits, hospitalizations, and use of crisis services, indicating a higher likelihood of ongoing health issues and instability. Additionally, Household 1 has experienced an unhealthy or abusive relationship, which can contribute to ongoing housing instability. In contrast'
+Running batch 42 (2625-2688/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent and severe health and legal issues, as well as a higher number of times experiencing homelessness. Additionally, Household 2 has a history of incarceration before the age of 18, which can contribute to instability. While both households have experienced mental'
+Running batch 43 (2689-2752/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 reports a higher frequency of emergency department visits, hospitalizations, and crisis service use, indicating a higher likelihood of needing ongoing support. Additionally, Household 1 has experienced a more recent and frequent history of homelessness, which suggests a higher risk of re-experiencing'
+Running batch 44 (2753-2816/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness, more frequent use of emergency services, and a higher number of health issues and risky behaviors compared to Household 2. These factors suggest a higher likelihood of needing assistance again within the next two years. \n\n- Household 1 has'
+Running batch 45 (2817-2880/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more vs. less than one year), more frequent use of emergency services (hospital, ambulance, crisis services), and a history of mental health issues and substance use. These factors suggest a higher likelihood of needing assistance'
+Running batch 46 (2881-2944/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness (4 times in the last three years) compared to Household 1 (3 times). Additionally, Household 2 has reported more frequent use of emergency services, such as emergency department visits and hospitalizations, indicating a higher likelihood of needing'
+Running batch 47 (2945-3008/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of emergency department visits, hospitalizations, and crisis service use, indicating a higher likelihood of needing ongoing support. Additionally, Household 1 has a history of more frequent homelessness and has engaged in risky behaviors such as exchanging sex and using drugs,'
+Running batch 48 (3009-3072/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more vs. less than one year), more frequent experiences of homelessness in the last three years (3 times vs. 4 times), and a history of using emergency services (emergency department, ambulance, and hospital'
+Running batch 49 (3073-3136/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher number of indicators of future housing instability and service need. They have experienced more frequent homelessness, have received more emergency department care, and have a history of mental health issues and risky behaviors. Additionally, they have legal issues that might lead to incarceration or'
+Running batch 50 (3137-3200/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more vs. less than one year), more frequent experiences of homelessness in the last three years (3 times vs. 1 time), and a higher number of health and service utilization indicators such as visits to emergency'
+Running batch 51 (3201-3264/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of emergency department visits, hospitalizations, and ambulance trips, indicating a higher level of health issues and potential instability. Additionally, Household 1 has a history of more frequent homelessness (3 times in the last three years) compared to Household'
+Running batch 52 (3265-3328/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced homelessness more frequently (greater than 10 times in the last three years) compared to Household 2, who has been homeless for less than a year and has experienced it only twice'
+Running batch 53 (3329-3392/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has experienced more frequent homelessness (greater than 10 times in the last three years) compared to Household 2 (3 times). Additionally, Household 1 has a longer history of being without permanent, stable housing (one year or more) and has faced'
+Running batch 54 (3393-3456/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a history of more frequent homelessness (greater than 10 times in the last three years) compared to Household 2 (2 times in the last three years). This indicates a higher likelihood of future housing instability and a greater need for services. Additionally,'
+Running batch 55 (3457-3520/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher number of indicators suggesting future housing instability and service need. They have a history of more frequent use of crisis services (4 times vs. 1 time), have engaged in more interactions with the police (3 times vs. 0 times), and'
+Running batch 56 (3521-3584/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness (4 times in the last three years) compared to Household 1 (2 times). Additionally, Household 2 has spent a night in jail, indicating a higher likelihood of legal issues and potential re-arrest, which could lead to'
+Running batch 57 (3585-3648/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of emergency department visits, more instances of police involvement, and a longer history of homelessness. Additionally, they have experienced more physical and emotional trauma, including violence and conflicts, which increases the likelihood of future housing instability. While Household 1 has'
+Running batch 58 (3649-3712/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a longer history of homelessness (3 times in the last three years) compared to Household 1 (2 times), and they have received more care at emergency departments or rooms (5 times vs. 0 times). Additionally, Household 2 has experienced more'
+Running batch 59 (3713-3776/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a longer history of homelessness, with more frequent episodes in the last three years. They have also experienced more severe health issues, including hospital visits and a higher likelihood of avoiding medical help when sick. Additionally, Household 2 has faced more legal issues and has'
+Running batch 60 (3777-3840/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness more frequently (10 times in the last three years) compared to Household 1 (2 times). This higher frequency of homelessness suggests a greater likelihood of needing assistance again within the next two years. Additionally, Household 2 has spent nights in'
+Running batch 61 (3841-3904/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 reports more frequent homelessness (2 times in the last three years) and has a history of running away from home, which indicates a higher likelihood of future instability. Additionally, Household 1 has experienced violence among family members and has a mental health concern that could hinder'
+Running batch 62 (3905-3968/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of recent homelessness (4 times in the last three years) compared to Household 1 (6 times in the last three years). Additionally, Household 2 has experienced more severe health issues, including one inpatient hospitalization, and has engaged'
+Running batch 63 (3969-4032/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (6 times in the last three years) compared to Household 2 (3 times in the last three years). Additionally, Household 1 has experienced violence among family members at home, which can contribute to instability and a higher likelihood'
+Running batch 64 (4033-4096/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness more frequently (3 times in the last three years) compared to Household 1 (6 times). Additionally, Household 2 has a longer history of unstable housing (less than 1 year since permanent, stable housing) and has been involved with'
+Running batch 65 (4097-4160/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced significantly more frequent and severe episodes of homelessness, with over 10 instances in the last three years. They also sleep outdoors, indicating a higher level of vulnerability and instability. Additionally, they have faced more legal issues, been attacked or beaten up,'
+Running batch 66 (4161-4224/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness more frequently (7 times in the last three years) compared to Household 1 (2 times). Additionally, Household 2 is currently unable to care for their basic needs, which indicates a higher level of vulnerability. While both households have faced some'
+Running batch 67 (4225-4288/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more vs. less than one year), has experienced more frequent homelessness in the last three years (2 times vs. 1 time), and has a higher number of emergency department visits (3 vs. 0'
+Running batch 68 (4289-4352/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced homelessness more frequently (greater than 10 times in the last three years) compared to Household 1 (2 times). This higher frequency of homelessness suggests a greater likelihood of needing assistance again within the next two years. Additionally, Household 2 has'
+Running batch 69 (4353-4416/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) compared to Household 2 (less than one year). Additionally, Household 1 has a higher frequency of emergency department visits (3 times) and has been involved in legal issues that might lead to incarceration'
+Running batch 70 (4417-4480/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more compared to less than one year for Household 2), has experienced more frequent and repeated episodes of homelessness (2 times in the last three years compared to 1 time), and has a higher number of emergency'
+Running batch 71 (4481-4544/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of homelessness (4 times in the last three years) and is currently experiencing more severe housing instability (sleeping outdoors). Additionally, they have faced more physical violence since becoming homeless, which increases the likelihood of future housing instability. While Household'
+Running batch 72 (4545-4608/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (3 times in the last three years) compared to Household 2 (2 times), and they have a more frequent need for emergency services, including visits to emergency departments and police involvement. Additionally, Household 1 has reported mental'
+Running batch 73 (4609-4672/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a shorter time since living in permanent, stable housing (less than 1 year vs. one year or more), has experienced homelessness more frequently (3 times vs. 1 time), and has a history of self-harm (Yes vs. No).'
+Running batch 74 (4673-4736/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of emergency department visits, hospitalizations, and interactions with police, indicating a higher likelihood of future housing instability. Additionally, Household 1 has a history of more frequent homelessness and has experienced more severe health issues, including mental health concerns and physical'
+Running batch 75 (4737-4800/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a more frequent history of homelessness (3 times in the last three years) compared to Household 2 (2 times). Additionally, Household 1 has a higher number of emergency department visits (4) and hospitalizations (0), indicating a higher likelihood of'
+Running batch 76 (4801-4864/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent and severe episodes of homelessness (5 times in the last three years) compared to Household 1 (3 times). Additionally, Household 2 has a history of hospitalization (1 inpatient stay), which indicates a higher level of health issues'
+Running batch 77 (4865-4928/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of emergency department visits, ambulance trips, and police interactions, indicating a higher level of acute health and safety issues. Additionally, Household 1 has a history of mental health concerns and physical disabilities, which could contribute to a higher likelihood of needing'
+Running batch 78 (4929-4992/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent and severe episodes of homelessness (7 times in the last three years) compared to Household 1 (5 times). Additionally, Household 2 has a longer history of homelessness (one year or more since permanent, stable housing) and has received'
+Running batch 79 (4993-5056/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (5 times in the last three years) compared to Household 2 (6 times in the last three years). Additionally, Household 1 has a higher number of emergency department visits (7) and hospitalizations (1) as'
+Running batch 80 (5057-5120/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 reports a higher frequency of emergency department visits (7), hospitalizations (1), and the use of crisis services (3) compared to Household 2 (0 for each). Additionally, Household 1 has experienced more physical violence (Yes) and has attempted or'
+Running batch 81 (5121-5184/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness, multiple instances of emergency department visits, hospitalizations, and use of crisis services, as well as a history of self-harm and legal issues. These factors indicate a higher likelihood of future housing instability and service need compared to Household'
+Running batch 82 (5185-5248/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a longer history of homelessness (10 times in the last three years) compared to Household 1 (5 times). Additionally, Household 2 has reported more frequent visits to emergency departments (1 time) and a lack of ability to care for basic needs'
+Running batch 83 (5249-5312/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (5 times in the last three years) compared to Household 2 (2 times in the last three years). Additionally, Household 1 has a higher number of emergency department visits (7) and has used crisis services more frequently'
+Running batch 84 (5313-5376/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of emergency department visits, hospitalizations, and crisis service use, indicating a higher likelihood of needing ongoing support. Additionally, Household 1 has experienced more severe forms of violence and has a history of self-harm, which suggests a higher risk'
+Running batch 85 (5377-5440/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a history of more frequent homelessness, multiple visits to emergency departments and hospitals, and has faced more severe health issues. Additionally, Household 2 has reported being unable to care for their basic needs, which indicates a higher likelihood of needing assistance again within the next'
+Running batch 86 (5441-5504/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher number of emergency department visits and interactions with the police, indicating a higher level of crisis and instability. Additionally, Household 2 is currently unable to care for their basic needs, which suggests a higher risk of further instability and potential homelessness. While Household'
+Running batch 87 (5505-5568/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) compared to Household 2 (less than one year). Additionally, Household 1 has a higher frequency of visits to emergency departments and hospitals (3 times each), indicating a higher level of health issues that'
+Running batch 88 (5569-5632/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced more frequent and severe health-related issues, including multiple visits to emergency departments and hospitals. Additionally, Household 1 has a history of self-harm, which indicates a higher risk of future'
+Running batch 89 (5633-5696/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a history of more frequent emergency department visits (3 times) and hospitalizations (3 times) compared to Household 2 (1 time each). Additionally, Household 1 has experienced violence among family members at home and an unhealthy or abusive relationship, which can'
+Running batch 90 (5697-5760/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced more frequent and severe health issues, including multiple visits to emergency departments, hospitals, and ambulance trips. Additionally, Household 1 has a history of self-harm, which indicates a higher'
+Running batch 91 (5761-5824/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness, more frequent visits to emergency departments, and a history of self-harm, which all indicate a higher likelihood of needing homeless services again within the next two years. Additionally, Household 1 experienced violence among family members, which can'
+Running batch 92 (5825-5888/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a history of frequent visits to emergency departments and hospitals (3 times each), which indicates a higher likelihood of future health issues that could lead to homelessness. Additionally, Household 1 has a history of self-harm ("Yes" to the question "In the'
+Running batch 93 (5889-5952/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced more frequent and severe incidents such as spending nights in jail, being attacked or beaten up, and having a family member force them into homelessness due to violence. Additionally, Household 1 has'
+Running batch 94 (5953-6016/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of emergency department visits, has been attacked or beaten up more recently, and has engaged in risky behaviors. Additionally, they have a history of using crisis services for mental health issues and have attempted to harm themselves, which indicates a higher likelihood of'
+Running batch 95 (6017-6080/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent and severe health and service utilization issues, including multiple visits to emergency departments, hospitals, and crisis services. Additionally, Household 2 has a history of self-harm, which increases the likelihood of needing services again within the next two years.'
+Running batch 96 (6081-6144/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a longer history of homelessness (one year or more) and has experienced more frequent episodes of homelessness (2 times in the last three years) compared to Household 2 (greater than 10 times). Additionally, Household 1 has a higher number of'
+Running batch 97 (6145-6208/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of experiencing homelessness (4 times in the last three years) compared to Household 1 (2 times). Additionally, Household 2 has a history of engaging in risky behaviors, such as drug use, and has attempted to harm themselves, which'
+Running batch 98 (6209-6272/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 reports sleeping outdoors and a history of more frequent homelessness (1 year or more since permanent housing and 2 times in the last three years) compared to Household 2 (3 times in the last three years). Additionally, Household 1 has a higher number of'
+Running batch 99 (6273-6336/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent and recent homelessness, has received more emergency medical care, and engages in risky behaviors, which all indicate a higher likelihood of needing assistance again within the next two years. While Household 1 has a history of violence and being homeless due to family'
+Running batch 100 (6337-6400/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 reports sleeping outdoors and a history of more frequent and severe health issues, including multiple visits to emergency departments and hospitalizations. Additionally, Household 1 has experienced more instances of violence and has a history of running away from home, which are strong indicators of future housing'
+Running batch 101 (6401-6464/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 has a higher frequency of experiencing homelessness (2 times in the last three years) compared to Household 2 (1 time). Additionally, Household 1 has a history of more frequent visits to emergency departments (4 times) and has used crisis services more often ('
+Running batch 102 (6465-6528/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 1\nReasoning: Household 1 reports sleeping outdoors, a longer duration since living in permanent, stable housing, and a history of experiencing homelessness multiple times. Additionally, Household 1 has a history of using emergency services, being attacked or beaten up, and having legal issues that might lead to incarceration'
+Running batch 103 (6529-6592/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has a higher frequency of homelessness (5 times in the last three years) compared to Household 1 (2 times). Additionally, Household 2 has a higher number of emergency department visits (2 times) and interactions with the police (3 times), indicating a'
+Running batch 104 (6593-6656/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has experienced more frequent homelessness (greater than 10 times in the last three years) compared to Household 1 (only 1 time). Additionally, Household 2 has spent more nights in shelters and has a history of being attacked or beaten up since becoming'
+Running batch 105 (6657-6720/125664)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Household 2\nReasoning: Household 2 has been homeless for a shorter duration and has experienced fewer episodes of homelessness compared to Household 1. However, Household 2 has a history of incarceration before the age of 18, which can indicate a higher risk of reoffending and thus a higher'
+Running batch 106 (6721-6784/125664)
