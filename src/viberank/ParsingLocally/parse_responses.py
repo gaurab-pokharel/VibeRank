@@ -240,20 +240,29 @@ def parse_vulnerability_jsonl_to_csv(
     return responses_df
 
 
-# lets parse all 3 together in same session
+# lets parse all necessary files
 
-parse_vulnerability_jsonl_to_csv(
-    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/llama_TAY_20260501_140015.jsonl",
-    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/llama_TAY_parsed.csv",
-)
+from pathlib import Path
 
-parse_vulnerability_jsonl_to_csv(
-    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/QWEN_TAY_20260430_235107.jsonl",
-    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/ParsedQWEN_TAY.csv",
-)
+inputs = [
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_DS7_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_llama7_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/AIES_QWEN_vifspdat_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/AIES_vifspdat_DS7_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/AIES_vifspdat_llama7_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/AIES_QWEN_TAYvispdat_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/AIES_tayvispdat_DS7_NewFixedLogger.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/AIES_TAYvispdat_llama7_NewFixedLogger.jsonl",
+]
 
-parse_vulnerability_jsonl_to_csv(
-    input_jsonl_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DS_TAY_20260501_140142.jsonl",
-    output_csv_path="/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DS_TAY_parsed.csv",
-)
+for input_path in inputs:
+    input_path = Path(input_path)
+    output_path = input_path.with_name(f"{input_path.stem}_parsed.csv")
 
+    print(f"\nParsing:\n  IN : {input_path}\n  OUT: {output_path}")
+
+    parse_vulnerability_jsonl_to_csv(
+        input_jsonl_path=input_path,
+        output_csv_path=output_path,
+    )
