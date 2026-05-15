@@ -1,14 +1,14 @@
 #!/bin/bash
 #SBATCH -J parse-vifspdat
 #SBATCH --account=simlai1
-#SBATCH --partition=h200_normal_q
+#SBATCH --partition=a100_normal_q
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=4
-#SBATCH --time=0-6:00:00
+#SBATCH --time=0-12:00:00
 #SBATCH --gres=gpu:1
-#SBATCH --output=logsParseVulTayu/parse_%j.out
-#SBATCH --error=logsParseVulTayu/parse_%j.err
+#SBATCH --output=logsParseVulTayu/parse1_%j.out
+#SBATCH --error=logsParseVulTayu/parse1_%j.err
 
 set -euo pipefail
 mkdir -p logsParse
@@ -25,6 +25,6 @@ echo "Python: $(which python)"
 python --version
 nvidia-smi || true
 
-python src/viberank/ParsingLocally/parse_responses.py
+python src/viberank/ParsingLocally/parse_responses_batch.py
 
 echo "Finished: $(date)"

@@ -1,0 +1,39 @@
+JobID: 5357732
+Host: tc-dgx003
+Started: Thu May 14 06:04:53 PM EDT 2026
+Python: /projects/simlai1/Viberank/VibeRank/.venv/bin/python
+Python 3.12.12
+Thu May 14 18:04:53 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:07:00.0 Off |                    0 |
+| N/A   33C    P0             65W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+Parsing:
+  IN : /projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger.jsonl
+  OUT: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger_parsed.csv
+parsing
+/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger.jsonl
+Loaded 42120 response rows
+Saved parsed results to: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger_parsed.csv
+
+Parsing:
+  IN : /projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_DS7_NewFixedLogger.jsonl
+  OUT: /projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_DS7_NewFixedLogger_parsed.csv
+parsing
+/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_DS7_NewFixedLogger.jsonl
