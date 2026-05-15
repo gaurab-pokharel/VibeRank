@@ -30,6 +30,6 @@ run_settings:
 household_source: all
 tie_sheet_mode: unordered_pairs
 tie_sheet_fraction: 0.40
-tie_sheet_seed: 42
+tie_sheet_seed: 43
 verbose: true
 progress_every: 500

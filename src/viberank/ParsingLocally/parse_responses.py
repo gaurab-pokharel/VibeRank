@@ -7,46 +7,38 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 
+MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
+BATCH_SIZE = 32
+
+
+# -------------------------
+# Load model once
+# -------------------------
+tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_NAME,
+    torch_dtype=torch.bfloat16,
+    device_map="auto",
+)
+
+if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
+    tokenizer.pad_token = tokenizer.eos_token
+
+
 def parse_vulnerability_jsonl_to_csv(
     input_jsonl_path,
     output_csv_path,
-    model_name="Qwen/Qwen2.5-7B-Instruct",
     max_input_chars=4000,
     max_new_tokens=32,
+    batch_size=BATCH_SIZE,
 ):
-    """
-    Load a JSONL file of model responses, parse the final vulnerability decision
-    from each response using an instruction-tuned LLM, and save results to CSV.
-
-    Parameters
-    ----------
-    input_jsonl_path : str or Path
-        Path to the input JSONL file.
-    output_csv_path : str or Path
-        Path where the parsed CSV should be saved.
-    model_name : str, optional
-        Hugging Face model name.
-    max_input_chars : int, optional
-        Maximum number of characters from the raw response to include in the prompt.
-    max_new_tokens : int, optional
-        Maximum number of new tokens to generate for each parse.
-
-    Returns
-    -------
-    pandas.DataFrame
-        DataFrame containing the parsed results.
-    """
-    print('parsing')
+    print("\nParsing")
     print(input_jsonl_path)
-
-
 
     input_jsonl_path = Path(input_jsonl_path)
     output_csv_path = Path(output_csv_path)
 
-    # -------------------------
-    # Helpers
-    # -------------------------
     def load_jsonl(path: Path) -> pd.DataFrame:
         records = []
         with open(path, "r", encoding="utf-8") as f:
@@ -153,64 +145,64 @@ def parse_vulnerability_jsonl_to_csv(
 
         return result
 
-    # -------------------------
-    # Load model once
-    # -------------------------
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name,
-        dtype="auto",
-        device_map="auto",
-    )
+    def parse_many_batched(raw_responses):
+        results = []
+        n = len(raw_responses)
 
-    if tokenizer.pad_token_id is None and tokenizer.eos_token_id is not None:
-        tokenizer.pad_token = tokenizer.eos_token
+        for start in range(0, n, batch_size):
+            end = min(start + batch_size, n)
+            batch_raw = raw_responses[start:end]
 
-    def parse_one(raw_response: str) -> dict:
-        messages = build_messages(raw_response)
+            prompts = []
+            for raw_response in batch_raw:
+                messages = build_messages(raw_response)
+                prompt = tokenizer.apply_chat_template(
+                    messages,
+                    tokenize=False,
+                    add_generation_prompt=True,
+                )
+                prompts.append(prompt)
 
-        prompt = tokenizer.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True,
-        )
+            inputs = tokenizer(
+                prompts,
+                return_tensors="pt",
+                padding=True,
+                truncation=True,
+            ).to(model.device)
 
-        inputs = tokenizer(
-            prompt,
-            return_tensors="pt",
-            truncation=True,
-        ).to(model.device)
+            with torch.no_grad():
+                outputs = model.generate(
+                    **inputs,
+                    max_new_tokens=max_new_tokens,
+                    do_sample=False,
+                    pad_token_id=tokenizer.pad_token_id,
+                    eos_token_id=tokenizer.eos_token_id,
+                )
 
-        with torch.no_grad():
-            outputs = model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                do_sample=False,
-                temperature=None,
-                top_p=None,
-                pad_token_id=tokenizer.pad_token_id,
-                eos_token_id=tokenizer.eos_token_id,
-            )
+            input_lens = inputs["attention_mask"].sum(dim=1)
 
-        input_len = inputs["input_ids"].shape[1]
-        new_tokens = outputs[0][input_len:]
-        generated_text = tokenizer.decode(
-            new_tokens,
-            skip_special_tokens=True,
-        ).strip()
+            for i in range(len(batch_raw)):
+                new_tokens = outputs[i][input_lens[i]:]
+                generated_text = tokenizer.decode(
+                    new_tokens,
+                    skip_special_tokens=True,
+                ).strip()
 
-        extracted = extract_vulnerability_decision(generated_text)
+                extracted = extract_vulnerability_decision(generated_text)
 
-        return {
-            "generated_text": generated_text,
-            "more_vulnerable_household": extracted["more_vulnerable_household"],
-            "parse_status": extracted["parse_status"],
-            "prompt": prompt,
-        }
+                results.append(
+                    {
+                        "generated_text": generated_text,
+                        "more_vulnerable_household": extracted["more_vulnerable_household"],
+                        "parse_status": extracted["parse_status"],
+                        "prompt": prompts[i],
+                    }
+                )
 
-    # -------------------------
-    # Main run
-    # -------------------------
+            print(f"Parsed {end}/{n} rows")
+
+        return results
+
     df = load_jsonl(input_jsonl_path)
 
     if "event" in df.columns:
@@ -225,13 +217,14 @@ def parse_vulnerability_jsonl_to_csv(
 
     print(f"Loaded {len(responses_df)} response rows")
 
-    parsed = responses_df["raw_response"].apply(parse_one)
+    raw_responses = responses_df["raw_response"].tolist()
+    parsed = parse_many_batched(raw_responses)
 
-    responses_df["generated_text"] = parsed.apply(lambda x: x["generated_text"])
-    responses_df["more_vulnerable_household"] = parsed.apply(
-        lambda x: x["more_vulnerable_household"]
-    )
-    responses_df["parse_status"] = parsed.apply(lambda x: x["parse_status"])
+    responses_df["generated_text"] = [x["generated_text"] for x in parsed]
+    responses_df["more_vulnerable_household"] = [
+        x["more_vulnerable_household"] for x in parsed
+    ]
+    responses_df["parse_status"] = [x["parse_status"] for x in parsed]
 
     output_csv_path.parent.mkdir(parents=True, exist_ok=True)
     responses_df.to_csv(output_csv_path, index=False)
@@ -240,12 +233,8 @@ def parse_vulnerability_jsonl_to_csv(
     return responses_df
 
 
-# lets parse all necessary files
-
-from pathlib import Path
-
 inputs = [
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger.jsonl",
+    # "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger.jsonl",
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_DS7_NewFixedLogger.jsonl",
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_llama7_NewFixedLogger.jsonl",
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/AIES_QWEN_vifspdat_NewFixedLogger.jsonl",
@@ -260,9 +249,11 @@ for input_path in inputs:
     input_path = Path(input_path)
     output_path = input_path.with_name(f"{input_path.stem}_parsed.csv")
 
-    print(f"\nParsing:\n  IN : {input_path}\n  OUT: {output_path}")
+    print(f"\nIN : {input_path}")
+    print(f"OUT: {output_path}")
 
     parse_vulnerability_jsonl_to_csv(
         input_jsonl_path=input_path,
         output_csv_path=output_path,
+        batch_size=32,
     )
