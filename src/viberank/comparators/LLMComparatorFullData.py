@@ -372,7 +372,7 @@ class LLMComparator(Comparator):
         left_item = str(item_i)
         right_item = str(item_j)
 
-        prompt = self.get_prompt(left_item, right_item)
+        prompt = self.get_prompt(left_item, right_item, left_label='Patient A', right_label='Patient B')
 
         completed_repeats = completed_repeats or set()
 
