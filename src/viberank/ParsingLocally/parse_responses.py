@@ -233,7 +233,7 @@ def parse_vulnerability_jsonl_to_csv(
     return responses_df
 
 
-inputs = [
+"""inputs = [ #these were full data -> 40%
     # "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_QWEN_vispdat_NewFixedLogger.jsonl",
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_DS7_NewFixedLogger.jsonl",
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_llama7_NewFixedLogger.jsonl",
@@ -243,7 +243,21 @@ inputs = [
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/AIES_QWEN_TAYvispdat_NewFixedLogger.jsonl",
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/AIES_tayvispdat_DS7_NewFixedLogger.jsonl",
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/AIES_TAYvispdat_llama7_NewFixedLogger.jsonl",
+]"""
+
+#fuiles for orginial hosueholding prompts prompts# These are RC 
+inputs = [
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/DS_VIFPDAT_DecideHousehold_20260516_031128.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/llama_VIFPDAT_DecideHousehold_20260516_030657.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/qwen_VIFPDAT_DecideHousehold_20260516_030129.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/DS_VIFSPDAT_DecideHousehold_20260515_202305.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/LLAMA_VIFSPDAT_DecideHousehold_20260515_201602.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/QWEN_VIFSPDAT_DecideHousehold_20260515_201358.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DS_TAYVIFPDAT_DecideHousehold_20260516_175846.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/LLAMA_TAYVIFPDAT_DecideHousehold_20260516_180025.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/QWEN_TAYVIFPDAT_DecideHousehold_20260516_180612.jsonl",
 ]
+
 
 for input_path in inputs:
     input_path = Path(input_path)
@@ -256,6 +270,6 @@ for input_path in inputs:
         input_jsonl_path=input_path,
         output_csv_path=output_path,
 
-        batch_size=32,
+        batch_size=64,
     )
 
