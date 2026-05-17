@@ -16,7 +16,7 @@ config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/mimic_5
 
 dataloader = MIMICRankCentralityDataLoader.from_yaml(config_path)
 dataloader.set_fraction_pairs(fraction_pairs=0.4)
-dataloader.prepare(seed=10)  # change this to change tournament
+dataloader.prepare(seed=20)  # change this to change tournament
 
 print("Number of pairs:", len(dataloader._pairs))
 
@@ -68,7 +68,7 @@ for model_cfg in models_to_run:
         **comp_kwargs,
         num_samples=dataloader.config.run_settings.get("repeats_per_ordered_pair", 2),
         logger=logger,
-        rng_seed=43,
+        rng_seed=44,
         llm_name=llm_name,  # qwen / llama7 / deepseek8B
         timeout=120,
         max_tokens=64,

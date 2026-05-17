@@ -187,8 +187,8 @@ class LLMComparator(Comparator):
         self,
         item_i,
         item_j,
-        left_label="Household 1",
-        right_label="Household 2",
+        left_label='Patient A',
+        right_label='Patient B',
     ):
         """
         Build the JSON block inserted into the prompt.
@@ -199,7 +199,7 @@ class LLMComparator(Comparator):
         }
         return json.dumps(households, indent=4, ensure_ascii=False)
 
-    def get_prompt(self, left_item, right_item, replacement_token="<insert block data>", left_label="Household 1", right_label="Household 2"):
+    def get_prompt(self, left_item, right_item, replacement_token="<insert block data>", left_label='Patient A', right_label='Patient B'):
         
 
         if self._prompt_template_cache is None:
@@ -372,7 +372,7 @@ class LLMComparator(Comparator):
         left_item = str(item_i)
         right_item = str(item_j)
 
-        prompt = self.get_prompt(left_item, right_item)
+        prompt = self.get_prompt(left_item, right_item, left_label='Patient A', right_label='Patient B')
 
         completed_repeats = completed_repeats or set()
 
