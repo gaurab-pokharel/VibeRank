@@ -44,7 +44,7 @@ class RankCentralityExperimentRunner:
             )
 
     def run(self):
-        self.dataloader.prepare()
+        #self.dataloader.prepare()
         self._validate()
 
         run_meta = self.dataloader.get_run_metadata()
