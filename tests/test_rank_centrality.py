@@ -103,17 +103,17 @@ def main():
         {
             "llm_name": "qwen",
             "model_name": "qwen",
-            "run_prefix": "QWEN_TAYVIFPDAT_DecideHousehold",
+            "run_prefix": "QWEN_TAYVISPDAT_vul30X30fixed",
         },
         {
             "llm_name": "llama7",
             "model_name": "llama7",
-            "run_prefix": "LLAMA7_TAYVIFPDAT_DecideHousehold",
+            "run_prefix": "LLAMA7_TAYVISPDAT_vul30X30fixed",
         },
         {
             "llm_name": "deepseek8B",
             "model_name": "deepseek8B",
-            "run_prefix": "DEEPSEEK8B_TAYVIFPDAT_DecideHousehold",
+            "run_prefix": "DEEPSEEK8B_TAYVISPDAT_vul30X30fixed",
         },
     ]
 

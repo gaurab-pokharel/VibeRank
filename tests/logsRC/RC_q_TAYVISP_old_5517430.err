@@ -1,0 +1,1307 @@
+(EngineCore pid=2796486) <frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore pid=2796486) <frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+(EngineCore pid=2796486) Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+(EngineCore pid=2796486) Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:00<00:02,  1.21it/s]
+(EngineCore pid=2796486) Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.13it/s]
+(EngineCore pid=2796486) Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.17it/s]
+(EngineCore pid=2796486) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.20it/s]
+(EngineCore pid=2796486) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.18it/s]
+(EngineCore pid=2796486) 
+(EngineCore pid=2796486) Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:00<00:02, 19.40it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:02, 20.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:00<00:02, 20.69it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:00<00:01, 21.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:00<00:01, 22.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:00<00:01, 23.93it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:00<00:01, 26.08it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:01<00:00, 26.85it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:00, 28.06it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 28.54it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 36/51 [00:01<00:00, 30.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:01<00:00, 31.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:01<00:00, 32.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 48/51 [00:01<00:00, 33.66it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 28.11it/s]
+(EngineCore pid=2796486) Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 4/35 [00:00<00:00, 31.62it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:00<00:00, 31.68it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 12/35 [00:00<00:00, 32.40it/s]Capturing CUDA graphs (decode, FULL):  46%|████▌     | 16/35 [00:00<00:00, 32.80it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 20/35 [00:00<00:00, 34.20it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 24/35 [00:00<00:00, 35.54it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 28/35 [00:00<00:00, 36.64it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 33/35 [00:00<00:00, 38.02it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:00<00:00, 35.80it/s]
+Running LLM batches:   0%|          | 0/68 [00:00<?, ?it/s]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  14%|█▍        | 9/64 [00:00<00:00, 87.74it/s][A
+Rendering prompts:  39%|███▉      | 25/64 [00:00<00:00, 126.23it/s][A
+Rendering prompts:  64%|██████▍   | 41/64 [00:00<00:00, 138.20it/s][A
+Rendering prompts:  89%|████████▉ | 57/64 [00:00<00:00, 143.25it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 138.09it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:44,  3.57s/it, est. speed input: 898.23 toks/s, output: 36.18 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<01:04,  1.05s/it, est. speed input: 2455.83 toks/s, output: 104.27 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:50,  1.20it/s, est. speed input: 2960.08 toks/s, output: 133.21 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:27,  2.08it/s, est. speed input: 4201.68 toks/s, output: 203.58 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:22,  2.54it/s, est. speed input: 4747.54 toks/s, output: 237.29 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:18,  3.10it/s, est. speed input: 5280.44 toks/s, output: 271.25 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:14,  3.80it/s, est. speed input: 5807.50 toks/s, output: 305.95 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:05<00:14,  3.74it/s, est. speed input: 6111.02 toks/s, output: 331.26 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:05<00:09,  5.53it/s, est. speed input: 7130.66 toks/s, output: 404.59 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:05<00:06,  7.56it/s, est. speed input: 8148.15 toks/s, output: 480.41 toks/s][A
+Processed prompts:  25%|██▌       | 16/64 [00:05<00:07,  6.85it/s, est. speed input: 8771.62 toks/s, output: 538.55 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  6.85it/s, est. speed input: 34906.96 toks/s, output: 2623.97 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 10.88it/s, est. speed input: 34906.96 toks/s, output: 2623.97 toks/s]
+Running LLM batches:   1%|▏         | 1/68 [00:06<07:25,  6.65s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 137.07it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 146.65it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 146.65it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 147.58it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 147.00it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:30,  3.34s/it, est. speed input: 964.32 toks/s, output: 42.86 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:36,  1.56s/it, est. speed input: 1760.53 toks/s, output: 82.83 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<01:00,  1.01it/s, est. speed input: 2434.61 toks/s, output: 121.10 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:29,  2.03it/s, est. speed input: 3833.74 toks/s, output: 201.23 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:22,  2.57it/s, est. speed input: 4458.67 toks/s, output: 240.45 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:17,  3.24it/s, est. speed input: 5068.37 toks/s, output: 279.83 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:15,  3.73it/s, est. speed input: 5578.23 toks/s, output: 314.99 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:05<00:08,  5.87it/s, est. speed input: 7625.23 toks/s, output: 460.24 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:05<00:05,  8.38it/s, est. speed input: 9289.75 toks/s, output: 587.88 toks/s][A
+Processed prompts:  34%|███▍      | 22/64 [00:05<00:02, 16.60it/s, est. speed input: 13336.32 toks/s, output: 912.28 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 16.60it/s, est. speed input: 38285.44 toks/s, output: 2905.07 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 11.93it/s, est. speed input: 38285.44 toks/s, output: 2905.07 toks/s]
+Running LLM batches:   3%|▎         | 2/68 [00:12<06:56,  6.31s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 141.36it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 148.16it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.26it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 148.79it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 148.47it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:43,  3.54s/it, est. speed input: 909.92 toks/s, output: 41.22 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:42,  1.65s/it, est. speed input: 1661.72 toks/s, output: 79.82 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<00:59,  1.03it/s, est. speed input: 2394.70 toks/s, output: 119.26 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:26,  2.19it/s, est. speed input: 3859.46 toks/s, output: 199.90 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:17,  3.21it/s, est. speed input: 5080.98 toks/s, output: 272.44 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:12,  4.49it/s, est. speed input: 6293.34 toks/s, output: 349.02 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:12,  4.19it/s, est. speed input: 6567.43 toks/s, output: 372.26 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:05<00:13,  3.75it/s, est. speed input: 6991.37 toks/s, output: 416.11 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  3.75it/s, est. speed input: 37074.70 toks/s, output: 2813.27 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 11.54it/s, est. speed input: 37074.70 toks/s, output: 2813.27 toks/s]
+Running LLM batches:   4%|▍         | 3/68 [00:19<06:51,  6.34s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 142.79it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 149.36it/s][A
+Rendering prompts:  72%|███████▏  | 46/64 [00:00<00:00, 148.00it/s][A
+Rendering prompts:  97%|█████████▋| 62/64 [00:00<00:00, 150.79it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 149.65it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:12,  3.06s/it, est. speed input: 1047.14 toks/s, output: 47.09 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:51,  1.19it/s, est. speed input: 3008.64 toks/s, output: 136.87 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:28,  2.09it/s, est. speed input: 4633.40 toks/s, output: 215.10 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:22,  2.63it/s, est. speed input: 5387.49 toks/s, output: 255.31 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:26,  2.14it/s, est. speed input: 5265.31 toks/s, output: 260.89 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:22,  2.44it/s, est. speed input: 5666.85 toks/s, output: 293.66 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:15,  3.52it/s, est. speed input: 6697.02 toks/s, output: 372.49 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:05<00:14,  3.74it/s, est. speed input: 7053.65 toks/s, output: 405.30 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:05<00:06,  7.77it/s, est. speed input: 9398.06 toks/s, output: 596.29 toks/s][A
+Processed prompts:  75%|███████▌  | 48/64 [00:05<00:00, 52.09it/s, est. speed input: 29485.75 toks/s, output: 2200.33 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 52.09it/s, est. speed input: 39315.01 toks/s, output: 2984.24 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.25it/s, est. speed input: 39315.01 toks/s, output: 2984.24 toks/s]
+Running LLM batches:   6%|▌         | 4/68 [00:25<06:36,  6.19s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 142.03it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 149.15it/s][A
+Rendering prompts:  72%|███████▏  | 46/64 [00:00<00:00, 147.67it/s][A
+Rendering prompts:  97%|█████████▋| 62/64 [00:00<00:00, 149.35it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 148.66it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:16,  3.12s/it, est. speed input: 1028.09 toks/s, output: 44.20 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:46,  1.29it/s, est. speed input: 3370.45 toks/s, output: 154.81 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:26,  2.16it/s, est. speed input: 4909.96 toks/s, output: 241.01 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:27,  2.09it/s, est. speed input: 5048.30 toks/s, output: 258.52 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:19,  2.86it/s, est. speed input: 6056.69 toks/s, output: 330.79 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:05<00:18,  2.96it/s, est. speed input: 6335.42 toks/s, output: 358.78 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:05<00:12,  4.14it/s, est. speed input: 7337.21 toks/s, output: 440.61 toks/s][A
+Processed prompts:  66%|██████▌   | 42/64 [00:05<00:00, 34.47it/s, est. speed input: 25178.04 toks/s, output: 1864.73 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 34.47it/s, est. speed input: 38373.60 toks/s, output: 2915.62 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 11.94it/s, est. speed input: 38373.60 toks/s, output: 2915.62 toks/s]
+Running LLM batches:   7%|▋         | 5/68 [00:31<06:27,  6.15s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 145.10it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 146.79it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 146.20it/s][A
+Rendering prompts:  95%|█████████▌| 61/64 [00:00<00:00, 148.42it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 147.41it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:03,  2.92s/it, est. speed input: 1098.76 toks/s, output: 44.21 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:52,  1.17it/s, est. speed input: 3022.11 toks/s, output: 125.53 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:40,  1.47it/s, est. speed input: 3635.16 toks/s, output: 158.87 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:29,  1.98it/s, est. speed input: 4356.55 toks/s, output: 197.67 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:13,  4.14it/s, est. speed input: 6669.31 toks/s, output: 323.51 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:12,  4.43it/s, est. speed input: 7193.12 toks/s, output: 356.02 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:04, 10.68it/s, est. speed input: 11579.64 toks/s, output: 619.76 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:04,  9.45it/s, est. speed input: 12265.47 toks/s, output: 674.15 toks/s][A
+Processed prompts:  30%|██▉       | 19/64 [00:04<00:06,  7.38it/s, est. speed input: 12455.42 toks/s, output: 707.86 toks/s][A
+Processed prompts:  33%|███▎      | 21/64 [00:05<00:05,  8.00it/s, est. speed input: 13249.25 toks/s, output: 781.85 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  8.00it/s, est. speed input: 39784.22 toks/s, output: 2900.54 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.39it/s, est. speed input: 39784.22 toks/s, output: 2900.54 toks/s]
+Running LLM batches:   9%|▉         | 6/68 [00:37<06:17,  6.09s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 139.83it/s][A
+Rendering prompts:  45%|████▌     | 29/64 [00:00<00:00, 145.08it/s][A
+Rendering prompts:  69%|██████▉   | 44/64 [00:00<00:00, 147.21it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 148.69it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 146.90it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:15,  3.10s/it, est. speed input: 1039.56 toks/s, output: 46.18 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:40,  1.62s/it, est. speed input: 1746.11 toks/s, output: 86.99 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:24,  2.37it/s, est. speed input: 4881.92 toks/s, output: 262.13 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:24,  2.31it/s, est. speed input: 5087.57 toks/s, output: 282.16 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:15,  3.46it/s, est. speed input: 6378.60 toks/s, output: 371.65 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:05<00:14,  3.67it/s, est. speed input: 7045.78 toks/s, output: 428.84 toks/s][A
+Processed prompts:  25%|██▌       | 16/64 [00:05<00:06,  7.50it/s, est. speed input: 10015.93 toks/s, output: 668.91 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  7.50it/s, est. speed input: 39441.92 toks/s, output: 3016.28 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.28it/s, est. speed input: 39441.92 toks/s, output: 3016.28 toks/s]
+Running LLM batches:  10%|█         | 7/68 [00:43<06:09,  6.05s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 145.18it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.58it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 150.37it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 151.10it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.39it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:29,  3.33s/it, est. speed input: 966.50 toks/s, output: 46.82 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:32,  1.50s/it, est. speed input: 1813.04 toks/s, output: 90.26 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:59,  1.03it/s, est. speed input: 2475.40 toks/s, output: 128.96 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:41,  1.46it/s, est. speed input: 3100.72 toks/s, output: 167.83 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:35,  1.66it/s, est. speed input: 3488.73 toks/s, output: 198.75 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:30,  1.90it/s, est. speed input: 3866.77 toks/s, output: 231.63 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:05<00:18,  3.10it/s, est. speed input: 4932.42 toks/s, output: 316.35 toks/s][A
+Processed prompts:  50%|█████     | 32/64 [00:05<00:01, 26.29it/s, est. speed input: 19361.86 toks/s, output: 1467.94 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 26.29it/s, est. speed input: 38558.13 toks/s, output: 2998.52 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.01it/s, est. speed input: 38558.13 toks/s, output: 2998.52 toks/s]
+Running LLM batches:  12%|█▏        | 8/68 [00:49<06:02,  6.04s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 138.96it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 147.15it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 145.66it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 146.85it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 146.67it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:06,  2.96s/it, est. speed input: 1084.93 toks/s, output: 44.88 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:22,  1.32s/it, est. speed input: 2045.72 toks/s, output: 87.96 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:48,  1.25it/s, est. speed input: 2909.44 toks/s, output: 128.95 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:17,  3.39it/s, est. speed input: 5616.62 toks/s, output: 261.54 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:03<00:09,  5.78it/s, est. speed input: 8112.08 toks/s, output: 389.94 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:03<00:09,  5.48it/s, est. speed input: 8895.06 toks/s, output: 440.72 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:09,  5.50it/s, est. speed input: 9636.39 toks/s, output: 500.11 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:07,  6.84it/s, est. speed input: 10790.75 toks/s, output: 583.00 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:06,  7.03it/s, est. speed input: 11539.29 toks/s, output: 647.01 toks/s][A
+Processed prompts:  30%|██▉       | 19/64 [00:04<00:05,  8.11it/s, est. speed input: 12478.23 toks/s, output: 728.64 toks/s][A
+Processed prompts:  48%|████▊     | 31/64 [00:04<00:01, 24.54it/s, est. speed input: 19942.61 toks/s, output: 1325.10 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 24.54it/s, est. speed input: 40734.51 toks/s, output: 2987.32 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.69it/s, est. speed input: 40734.51 toks/s, output: 2987.32 toks/s]
+Running LLM batches:  13%|█▎        | 9/68 [00:54<05:51,  5.96s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.09it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 154.45it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 153.52it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.99it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 151.77it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:53,  2.76s/it, est. speed input: 1160.50 toks/s, output: 49.29 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:21,  1.32s/it, est. speed input: 2087.20 toks/s, output: 94.19 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:25,  2.31it/s, est. speed input: 4833.57 toks/s, output: 227.43 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:22,  2.53it/s, est. speed input: 5347.86 toks/s, output: 257.91 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:18,  3.08it/s, est. speed input: 6022.17 toks/s, output: 297.37 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:03<00:09,  5.51it/s, est. speed input: 8234.92 toks/s, output: 427.01 toks/s][A
+Processed prompts:  25%|██▌       | 16/64 [00:04<00:04, 10.02it/s, est. speed input: 12304.27 toks/s, output: 681.84 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:04<00:05,  8.99it/s, est. speed input: 12909.36 toks/s, output: 735.07 toks/s][A
+Processed prompts:  31%|███▏      | 20/64 [00:04<00:05,  7.44it/s, est. speed input: 13131.93 toks/s, output: 774.51 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:04<00:00,  7.44it/s, est. speed input: 41324.10 toks/s, output: 3026.93 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:04<00:00, 12.87it/s, est. speed input: 41324.10 toks/s, output: 3026.93 toks/s]
+Running LLM batches:  15%|█▍        | 10/68 [01:00<05:40,  5.87s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 142.04it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 144.43it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 144.91it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 146.77it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 146.25it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:54,  2.76s/it, est. speed input: 1163.47 toks/s, output: 46.68 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:38,  1.58s/it, est. speed input: 1828.78 toks/s, output: 84.99 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:58,  1.05it/s, est. speed input: 2587.88 toks/s, output: 128.68 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:37,  1.60it/s, est. speed input: 3347.28 toks/s, output: 173.45 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:25,  2.27it/s, est. speed input: 4063.86 toks/s, output: 217.20 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:19,  2.98it/s, est. speed input: 4715.03 toks/s, output: 259.54 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:12,  4.34it/s, est. speed input: 5928.15 toks/s, output: 340.15 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:15,  3.66it/s, est. speed input: 6113.75 toks/s, output: 360.48 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:05<00:09,  5.26it/s, est. speed input: 7591.85 toks/s, output: 477.83 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  5.26it/s, est. speed input: 39856.83 toks/s, output: 3053.58 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.42it/s, est. speed input: 39856.83 toks/s, output: 3053.58 toks/s]
+Running LLM batches:  16%|█▌        | 11/68 [01:06<05:35,  5.89s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 154.15it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 155.62it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 155.33it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 155.83it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 155.52it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:14,  3.09s/it, est. speed input: 1035.07 toks/s, output: 47.52 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:56,  1.07it/s, est. speed input: 2795.07 toks/s, output: 134.30 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:34,  1.71it/s, est. speed input: 4054.77 toks/s, output: 209.03 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:21,  2.66it/s, est. speed input: 5421.57 toks/s, output: 294.89 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:19,  2.86it/s, est. speed input: 5825.91 toks/s, output: 325.92 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:15,  3.44it/s, est. speed input: 6389.67 toks/s, output: 366.50 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:13,  4.06it/s, est. speed input: 7219.69 toks/s, output: 435.12 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:04,  9.92it/s, est. speed input: 10903.25 toks/s, output: 729.11 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  9.92it/s, est. speed input: 40282.59 toks/s, output: 3074.93 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.56it/s, est. speed input: 40282.59 toks/s, output: 3074.93 toks/s]
+Running LLM batches:  18%|█▊        | 12/68 [01:12<05:28,  5.87s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 152.93it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 155.47it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 154.03it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 154.90it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 154.61it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:05,  2.94s/it, est. speed input: 1089.97 toks/s, output: 46.87 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:39,  1.50it/s, est. speed input: 3835.62 toks/s, output: 175.40 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:36,  1.62it/s, est. speed input: 4179.96 toks/s, output: 201.64 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:29,  1.98it/s, est. speed input: 4737.06 toks/s, output: 238.89 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:22,  2.55it/s, est. speed input: 5382.27 toks/s, output: 280.63 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:11,  4.55it/s, est. speed input: 7267.31 toks/s, output: 405.88 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:11,  4.80it/s, est. speed input: 7705.77 toks/s, output: 440.10 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:09,  5.35it/s, est. speed input: 8201.69 toks/s, output: 478.54 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:04<00:08,  5.96it/s, est. speed input: 9031.80 toks/s, output: 551.35 toks/s][A
+Processed prompts:  66%|██████▌   | 42/64 [00:05<00:00, 45.00it/s, est. speed input: 26525.38 toks/s, output: 1949.86 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 45.00it/s, est. speed input: 40308.01 toks/s, output: 3049.23 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.56it/s, est. speed input: 40308.01 toks/s, output: 3049.23 toks/s]
+Running LLM batches:  19%|█▉        | 13/68 [01:18<05:22,  5.85s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.75it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 152.38it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 153.63it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 154.15it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.48it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:25,  3.26s/it, est. speed input: 987.64 toks/s, output: 46.68 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:33,  1.51s/it, est. speed input: 1812.82 toks/s, output: 89.95 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:42,  1.43it/s, est. speed input: 3226.03 toks/s, output: 169.94 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:32,  1.80it/s, est. speed input: 3814.53 toks/s, output: 208.71 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:26,  2.20it/s, est. speed input: 4341.32 toks/s, output: 246.90 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:05<00:28,  2.00it/s, est. speed input: 4460.58 toks/s, output: 268.09 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:05<00:04,  9.82it/s, est. speed input: 10626.30 toks/s, output: 758.65 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  9.82it/s, est. speed input: 39446.94 toks/s, output: 3057.40 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.28it/s, est. speed input: 39446.94 toks/s, output: 3057.40 toks/s]
+Running LLM batches:  21%|██        | 14/68 [01:24<05:17,  5.88s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.50it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 153.31it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 152.16it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 153.31it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.83it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:53,  2.76s/it, est. speed input: 1163.85 toks/s, output: 46.44 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:02<00:34,  1.73it/s, est. speed input: 4324.20 toks/s, output: 178.26 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:20,  2.78it/s, est. speed input: 6170.81 toks/s, output: 261.02 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:17,  3.21it/s, est. speed input: 7157.18 toks/s, output: 319.30 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:19,  2.84it/s, est. speed input: 7059.01 toks/s, output: 329.06 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:12,  4.13it/s, est. speed input: 8376.25 toks/s, output: 416.78 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:11,  4.66it/s, est. speed input: 8896.32 toks/s, output: 454.57 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:04<00:07,  6.34it/s, est. speed input: 10076.38 toks/s, output: 538.72 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:04<00:04, 10.58it/s, est. speed input: 12547.10 toks/s, output: 718.49 toks/s][A
+Processed prompts:  33%|███▎      | 21/64 [00:04<00:03, 11.71it/s, est. speed input: 14006.96 toks/s, output: 834.58 toks/s][A
+Processed prompts:  36%|███▌      | 23/64 [00:04<00:03, 12.85it/s, est. speed input: 14997.51 toks/s, output: 919.77 toks/s][A
+Processed prompts:  72%|███████▏  | 46/64 [00:05<00:00, 53.79it/s, est. speed input: 29380.15 toks/s, output: 2073.71 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 53.79it/s, est. speed input: 40753.86 toks/s, output: 2982.70 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.71it/s, est. speed input: 40753.86 toks/s, output: 2982.70 toks/s]
+Running LLM batches:  22%|██▏       | 15/68 [01:29<05:09,  5.84s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.42it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 153.74it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 154.84it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.19it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.32it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:05,  2.94s/it, est. speed input: 1088.14 toks/s, output: 48.26 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:22,  1.34s/it, est. speed input: 2029.72 toks/s, output: 91.58 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:33,  1.79it/s, est. speed input: 3828.15 toks/s, output: 179.60 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:25,  2.34it/s, est. speed input: 4602.14 toks/s, output: 221.02 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:03<00:09,  5.71it/s, est. speed input: 7994.28 toks/s, output: 396.98 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:03<00:08,  5.93it/s, est. speed input: 9000.70 toks/s, output: 460.55 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:08,  6.00it/s, est. speed input: 9827.13 toks/s, output: 522.16 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:07,  6.76it/s, est. speed input: 10803.35 toks/s, output: 596.06 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:08,  5.58it/s, est. speed input: 10999.99 toks/s, output: 638.92 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  5.58it/s, est. speed input: 40868.30 toks/s, output: 3024.81 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.74it/s, est. speed input: 40868.30 toks/s, output: 3024.81 toks/s]
+Running LLM batches:  24%|██▎       | 16/68 [01:35<05:01,  5.80s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 150.50it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 152.49it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 152.00it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.93it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.47it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:45,  3.57s/it, est. speed input: 899.41 toks/s, output: 47.87 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:36,  1.56s/it, est. speed input: 1721.50 toks/s, output: 94.45 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:27,  2.12it/s, est. speed input: 4177.77 toks/s, output: 233.28 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:18,  3.07it/s, est. speed input: 5525.37 toks/s, output: 314.72 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:11,  4.66it/s, est. speed input: 7419.84 toks/s, output: 437.11 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:10,  5.09it/s, est. speed input: 8304.79 toks/s, output: 505.64 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:04<00:08,  6.01it/s, est. speed input: 9295.37 toks/s, output: 584.98 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:05,  8.65it/s, est. speed input: 11025.10 toks/s, output: 724.78 toks/s][A
+Processed prompts:  55%|█████▍    | 35/64 [00:05<00:00, 32.30it/s, est. speed input: 22209.37 toks/s, output: 1618.91 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 32.30it/s, est. speed input: 40431.70 toks/s, output: 3072.36 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.60it/s, est. speed input: 40431.70 toks/s, output: 3072.36 toks/s]
+Running LLM batches:  25%|██▌       | 17/68 [01:41<04:55,  5.80s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.81it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 154.22it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 153.60it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.40it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.34it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:47,  3.62s/it, est. speed input: 889.08 toks/s, output: 47.00 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<01:02,  1.02s/it, est. speed input: 2515.93 toks/s, output: 137.61 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:47,  1.25it/s, est. speed input: 3050.05 toks/s, output: 172.78 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:05<00:36,  1.61it/s, est. speed input: 3777.34 toks/s, output: 232.83 toks/s][A
+Processed prompts:  42%|████▏     | 27/64 [00:05<00:02, 12.83it/s, est. speed input: 16632.13 toks/s, output: 1260.45 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.83it/s, est. speed input: 39259.74 toks/s, output: 3064.43 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.23it/s, est. speed input: 39259.74 toks/s, output: 3064.43 toks/s]
+Running LLM batches:  26%|██▋       | 18/68 [01:47<04:52,  5.84s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 147.75it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 150.09it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 150.51it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 151.36it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.73it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:03,  2.91s/it, est. speed input: 1101.54 toks/s, output: 48.06 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:34,  1.72it/s, est. speed input: 4235.50 toks/s, output: 183.66 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:13,  4.06it/s, est. speed input: 8161.48 toks/s, output: 365.13 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:03<00:07,  6.74it/s, est. speed input: 11709.30 toks/s, output: 541.33 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:09,  5.25it/s, est. speed input: 11700.39 toks/s, output: 576.83 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:08,  5.70it/s, est. speed input: 12485.53 toks/s, output: 642.76 toks/s][A
+Processed prompts:  30%|██▉       | 19/64 [00:04<00:06,  6.72it/s, est. speed input: 13509.93 toks/s, output: 723.93 toks/s][A
+Processed prompts:  33%|███▎      | 21/64 [00:04<00:05,  7.21it/s, est. speed input: 14230.63 toks/s, output: 793.75 toks/s][A
+Processed prompts:  41%|████      | 26/64 [00:04<00:03, 12.24it/s, est. speed input: 17218.28 toks/s, output: 1039.33 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:04<00:00, 12.24it/s, est. speed input: 41849.82 toks/s, output: 3010.10 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:04<00:00, 13.05it/s, est. speed input: 41849.82 toks/s, output: 3010.10 toks/s]
+Running LLM batches:  28%|██▊       | 19/68 [01:52<04:42,  5.77s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 132.75it/s][A
+Rendering prompts:  45%|████▌     | 29/64 [00:00<00:00, 140.50it/s][A
+Rendering prompts:  69%|██████▉   | 44/64 [00:00<00:00, 143.88it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 146.67it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 144.63it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:41,  3.52s/it, est. speed input: 908.69 toks/s, output: 48.53 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:39,  1.60s/it, est. speed input: 1697.73 toks/s, output: 93.49 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:57,  1.06it/s, est. speed input: 2436.41 toks/s, output: 137.80 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:52,  1.13it/s, est. speed input: 2712.14 toks/s, output: 164.51 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:38,  1.51it/s, est. speed input: 3209.13 toks/s, output: 206.95 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:05<00:06,  7.87it/s, est. speed input: 8798.64 toks/s, output: 653.04 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  7.87it/s, est. speed input: 39815.11 toks/s, output: 3127.86 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.41it/s, est. speed input: 39815.11 toks/s, output: 3127.86 toks/s]
+Running LLM batches:  29%|██▉       | 20/68 [01:58<04:39,  5.82s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 147.94it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.01it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.00it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.68it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.52it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:54,  3.72s/it, est. speed input: 865.41 toks/s, output: 47.30 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:04<01:54,  1.85s/it, est. speed input: 1507.43 toks/s, output: 89.61 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<01:13,  1.20s/it, est. speed input: 2054.22 toks/s, output: 130.32 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:20,  2.80it/s, est. speed input: 4660.98 toks/s, output: 316.87 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:05<00:15,  3.45it/s, est. speed input: 5619.71 toks/s, output: 395.35 toks/s][A
+Processed prompts:  98%|█████████▊| 63/64 [00:05<00:00, 44.90it/s, est. speed input: 38552.52 toks/s, output: 3023.07 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 44.90it/s, est. speed input: 39165.02 toks/s, output: 3071.77 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.20it/s, est. speed input: 39165.02 toks/s, output: 3071.77 toks/s]
+Running LLM batches:  31%|███       | 21/68 [02:04<04:35,  5.86s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.79it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 152.58it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 152.79it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 153.43it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.94it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:22,  3.21s/it, est. speed input: 999.48 toks/s, output: 46.78 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:57,  1.07it/s, est. speed input: 2752.13 toks/s, output: 133.33 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:41,  1.46it/s, est. speed input: 3462.80 toks/s, output: 174.08 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:28,  2.02it/s, est. speed input: 4467.56 toks/s, output: 241.47 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:22,  2.50it/s, est. speed input: 5056.93 toks/s, output: 283.10 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:16,  3.32it/s, est. speed input: 6043.17 toks/s, output: 357.69 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:11,  4.42it/s, est. speed input: 7081.51 toks/s, output: 441.88 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:05<00:04, 11.27it/s, est. speed input: 11344.30 toks/s, output: 782.90 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 11.27it/s, est. speed input: 39793.74 toks/s, output: 3052.24 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.39it/s, est. speed input: 39793.74 toks/s, output: 3052.24 toks/s]
+Running LLM batches:  32%|███▏      | 22/68 [02:10<04:29,  5.87s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.43it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 154.10it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 153.31it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.78it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.50it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:11,  3.04s/it, est. speed input: 1053.12 toks/s, output: 46.05 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:37,  1.57s/it, est. speed input: 1787.74 toks/s, output: 85.98 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:55,  1.10it/s, est. speed input: 2597.82 toks/s, output: 130.35 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:37,  1.58it/s, est. speed input: 3277.50 toks/s, output: 170.67 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:18,  3.06it/s, est. speed input: 4776.76 toks/s, output: 259.81 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:16,  3.47it/s, est. speed input: 5329.03 toks/s, output: 296.25 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:15,  3.56it/s, est. speed input: 5736.80 toks/s, output: 327.44 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:13,  4.02it/s, est. speed input: 6224.06 toks/s, output: 364.71 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:11,  4.67it/s, est. speed input: 6730.64 toks/s, output: 403.82 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:07,  6.98it/s, est. speed input: 7889.44 toks/s, output: 492.46 toks/s][A
+Processed prompts:  25%|██▌       | 16/64 [00:05<00:04, 11.72it/s, est. speed input: 10179.87 toks/s, output: 671.54 toks/s][A
+Processed prompts:  73%|███████▎  | 47/64 [00:05<00:00, 68.07it/s, est. speed input: 29317.45 toks/s, output: 2197.34 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 68.07it/s, est. speed input: 39790.66 toks/s, output: 3033.88 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.39it/s, est. speed input: 39790.66 toks/s, output: 3033.88 toks/s]
+Running LLM batches:  34%|███▍      | 23/68 [02:16<04:24,  5.87s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.36it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 153.54it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 152.50it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.48it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.09it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:31,  3.36s/it, est. speed input: 952.95 toks/s, output: 48.20 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:31,  1.48s/it, est. speed input: 1821.41 toks/s, output: 93.54 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:38,  1.58it/s, est. speed input: 3387.97 toks/s, output: 180.43 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:30,  1.96it/s, est. speed input: 3992.31 toks/s, output: 218.45 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:23,  2.47it/s, est. speed input: 4596.98 toks/s, output: 257.34 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:11,  4.84it/s, est. speed input: 7036.09 toks/s, output: 416.89 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:04, 10.96it/s, est. speed input: 11623.92 toks/s, output: 738.14 toks/s][A
+Processed prompts:  31%|███▏      | 20/64 [00:05<00:04, 10.34it/s, est. speed input: 12765.56 toks/s, output: 833.37 toks/s][A
+Processed prompts:  45%|████▌     | 29/64 [00:05<00:01, 19.53it/s, est. speed input: 18105.67 toks/s, output: 1263.40 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 19.53it/s, est. speed input: 39687.35 toks/s, output: 2986.88 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.38it/s, est. speed input: 39687.35 toks/s, output: 2986.88 toks/s]
+Running LLM batches:  35%|███▌      | 24/68 [02:22<04:18,  5.88s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.25it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 152.50it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 152.74it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 152.96it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.57it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:00,  2.87s/it, est. speed input: 1121.28 toks/s, output: 48.10 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:04<01:58,  1.91s/it, est. speed input: 1564.43 toks/s, output: 82.22 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:44,  1.33it/s, est. speed input: 3039.74 toks/s, output: 176.26 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:44,  1.34it/s, est. speed input: 3229.90 toks/s, output: 200.20 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:05<00:16,  3.44it/s, est. speed input: 5659.89 toks/s, output: 394.01 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  3.44it/s, est. speed input: 39599.89 toks/s, output: 3101.30 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.34it/s, est. speed input: 39599.89 toks/s, output: 3101.30 toks/s]
+Running LLM batches:  37%|███▋      | 25/68 [02:28<04:13,  5.90s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.97it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 154.21it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 152.91it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.62it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.75it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:10,  3.02s/it, est. speed input: 1059.92 toks/s, output: 46.66 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:26,  1.39s/it, est. speed input: 1957.42 toks/s, output: 90.14 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:51,  1.18it/s, est. speed input: 2773.68 toks/s, output: 131.90 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:33,  1.80it/s, est. speed input: 3581.21 toks/s, output: 174.00 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:13,  4.27it/s, est. speed input: 6044.74 toks/s, output: 307.45 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:10,  5.02it/s, est. speed input: 7644.94 toks/s, output: 405.10 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:09,  5.44it/s, est. speed input: 8185.29 toks/s, output: 441.98 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:05<00:15,  3.36it/s, est. speed input: 7632.22 toks/s, output: 428.60 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  3.36it/s, est. speed input: 40177.41 toks/s, output: 3026.00 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.52it/s, est. speed input: 40177.41 toks/s, output: 3026.00 toks/s]
+Running LLM batches:  38%|███▊      | 26/68 [02:34<04:06,  5.88s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.23it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.05it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 152.01it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 152.49it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 151.87it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:10,  3.02s/it, est. speed input: 1061.95 toks/s, output: 47.29 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:37,  1.58s/it, est. speed input: 1788.79 toks/s, output: 87.58 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<01:01,  1.01s/it, est. speed input: 2444.91 toks/s, output: 127.90 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:44,  1.35it/s, est. speed input: 3012.76 toks/s, output: 167.40 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:22,  2.51it/s, est. speed input: 4641.35 toks/s, output: 282.93 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:05<00:15,  3.51it/s, est. speed input: 5742.69 toks/s, output: 370.69 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:05<00:04, 10.78it/s, est. speed input: 11229.35 toks/s, output: 809.64 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 10.78it/s, est. speed input: 39536.73 toks/s, output: 3065.77 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.30it/s, est. speed input: 39536.73 toks/s, output: 3065.77 toks/s]
+Running LLM batches:  40%|███▉      | 27/68 [02:40<04:01,  5.89s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 143.14it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 146.57it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 147.53it/s][A
+Rendering prompts:  95%|█████████▌| 61/64 [00:00<00:00, 148.99it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 148.22it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:34,  3.41s/it, est. speed input: 939.21 toks/s, output: 46.04 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:39,  1.60s/it, est. speed input: 1716.38 toks/s, output: 89.04 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<01:09,  1.13s/it, est. speed input: 2230.67 toks/s, output: 125.02 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:44,  1.35it/s, est. speed input: 2882.16 toks/s, output: 168.60 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:25,  2.31it/s, est. speed input: 4031.74 toks/s, output: 250.99 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:05<00:11,  4.86it/s, est. speed input: 6420.40 toks/s, output: 424.60 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:05<00:10,  5.03it/s, est. speed input: 6834.77 toks/s, output: 460.53 toks/s][A
+Processed prompts:  62%|██████▎   | 40/64 [00:05<00:00, 36.80it/s, est. speed input: 24327.76 toks/s, output: 1857.85 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 36.80it/s, est. speed input: 38851.52 toks/s, output: 3014.18 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.10it/s, est. speed input: 38851.52 toks/s, output: 3014.18 toks/s]
+Running LLM batches:  41%|████      | 28/68 [02:46<03:57,  5.93s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.64it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.16it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.13it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.46it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.45it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:59,  2.85s/it, est. speed input: 1128.47 toks/s, output: 46.38 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:48,  1.25it/s, est. speed input: 3189.28 toks/s, output: 135.84 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:33,  1.77it/s, est. speed input: 4095.12 toks/s, output: 178.45 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:24,  2.41it/s, est. speed input: 4941.37 toks/s, output: 219.65 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:20,  2.77it/s, est. speed input: 5514.01 toks/s, output: 252.34 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:14,  3.85it/s, est. speed input: 6770.28 toks/s, output: 326.59 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:03<00:12,  4.23it/s, est. speed input: 7295.14 toks/s, output: 361.02 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:11,  4.81it/s, est. speed input: 7849.45 toks/s, output: 398.00 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:09,  5.48it/s, est. speed input: 8396.58 toks/s, output: 435.55 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:11,  4.40it/s, est. speed input: 8741.34 toks/s, output: 477.60 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:08,  6.08it/s, est. speed input: 9821.58 toks/s, output: 569.35 toks/s][A
+Processed prompts:  55%|█████▍    | 35/64 [00:05<00:00, 33.50it/s, est. speed input: 22419.73 toks/s, output: 1576.90 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 33.50it/s, est. speed input: 40715.63 toks/s, output: 3036.94 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.68it/s, est. speed input: 40715.63 toks/s, output: 3036.94 toks/s]
+Running LLM batches:  43%|████▎     | 29/68 [02:51<03:49,  5.88s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.79it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.17it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 150.75it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 151.35it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 151.03it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:47,  2.66s/it, est. speed input: 1208.50 toks/s, output: 46.70 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:02<01:12,  1.17s/it, est. speed input: 2301.96 toks/s, output: 91.38 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:02<00:28,  2.11it/s, est. speed input: 4423.44 toks/s, output: 180.67 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:10,  5.32it/s, est. speed input: 8510.48 toks/s, output: 361.71 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:03<00:08,  6.20it/s, est. speed input: 10426.57 toks/s, output: 464.10 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:03<00:06,  8.08it/s, est. speed input: 12609.48 toks/s, output: 585.37 toks/s][A
+Processed prompts:  25%|██▌       | 16/64 [00:03<00:05,  9.05it/s, est. speed input: 13847.59 toks/s, output: 661.15 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:04<00:06,  7.22it/s, est. speed input: 13962.48 toks/s, output: 694.87 toks/s][A
+Processed prompts:  31%|███▏      | 20/64 [00:04<00:07,  6.26it/s, est. speed input: 14060.89 toks/s, output: 729.52 toks/s][A
+Processed prompts:  34%|███▍      | 22/64 [00:04<00:05,  7.31it/s, est. speed input: 14948.82 toks/s, output: 810.78 toks/s][A
+Processed prompts:  62%|██████▎   | 40/64 [00:04<00:00, 29.46it/s, est. speed input: 26585.88 toks/s, output: 1746.92 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:04<00:00, 29.46it/s, est. speed input: 42304.74 toks/s, output: 3003.11 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:04<00:00, 13.18it/s, est. speed input: 42304.74 toks/s, output: 3003.11 toks/s]
+Running LLM batches:  44%|████▍     | 30/68 [02:57<03:39,  5.78s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 150.68it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 153.14it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 153.42it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.55it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.55it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:02,  2.90s/it, est. speed input: 1104.36 toks/s, output: 46.52 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:48,  1.26it/s, est. speed input: 3186.75 toks/s, output: 138.86 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:26,  2.20it/s, est. speed input: 4888.21 toks/s, output: 222.61 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:16,  3.36it/s, est. speed input: 6506.82 toks/s, output: 306.70 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:25,  2.12it/s, est. speed input: 5816.89 toks/s, output: 307.92 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:05<00:17,  3.08it/s, est. speed input: 6954.72 toks/s, output: 402.20 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  3.08it/s, est. speed input: 39884.48 toks/s, output: 3030.65 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.43it/s, est. speed input: 39884.48 toks/s, output: 3030.65 toks/s]
+Running LLM batches:  46%|████▌     | 31/68 [03:03<03:34,  5.81s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 142.22it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 148.95it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.34it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.74it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 149.98it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:54,  3.72s/it, est. speed input: 862.10 toks/s, output: 47.57 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:59,  1.01it/s, est. speed input: 2680.60 toks/s, output: 160.32 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:45,  1.30it/s, est. speed input: 3219.41 toks/s, output: 203.07 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:05<00:17,  3.17it/s, est. speed input: 5659.59 toks/s, output: 399.19 toks/s][A
+Processed prompts:  77%|███████▋  | 49/64 [00:05<00:00, 28.89it/s, est. speed input: 30180.11 toks/s, output: 2357.06 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 28.89it/s, est. speed input: 39362.08 toks/s, output: 3088.63 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.26it/s, est. speed input: 39362.08 toks/s, output: 3088.63 toks/s]
+Running LLM batches:  47%|████▋     | 32/68 [03:09<03:31,  5.86s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.11it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 150.17it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 149.54it/s][A
+Rendering prompts:  97%|█████████▋| 62/64 [00:00<00:00, 148.26it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 148.66it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:00,  2.87s/it, est. speed input: 1117.41 toks/s, output: 47.43 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:30,  1.45s/it, est. speed input: 1923.76 toks/s, output: 87.89 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<01:01,  1.00s/it, est. speed input: 2534.98 toks/s, output: 124.59 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:21,  2.75it/s, est. speed input: 4922.50 toks/s, output: 261.08 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:15,  3.56it/s, est. speed input: 6099.32 toks/s, output: 336.21 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:15,  3.67it/s, est. speed input: 6485.20 toks/s, output: 366.10 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:15,  3.38it/s, est. speed input: 6654.42 toks/s, output: 387.28 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:05<00:09,  5.46it/s, est. speed input: 8282.77 toks/s, output: 516.90 toks/s][A
+Processed prompts:  72%|███████▏  | 46/64 [00:05<00:00, 42.69it/s, est. speed input: 28729.50 toks/s, output: 2147.81 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 42.69it/s, est. speed input: 39857.56 toks/s, output: 3035.94 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.41it/s, est. speed input: 39857.56 toks/s, output: 3035.94 toks/s]
+Running LLM batches:  49%|████▊     | 33/68 [03:15<03:25,  5.88s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 144.83it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 147.80it/s][A
+Rendering prompts:  72%|███████▏  | 46/64 [00:00<00:00, 149.28it/s][A
+Rendering prompts:  95%|█████████▌| 61/64 [00:00<00:00, 147.99it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 147.79it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:11,  3.05s/it, est. speed input: 1056.37 toks/s, output: 47.26 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:35,  1.54s/it, est. speed input: 1820.98 toks/s, output: 88.34 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:57,  1.06it/s, est. speed input: 2560.83 toks/s, output: 130.50 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:38,  1.55it/s, est. speed input: 3249.83 toks/s, output: 172.01 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:39,  1.48it/s, est. speed input: 3432.78 toks/s, output: 194.52 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:05<00:18,  2.99it/s, est. speed input: 5116.21 toks/s, output: 324.34 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:05<00:04, 10.59it/s, est. speed input: 11265.44 toks/s, output: 815.55 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 10.59it/s, est. speed input: 39533.09 toks/s, output: 3069.26 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.30it/s, est. speed input: 39533.09 toks/s, output: 3069.26 toks/s]
+Running LLM batches:  50%|█████     | 34/68 [03:21<03:20,  5.90s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 136.69it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 146.95it/s][A
+Rendering prompts:  72%|███████▏  | 46/64 [00:00<00:00, 149.95it/s][A
+Rendering prompts:  95%|█████████▌| 61/64 [00:00<00:00, 148.54it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 147.84it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:20,  3.18s/it, est. speed input: 1010.89 toks/s, output: 46.91 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:52,  1.15it/s, est. speed input: 2926.80 toks/s, output: 138.57 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:20,  2.79it/s, est. speed input: 5654.62 toks/s, output: 275.43 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:15,  3.69it/s, est. speed input: 7037.67 toks/s, output: 353.29 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:15,  3.58it/s, est. speed input: 7566.01 toks/s, output: 397.51 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:11,  4.48it/s, est. speed input: 8910.55 toks/s, output: 500.18 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:08,  5.63it/s, est. speed input: 10006.50 toks/s, output: 585.95 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:04<00:05,  8.05it/s, est. speed input: 11736.66 toks/s, output: 726.42 toks/s][A
+Processed prompts:  73%|███████▎  | 47/64 [00:05<00:00, 43.79it/s, est. speed input: 30001.31 toks/s, output: 2187.22 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 43.79it/s, est. speed input: 40801.39 toks/s, output: 3046.65 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.70it/s, est. speed input: 40801.39 toks/s, output: 3046.65 toks/s]
+Running LLM batches:  51%|█████▏    | 35/68 [03:26<03:13,  5.86s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 153.46it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 154.55it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 154.27it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 154.22it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 154.14it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:16,  3.12s/it, est. speed input: 1028.40 toks/s, output: 46.79 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:27,  1.41s/it, est. speed input: 1927.78 toks/s, output: 91.48 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:55,  1.10it/s, est. speed input: 2648.95 toks/s, output: 132.39 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:39,  1.51it/s, est. speed input: 3279.30 toks/s, output: 170.64 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:39,  1.48it/s, est. speed input: 3473.55 toks/s, output: 193.69 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:30,  1.93it/s, est. speed input: 3988.32 toks/s, output: 235.34 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:05<00:17,  3.24it/s, est. speed input: 5116.31 toks/s, output: 323.82 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:05<00:08,  5.91it/s, est. speed input: 6883.96 toks/s, output: 466.29 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  5.91it/s, est. speed input: 39621.59 toks/s, output: 3071.16 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.31it/s, est. speed input: 39621.59 toks/s, output: 3071.16 toks/s]
+Running LLM batches:  53%|█████▎    | 36/68 [03:32<03:08,  5.88s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.61it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 153.96it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 154.61it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 154.04it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.87it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:04<04:53,  4.65s/it, est. speed input: 689.42 toks/s, output: 48.80 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<01:20,  1.32s/it, est. speed input: 1939.01 toks/s, output: 141.34 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:05<00:21,  2.64it/s, est. speed input: 5070.07 toks/s, output: 386.90 toks/s][A
+Processed prompts:  72%|███████▏  | 46/64 [00:05<00:00, 22.12it/s, est. speed input: 28477.68 toks/s, output: 2255.61 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 22.12it/s, est. speed input: 39527.64 toks/s, output: 3138.32 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.32it/s, est. speed input: 39527.64 toks/s, output: 3138.32 toks/s]
+Running LLM batches:  54%|█████▍    | 37/68 [03:38<03:02,  5.89s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 153.16it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 154.81it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 155.63it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 155.90it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 155.44it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:22,  3.22s/it, est. speed input: 998.20 toks/s, output: 46.62 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:53,  1.14it/s, est. speed input: 2885.01 toks/s, output: 135.58 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:27,  2.15it/s, est. speed input: 4598.33 toks/s, output: 222.27 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:17,  3.33it/s, est. speed input: 6171.84 toks/s, output: 305.91 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:03<00:11,  4.80it/s, est. speed input: 7701.59 toks/s, output: 389.84 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:07,  6.81it/s, est. speed input: 10156.76 toks/s, output: 533.46 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:07,  6.82it/s, est. speed input: 10944.03 toks/s, output: 593.53 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:05,  8.24it/s, est. speed input: 12091.14 toks/s, output: 675.33 toks/s][A
+Processed prompts:  30%|██▉       | 19/64 [00:04<00:06,  6.55it/s, est. speed input: 12253.27 toks/s, output: 715.35 toks/s][A
+Processed prompts:  72%|███████▏  | 46/64 [00:05<00:00, 37.38it/s, est. speed input: 29090.24 toks/s, output: 2061.61 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 37.38it/s, est. speed input: 40459.33 toks/s, output: 2968.64 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.60it/s, est. speed input: 40459.33 toks/s, output: 2968.64 toks/s]
+Running LLM batches:  56%|█████▌    | 38/68 [03:44<02:56,  5.87s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 150.75it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 152.88it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 154.36it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 154.18it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 153.71it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:32,  3.37s/it, est. speed input: 951.26 toks/s, output: 46.84 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:36,  1.55s/it, est. speed input: 1759.37 toks/s, output: 91.10 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:56,  1.08it/s, est. speed input: 2508.11 toks/s, output: 135.27 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:38,  1.57it/s, est. speed input: 3185.83 toks/s, output: 177.25 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:19,  3.03it/s, est. speed input: 4647.39 toks/s, output: 270.82 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:10,  5.32it/s, est. speed input: 6668.70 toks/s, output: 401.12 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:08,  6.18it/s, est. speed input: 7758.63 toks/s, output: 479.06 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:07,  6.49it/s, est. speed input: 8642.29 toks/s, output: 548.56 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:04<00:07,  6.42it/s, est. speed input: 9004.31 toks/s, output: 581.99 toks/s][A
+Processed prompts:  53%|█████▎    | 34/64 [00:05<00:00, 34.41it/s, est. speed input: 21405.38 toks/s, output: 1573.35 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 34.41it/s, est. speed input: 40023.75 toks/s, output: 3058.01 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.46it/s, est. speed input: 40023.75 toks/s, output: 3058.01 toks/s]
+Running LLM batches:  57%|█████▋    | 39/68 [03:50<02:50,  5.86s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 139.47it/s][A
+Rendering prompts:  45%|████▌     | 29/64 [00:00<00:00, 141.98it/s][A
+Rendering prompts:  69%|██████▉   | 44/64 [00:00<00:00, 142.61it/s][A
+Rendering prompts:  92%|█████████▏| 59/64 [00:00<00:00, 141.89it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 142.30it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:27,  3.29s/it, est. speed input: 977.86 toks/s, output: 47.71 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:57,  1.06it/s, est. speed input: 2738.37 toks/s, output: 139.09 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:40,  1.50it/s, est. speed input: 3500.82 toks/s, output: 181.50 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:21,  2.68it/s, est. speed input: 5038.54 toks/s, output: 270.42 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:24,  2.36it/s, est. speed input: 5119.05 toks/s, output: 284.49 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:20,  2.74it/s, est. speed input: 5587.91 toks/s, output: 321.32 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:10,  5.01it/s, est. speed input: 7402.14 toks/s, output: 457.41 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:08,  6.27it/s, est. speed input: 8460.65 toks/s, output: 543.13 toks/s][A
+Processed prompts:  55%|█████▍    | 35/64 [00:05<00:00, 33.96it/s, est. speed input: 22263.89 toks/s, output: 1644.28 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 33.96it/s, est. speed input: 40411.98 toks/s, output: 3090.96 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.58it/s, est. speed input: 40411.98 toks/s, output: 3090.96 toks/s]
+Running LLM batches:  59%|█████▉    | 40/68 [03:56<02:44,  5.87s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 136.31it/s][A
+Rendering prompts:  44%|████▍     | 28/64 [00:00<00:00, 137.91it/s][A
+Rendering prompts:  66%|██████▌   | 42/64 [00:00<00:00, 138.55it/s][A
+Rendering prompts:  88%|████████▊ | 56/64 [00:00<00:00, 136.86it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 137.41it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:58,  2.83s/it, est. speed input: 1134.59 toks/s, output: 45.92 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:02<01:17,  1.26s/it, est. speed input: 2150.55 toks/s, output: 91.13 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:33,  1.81it/s, est. speed input: 3945.54 toks/s, output: 174.65 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:24,  2.40it/s, est. speed input: 4769.27 toks/s, output: 215.41 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:21,  2.66it/s, est. speed input: 5277.50 toks/s, output: 247.17 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:11,  4.89it/s, est. speed input: 7873.80 toks/s, output: 401.90 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:08,  6.28it/s, est. speed input: 9580.63 toks/s, output: 518.63 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:07,  6.34it/s, est. speed input: 10324.43 toks/s, output: 580.88 toks/s][A
+Processed prompts:  25%|██▌       | 16/64 [00:04<00:07,  6.65it/s, est. speed input: 10750.69 toks/s, output: 618.18 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:04<00:05,  7.82it/s, est. speed input: 11700.99 toks/s, output: 698.97 toks/s][A
+Processed prompts:  81%|████████▏ | 52/64 [00:05<00:00, 58.20it/s, est. speed input: 33102.82 toks/s, output: 2412.23 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 58.20it/s, est. speed input: 40755.59 toks/s, output: 3021.74 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.70it/s, est. speed input: 40755.59 toks/s, output: 3021.74 toks/s]
+Running LLM batches:  60%|██████    | 41/68 [04:02<02:38,  5.85s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 138.84it/s][A
+Rendering prompts:  45%|████▌     | 29/64 [00:00<00:00, 143.88it/s][A
+Rendering prompts:  69%|██████▉   | 44/64 [00:00<00:00, 145.51it/s][A
+Rendering prompts:  92%|█████████▏| 59/64 [00:00<00:00, 146.30it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 145.87it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:42,  3.54s/it, est. speed input: 908.91 toks/s, output: 47.75 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:59,  1.03it/s, est. speed input: 2609.17 toks/s, output: 141.31 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:42,  1.42it/s, est. speed input: 3307.17 toks/s, output: 183.52 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:34,  1.71it/s, est. speed input: 3795.71 toks/s, output: 217.56 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:25,  2.27it/s, est. speed input: 4415.96 toks/s, output: 260.67 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:16,  3.47it/s, est. speed input: 5575.26 toks/s, output: 343.16 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:14,  3.81it/s, est. speed input: 6025.02 toks/s, output: 378.75 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:08,  6.46it/s, est. speed input: 7762.69 toks/s, output: 513.44 toks/s][A
+Processed prompts:  34%|███▍      | 22/64 [00:05<00:02, 19.05it/s, est. speed input: 13923.65 toks/s, output: 1006.28 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 19.05it/s, est. speed input: 40078.05 toks/s, output: 3091.62 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.48it/s, est. speed input: 40078.05 toks/s, output: 3091.62 toks/s]
+Running LLM batches:  62%|██████▏   | 42/68 [04:08<02:32,  5.86s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 147.36it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 150.91it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 149.93it/s][A
+Rendering prompts:  97%|█████████▋| 62/64 [00:00<00:00, 148.47it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 148.89it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:41,  3.51s/it, est. speed input: 912.15 toks/s, output: 48.14 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:04<01:59,  1.93s/it, est. speed input: 1483.87 toks/s, output: 86.92 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<01:08,  1.12s/it, est. speed input: 2148.37 toks/s, output: 131.92 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:33,  1.75it/s, est. speed input: 3352.28 toks/s, output: 218.94 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:15,  3.50it/s, est. speed input: 5197.59 toks/s, output: 357.29 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:05<00:11,  4.84it/s, est. speed input: 6353.71 toks/s, output: 446.05 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:05<00:04, 11.73it/s, est. speed input: 10595.35 toks/s, output: 778.39 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 11.73it/s, est. speed input: 39359.36 toks/s, output: 3073.42 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.26it/s, est. speed input: 39359.36 toks/s, output: 3073.42 toks/s]
+Running LLM batches:  63%|██████▎   | 43/68 [04:13<02:27,  5.89s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 143.30it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 148.03it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 150.28it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 151.02it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 149.73it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:16,  3.12s/it, est. speed input: 1029.58 toks/s, output: 48.10 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:54,  1.11it/s, est. speed input: 2863.71 toks/s, output: 137.14 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:15,  3.68it/s, est. speed input: 7275.53 toks/s, output: 361.84 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:03<00:11,  4.80it/s, est. speed input: 8813.89 toks/s, output: 450.49 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:03<00:05,  8.32it/s, est. speed input: 12594.45 toks/s, output: 666.68 toks/s][A
+Processed prompts:  28%|██▊       | 18/64 [00:04<00:06,  6.88it/s, est. speed input: 13035.84 toks/s, output: 720.14 toks/s][A
+Processed prompts:  31%|███▏      | 20/64 [00:04<00:06,  6.50it/s, est. speed input: 13380.70 toks/s, output: 771.78 toks/s][A
+Processed prompts:  56%|█████▋    | 36/64 [00:04<00:01, 20.85it/s, est. speed input: 23547.04 toks/s, output: 1588.62 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:04<00:00, 20.85it/s, est. speed input: 41509.60 toks/s, output: 3024.36 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:04<00:00, 12.93it/s, est. speed input: 41509.60 toks/s, output: 3024.36 toks/s]
+Running LLM batches:  65%|██████▍   | 44/68 [04:19<02:20,  5.83s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.15it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.44it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 150.10it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 149.36it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 149.63it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:52,  2.73s/it, est. speed input: 1173.89 toks/s, output: 47.60 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:39,  1.60s/it, est. speed input: 1808.27 toks/s, output: 84.32 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:39,  1.53it/s, est. speed input: 3452.17 toks/s, output: 174.56 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:21,  2.66it/s, est. speed input: 4998.11 toks/s, output: 265.65 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:15,  3.71it/s, est. speed input: 6295.40 toks/s, output: 345.70 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:08,  6.02it/s, est. speed input: 8376.88 toks/s, output: 477.97 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:08,  6.34it/s, est. speed input: 9287.82 toks/s, output: 546.89 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:08,  6.10it/s, est. speed input: 9926.83 toks/s, output: 603.58 toks/s][A
+Processed prompts:  33%|███▎      | 21/64 [00:04<00:03, 12.22it/s, est. speed input: 13576.49 toks/s, output: 899.37 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.22it/s, est. speed input: 40832.91 toks/s, output: 3074.33 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.72it/s, est. speed input: 40832.91 toks/s, output: 3074.33 toks/s]
+Running LLM batches:  66%|██████▌   | 45/68 [04:25<02:13,  5.81s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 150.71it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 151.50it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 152.78it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.70it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 151.07it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:04,  2.92s/it, est. speed input: 1097.87 toks/s, output: 46.84 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:27,  1.41s/it, est. speed input: 1961.32 toks/s, output: 90.15 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:54,  1.11it/s, est. speed input: 2701.90 toks/s, output: 130.32 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:15,  3.71it/s, est. speed input: 6104.88 toks/s, output: 314.26 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:03<00:11,  4.92it/s, est. speed input: 7546.29 toks/s, output: 396.88 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:11,  4.72it/s, est. speed input: 8237.52 toks/s, output: 446.95 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:08,  5.96it/s, est. speed input: 9415.22 toks/s, output: 531.85 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:07,  6.63it/s, est. speed input: 10332.58 toks/s, output: 605.85 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:06,  6.94it/s, est. speed input: 11096.81 toks/s, output: 674.02 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  6.94it/s, est. speed input: 41057.21 toks/s, output: 3066.95 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.79it/s, est. speed input: 41057.21 toks/s, output: 3066.95 toks/s]
+Running LLM batches:  68%|██████▊   | 46/68 [04:31<02:07,  5.79s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.25it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.32it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 152.03it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 151.81it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 151.54it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:29,  3.33s/it, est. speed input: 968.04 toks/s, output: 50.74 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:56,  1.08it/s, est. speed input: 2760.89 toks/s, output: 145.25 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:28,  2.08it/s, est. speed input: 4451.97 toks/s, output: 237.95 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:17,  3.32it/s, est. speed input: 6039.03 toks/s, output: 329.35 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:18,  2.98it/s, est. speed input: 6411.09 toks/s, output: 364.13 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:17,  3.02it/s, est. speed input: 6659.18 toks/s, output: 390.49 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:15,  3.46it/s, est. speed input: 7107.15 toks/s, output: 430.19 toks/s][A
+Processed prompts:  50%|█████     | 32/64 [00:05<00:01, 24.46it/s, est. speed input: 20199.90 toks/s, output: 1476.15 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 24.46it/s, est. speed input: 40171.60 toks/s, output: 3070.77 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.51it/s, est. speed input: 40171.60 toks/s, output: 3070.77 toks/s]
+Running LLM batches:  69%|██████▉   | 47/68 [04:37<02:02,  5.81s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 142.20it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 144.74it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 144.91it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 145.83it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 145.70it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:01,  2.88s/it, est. speed input: 1118.76 toks/s, output: 46.24 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:23,  1.34s/it, est. speed input: 2043.12 toks/s, output: 89.27 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:36,  1.63it/s, est. speed input: 3663.58 toks/s, output: 172.35 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:16,  3.52it/s, est. speed input: 6211.49 toks/s, output: 308.81 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:03<00:11,  4.91it/s, est. speed input: 7746.92 toks/s, output: 393.78 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:10,  4.82it/s, est. speed input: 8487.83 toks/s, output: 446.20 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:11,  4.56it/s, est. speed input: 8977.25 toks/s, output: 500.69 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:04<00:11,  4.52it/s, est. speed input: 9212.56 toks/s, output: 529.67 toks/s][A
+Processed prompts:  67%|██████▋   | 43/64 [00:04<00:00, 35.10it/s, est. speed input: 27676.93 toks/s, output: 2005.29 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 35.10it/s, est. speed input: 41084.16 toks/s, output: 3073.40 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.78it/s, est. speed input: 41084.16 toks/s, output: 3073.40 toks/s]
+Running LLM batches:  71%|███████   | 48/68 [04:42<01:55,  5.80s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 140.85it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 145.19it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 147.09it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 146.48it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 145.63it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:14,  3.08s/it, est. speed input: 1040.22 toks/s, output: 47.06 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:51,  1.19it/s, est. speed input: 3006.09 toks/s, output: 140.78 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:27,  2.16it/s, est. speed input: 4704.15 toks/s, output: 226.71 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:22,  2.61it/s, est. speed input: 5376.59 toks/s, output: 266.02 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:19,  2.86it/s, est. speed input: 5843.79 toks/s, output: 297.06 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:13,  4.22it/s, est. speed input: 7166.21 toks/s, output: 380.91 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:09,  5.69it/s, est. speed input: 8430.06 toks/s, output: 462.92 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:09,  5.35it/s, est. speed input: 8722.28 toks/s, output: 489.17 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:09,  5.52it/s, est. speed input: 9113.08 toks/s, output: 521.64 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:06,  7.10it/s, est. speed input: 10158.41 toks/s, output: 602.00 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:05,  9.10it/s, est. speed input: 11247.68 toks/s, output: 690.52 toks/s][A
+Processed prompts:  38%|███▊      | 24/64 [00:04<00:01, 20.33it/s, est. speed input: 15516.30 toks/s, output: 1036.39 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 20.33it/s, est. speed input: 40876.12 toks/s, output: 3060.96 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.74it/s, est. speed input: 40876.12 toks/s, output: 3060.96 toks/s]
+Running LLM batches:  72%|███████▏  | 49/68 [04:48<01:50,  5.80s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 141.94it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 145.23it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 146.36it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 147.43it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 146.89it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:16,  3.12s/it, est. speed input: 1030.31 toks/s, output: 47.73 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:53,  1.14it/s, est. speed input: 2911.49 toks/s, output: 138.51 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:40,  1.47it/s, est. speed input: 3553.92 toks/s, output: 176.04 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:23,  2.48it/s, est. speed input: 4993.69 toks/s, output: 259.56 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:18,  3.01it/s, est. speed input: 5634.76 toks/s, output: 299.78 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:15,  3.49it/s, est. speed input: 6508.10 toks/s, output: 364.53 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:11,  4.81it/s, est. speed input: 7681.32 toks/s, output: 449.91 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:06,  7.15it/s, est. speed input: 9814.08 toks/s, output: 613.94 toks/s][A
+Processed prompts:  58%|█████▊    | 37/64 [00:05<00:00, 31.77it/s, est. speed input: 23653.96 toks/s, output: 1721.89 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 31.77it/s, est. speed input: 40767.17 toks/s, output: 3083.72 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.68it/s, est. speed input: 40767.17 toks/s, output: 3083.72 toks/s]
+Running LLM batches:  74%|███████▎  | 50/68 [04:54<01:44,  5.79s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.70it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.44it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 150.56it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.33it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.39it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:39,  3.48s/it, est. speed input: 926.06 toks/s, output: 47.45 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:35,  1.55s/it, est. speed input: 1750.78 toks/s, output: 92.63 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<01:01,  1.01s/it, est. speed input: 2377.86 toks/s, output: 133.47 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:29,  1.98it/s, est. speed input: 3753.22 toks/s, output: 221.85 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:26,  2.21it/s, est. speed input: 4188.75 toks/s, output: 255.88 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:20,  2.83it/s, est. speed input: 4767.63 toks/s, output: 298.51 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:13,  4.17it/s, est. speed input: 5870.84 toks/s, output: 383.28 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:05<00:11,  4.70it/s, est. speed input: 6354.00 toks/s, output: 422.50 toks/s][A
+Processed prompts:  61%|██████    | 39/64 [00:05<00:00, 44.23it/s, est. speed input: 24233.21 toks/s, output: 1850.55 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 44.23it/s, est. speed input: 39651.63 toks/s, output: 3080.58 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.35it/s, est. speed input: 39651.63 toks/s, output: 3080.58 toks/s]
+Running LLM batches:  75%|███████▌  | 51/68 [05:00<01:39,  5.84s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 146.17it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 150.37it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.24it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.12it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.04it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:10,  3.02s/it, est. speed input: 1059.85 toks/s, output: 47.63 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:27,  1.42s/it, est. speed input: 1934.01 toks/s, output: 91.15 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:51,  1.19it/s, est. speed input: 2772.79 toks/s, output: 135.29 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:19,  2.96it/s, est. speed input: 5179.07 toks/s, output: 265.78 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:16,  3.36it/s, est. speed input: 5780.70 toks/s, output: 302.89 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:08,  5.92it/s, est. speed input: 8847.53 toks/s, output: 495.54 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:06,  7.78it/s, est. speed input: 10666.26 toks/s, output: 625.57 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:05,  8.01it/s, est. speed input: 11507.21 toks/s, output: 698.35 toks/s][A
+Processed prompts:  30%|██▉       | 19/64 [00:04<00:04,  9.20it/s, est. speed input: 12522.80 toks/s, output: 781.94 toks/s][A
+Processed prompts:  41%|████      | 26/64 [00:04<00:02, 17.88it/s, est. speed input: 16758.01 toks/s, output: 1123.60 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 17.88it/s, est. speed input: 40846.59 toks/s, output: 3046.90 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.73it/s, est. speed input: 40846.59 toks/s, output: 3046.90 toks/s]
+Running LLM batches:  76%|███████▋  | 52/68 [05:06<01:33,  5.81s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.25it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.05it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.84it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.19it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.43it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:12,  3.06s/it, est. speed input: 1050.58 toks/s, output: 46.46 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:36,  1.64it/s, est. speed input: 4049.00 toks/s, output: 180.94 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:23,  2.49it/s, est. speed input: 5600.49 toks/s, output: 256.29 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:15,  3.67it/s, est. speed input: 7191.15 toks/s, output: 338.20 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:03<00:11,  4.86it/s, est. speed input: 8588.12 toks/s, output: 414.95 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:04<00:10,  4.98it/s, est. speed input: 9938.23 toks/s, output: 511.08 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:08,  5.76it/s, est. speed input: 11151.81 toks/s, output: 616.10 toks/s][A
+Processed prompts:  38%|███▊      | 24/64 [00:05<00:03, 11.27it/s, est. speed input: 15386.59 toks/s, output: 958.62 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 11.27it/s, est. speed input: 40621.96 toks/s, output: 2973.73 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.66it/s, est. speed input: 40621.96 toks/s, output: 2973.73 toks/s]
+Running LLM batches:  78%|███████▊  | 53/68 [05:11<01:27,  5.80s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  22%|██▏       | 14/64 [00:00<00:00, 139.62it/s][A
+Rendering prompts:  45%|████▌     | 29/64 [00:00<00:00, 145.04it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 148.70it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 148.74it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 147.84it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:13,  3.07s/it, est. speed input: 1046.06 toks/s, output: 50.54 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:28,  2.06it/s, est. speed input: 5013.18 toks/s, output: 240.21 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:03<00:20,  2.81it/s, est. speed input: 6450.31 toks/s, output: 317.43 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:03<00:15,  3.45it/s, est. speed input: 7561.19 toks/s, output: 384.79 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:18,  2.92it/s, est. speed input: 7485.41 toks/s, output: 407.73 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:16,  3.21it/s, est. speed input: 7864.94 toks/s, output: 444.99 toks/s][A
+Processed prompts:  50%|█████     | 32/64 [00:05<00:01, 19.01it/s, est. speed input: 20501.10 toks/s, output: 1455.96 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 19.01it/s, est. speed input: 40803.54 toks/s, output: 3075.42 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.71it/s, est. speed input: 40803.54 toks/s, output: 3075.42 toks/s]
+Running LLM batches:  79%|███████▉  | 54/68 [05:17<01:21,  5.79s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.01it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 151.83it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 153.40it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.09it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.12it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:53,  2.75s/it, est. speed input: 1162.28 toks/s, output: 49.73 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:30,  1.45s/it, est. speed input: 1943.15 toks/s, output: 91.33 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:55,  1.10it/s, est. speed input: 2695.15 toks/s, output: 132.69 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:36,  1.63it/s, est. speed input: 3448.58 toks/s, output: 175.16 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:19,  3.00it/s, est. speed input: 4949.35 toks/s, output: 262.89 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:16,  3.47it/s, est. speed input: 5533.45 toks/s, output: 300.52 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:04<00:13,  4.20it/s, est. speed input: 6155.22 toks/s, output: 341.12 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:11,  4.94it/s, est. speed input: 6743.03 toks/s, output: 380.72 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:10,  5.21it/s, est. speed input: 7212.51 toks/s, output: 415.93 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:10,  5.16it/s, est. speed input: 7594.35 toks/s, output: 447.69 toks/s][A
+Processed prompts:  22%|██▏       | 14/64 [00:04<00:05,  8.85it/s, est. speed input: 9368.04 toks/s, output: 581.34 toks/s][A
+Processed prompts:  25%|██▌       | 16/64 [00:04<00:04, 10.08it/s, est. speed input: 10389.16 toks/s, output: 664.34 toks/s][A
+Processed prompts:  62%|██████▎   | 40/64 [00:05<00:00, 55.15it/s, est. speed input: 25414.33 toks/s, output: 1865.84 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 55.15it/s, est. speed input: 40495.62 toks/s, output: 3069.70 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.63it/s, est. speed input: 40495.62 toks/s, output: 3069.70 toks/s]
+Running LLM batches:  81%|████████  | 55/68 [05:23<01:14,  5.73s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 145.85it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 146.34it/s][A
+Rendering prompts:  70%|███████   | 45/64 [00:00<00:00, 145.49it/s][A
+Rendering prompts:  94%|█████████▍| 60/64 [00:00<00:00, 146.81it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 146.50it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:02,  2.90s/it, est. speed input: 1103.38 toks/s, output: 47.18 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:28,  1.42s/it, est. speed input: 1951.17 toks/s, output: 88.74 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:39,  1.51it/s, est. speed input: 3461.43 toks/s, output: 169.46 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:36,  1.64it/s, est. speed input: 3819.24 toks/s, output: 197.80 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:32,  1.77it/s, est. speed input: 4134.54 toks/s, output: 227.78 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:26,  2.14it/s, est. speed input: 4579.91 toks/s, output: 265.46 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:05<00:16,  3.41it/s, est. speed input: 5668.00 toks/s, output: 353.92 toks/s][A
+Processed prompts:  97%|█████████▋| 62/64 [00:05<00:00, 56.79it/s, est. speed input: 38267.56 toks/s, output: 2955.72 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 56.79it/s, est. speed input: 39498.26 toks/s, output: 3054.12 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.31it/s, est. speed input: 39498.26 toks/s, output: 3054.12 toks/s]
+Running LLM batches:  82%|████████▏ | 56/68 [05:28<01:08,  5.74s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 150.34it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 151.34it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 150.63it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 151.43it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 151.13it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:27,  3.29s/it, est. speed input: 978.67 toks/s, output: 48.37 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:39,  1.60s/it, est. speed input: 1732.62 toks/s, output: 90.74 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<01:28,  1.45s/it, est. speed input: 1934.67 toks/s, output: 116.44 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:05<00:24,  2.36it/s, est. speed input: 4400.66 toks/s, output: 314.46 toks/s][A
+Processed prompts:  72%|███████▏  | 46/64 [00:05<00:00, 24.47it/s, est. speed input: 28323.73 toks/s, output: 2222.03 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 24.47it/s, est. speed input: 39304.50 toks/s, output: 3099.87 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.25it/s, est. speed input: 39304.50 toks/s, output: 3099.87 toks/s]
+Running LLM batches:  84%|████████▍ | 57/68 [05:34<01:03,  5.79s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 144.13it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 148.18it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 149.84it/s][A
+Rendering prompts:  97%|█████████▋| 62/64 [00:00<00:00, 149.84it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 149.27it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:18,  3.15s/it, est. speed input: 1018.43 toks/s, output: 46.71 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:38,  1.59s/it, est. speed input: 1758.68 toks/s, output: 87.37 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:04<01:17,  1.26s/it, est. speed input: 2131.25 toks/s, output: 118.54 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:49,  1.22it/s, est. speed input: 2757.42 toks/s, output: 163.84 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:04<00:35,  1.65it/s, est. speed input: 3283.24 toks/s, output: 205.47 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:05<00:20,  2.81it/s, est. speed input: 4388.18 toks/s, output: 293.63 toks/s][A
+Processed prompts:  41%|████      | 26/64 [00:05<00:01, 20.04it/s, est. speed input: 15967.79 toks/s, output: 1218.71 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 20.04it/s, est. speed input: 39153.97 toks/s, output: 3067.98 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.21it/s, est. speed input: 39153.97 toks/s, output: 3067.98 toks/s]
+Running LLM batches:  85%|████████▌ | 58/68 [05:40<00:58,  5.85s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  25%|██▌       | 16/64 [00:00<00:00, 151.35it/s][A
+Rendering prompts:  50%|█████     | 32/64 [00:00<00:00, 153.14it/s][A
+Rendering prompts:  75%|███████▌  | 48/64 [00:00<00:00, 153.49it/s][A
+Rendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.82it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 152.79it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:02,  2.89s/it, est. speed input: 1107.72 toks/s, output: 48.39 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:27,  1.41s/it, est. speed input: 1965.34 toks/s, output: 90.75 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:39,  1.54it/s, est. speed input: 3499.82 toks/s, output: 172.81 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:03<00:23,  2.52it/s, est. speed input: 4948.29 toks/s, output: 256.77 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:19,  2.94it/s, est. speed input: 5532.36 toks/s, output: 294.09 toks/s][A
+Processed prompts:  14%|█▍        | 9/64 [00:04<00:12,  4.37it/s, est. speed input: 6859.65 toks/s, output: 379.57 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:13,  4.02it/s, est. speed input: 7092.02 toks/s, output: 401.59 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:04<00:14,  3.72it/s, est. speed input: 7270.00 toks/s, output: 424.34 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:09,  5.52it/s, est. speed input: 8390.99 toks/s, output: 517.51 toks/s][A
+Processed prompts:  50%|█████     | 32/64 [00:05<00:01, 30.93it/s, est. speed input: 20207.36 toks/s, output: 1463.54 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 30.93it/s, est. speed input: 40163.03 toks/s, output: 3054.43 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.51it/s, est. speed input: 40163.03 toks/s, output: 3054.43 toks/s]
+Running LLM batches:  87%|████████▋ | 59/68 [05:46<00:52,  5.84s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.23it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.49it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.64it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.51it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.73it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:42,  3.52s/it, est. speed input: 913.22 toks/s, output: 48.23 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:37,  1.58s/it, est. speed input: 1719.99 toks/s, output: 93.36 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:38,  1.56it/s, est. speed input: 3289.58 toks/s, output: 185.37 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:32,  1.76it/s, est. speed input: 3954.42 toks/s, output: 236.18 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:05<00:26,  2.14it/s, est. speed input: 4456.76 toks/s, output: 278.93 toks/s][A
+Processed prompts:  44%|████▍     | 28/64 [00:05<00:02, 16.99it/s, est. speed input: 17475.91 toks/s, output: 1316.03 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 16.99it/s, est. speed input: 39607.71 toks/s, output: 3081.90 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.33it/s, est. speed input: 39607.71 toks/s, output: 3081.90 toks/s]
+Running LLM batches:  88%|████████▊ | 60/68 [05:52<00:46,  5.87s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.74it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.41it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.17it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.54it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.67it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:39,  3.49s/it, est. speed input: 918.07 toks/s, output: 47.31 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:36,  1.62it/s, est. speed input: 4079.08 toks/s, output: 215.92 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:38,  1.51it/s, est. speed input: 4055.53 toks/s, output: 227.82 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:30,  1.89it/s, est. speed input: 4601.68 toks/s, output: 271.54 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:05<00:24,  2.25it/s, est. speed input: 5044.01 toks/s, output: 310.72 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 45.51it/s, est. speed input: 39545.47 toks/s, output: 3061.85 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 45.51it/s, est. speed input: 39545.47 toks/s, output: 3061.85 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.31it/s, est. speed input: 39545.47 toks/s, output: 3061.85 toks/s]
+Running LLM batches:  90%|████████▉ | 61/68 [05:58<00:41,  5.91s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 149.45it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.95it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 152.09it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.53it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.78it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<02:54,  2.77s/it, est. speed input: 1162.39 toks/s, output: 48.76 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:04<02:11,  2.12s/it, est. speed input: 1447.71 toks/s, output: 79.54 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:05<01:27,  1.43s/it, est. speed input: 1914.18 toks/s, output: 120.89 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:05<00:11,  4.58it/s, est. speed input: 7490.12 toks/s, output: 563.88 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  4.58it/s, est. speed input: 39378.10 toks/s, output: 3107.46 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.26it/s, est. speed input: 39378.10 toks/s, output: 3107.46 toks/s]
+Running LLM batches:  91%|█████████ | 62/68 [06:04<00:35,  5.96s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 146.61it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 150.26it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 149.57it/s][A
+Rendering prompts:  97%|█████████▋| 62/64 [00:00<00:00, 149.49it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 149.37it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:59,  3.80s/it, est. speed input: 845.84 toks/s, output: 47.14 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:04<02:10,  2.10s/it, est. speed input: 1366.17 toks/s, output: 86.79 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:51,  1.17it/s, est. speed input: 2603.44 toks/s, output: 178.43 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:05<00:28,  2.01it/s, est. speed input: 3755.51 toks/s, output: 268.44 toks/s][A
+Processed prompts:  41%|████      | 26/64 [00:05<00:02, 14.57it/s, est. speed input: 15961.60 toks/s, output: 1240.56 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 14.57it/s, est. speed input: 39048.52 toks/s, output: 3081.80 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.16it/s, est. speed input: 39048.52 toks/s, output: 3081.80 toks/s]
+Running LLM batches:  93%|█████████▎| 63/68 [06:10<00:29,  5.99s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 141.75it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 147.27it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 150.83it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 151.43it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 149.88it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:14,  3.09s/it, est. speed input: 1039.08 toks/s, output: 46.33 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:03<00:38,  1.57it/s, est. speed input: 3913.26 toks/s, output: 184.21 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:28,  2.04it/s, est. speed input: 4727.07 toks/s, output: 225.50 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:03<00:14,  3.93it/s, est. speed input: 7201.76 toks/s, output: 355.09 toks/s][A
+Processed prompts:  17%|█▋        | 11/64 [00:03<00:08,  6.22it/s, est. speed input: 9582.59 toks/s, output: 487.03 toks/s][A
+Processed prompts:  20%|██        | 13/64 [00:04<00:13,  3.92it/s, est. speed input: 8982.11 toks/s, output: 477.00 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:04<00:10,  4.79it/s, est. speed input: 9944.49 toks/s, output: 563.39 toks/s][A
+Processed prompts:  53%|█████▎    | 34/64 [00:04<00:01, 21.62it/s, est. speed input: 22044.37 toks/s, output: 1531.69 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:04<00:00, 21.62it/s, est. speed input: 41177.55 toks/s, output: 3059.22 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:04<00:00, 12.83it/s, est. speed input: 41177.55 toks/s, output: 3059.22 toks/s]
+Running LLM batches:  94%|█████████▍| 64/68 [06:16<00:23,  5.95s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.23it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.05it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 152.01it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 150.42it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.57it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:03<03:37,  3.45s/it, est. speed input: 935.43 toks/s, output: 48.13 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:32,  1.50s/it, est. speed input: 1794.85 toks/s, output: 95.14 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:44,  1.35it/s, est. speed input: 3086.87 toks/s, output: 174.28 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:20,  2.81it/s, est. speed input: 5142.66 toks/s, output: 309.03 toks/s][A
+Processed prompts:  16%|█▌        | 10/64 [00:04<00:11,  4.59it/s, est. speed input: 7103.07 toks/s, output: 443.18 toks/s][A
+Processed prompts:  19%|█▉        | 12/64 [00:04<00:08,  5.88it/s, est. speed input: 8308.07 toks/s, output: 532.13 toks/s][A
+Processed prompts:  27%|██▋       | 17/64 [00:04<00:05,  8.68it/s, est. speed input: 11007.51 toks/s, output: 737.21 toks/s][A
+Processed prompts:  50%|█████     | 32/64 [00:05<00:01, 24.44it/s, est. speed input: 20267.67 toks/s, output: 1479.09 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 24.44it/s, est. speed input: 40373.14 toks/s, output: 3082.06 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.58it/s, est. speed input: 40373.14 toks/s, output: 3082.06 toks/s]
+Running LLM batches:  96%|█████████▌| 65/68 [06:22<00:17,  5.97s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 145.54it/s][A
+Rendering prompts:  47%|████▋     | 30/64 [00:00<00:00, 147.10it/s][A
+Rendering prompts:  72%|███████▏  | 46/64 [00:00<00:00, 148.86it/s][A
+Rendering prompts:  95%|█████████▌| 61/64 [00:00<00:00, 148.95it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 148.36it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:04,  2.93s/it, est. speed input: 1097.26 toks/s, output: 46.44 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:33,  1.51s/it, est. speed input: 1863.36 toks/s, output: 86.70 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<00:53,  1.13it/s, est. speed input: 2688.08 toks/s, output: 131.49 toks/s][A
+Processed prompts:   8%|▊         | 5/64 [00:03<00:25,  2.35it/s, est. speed input: 4294.64 toks/s, output: 220.16 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:32,  1.77it/s, est. speed input: 4147.89 toks/s, output: 225.84 toks/s][A
+Processed prompts:  11%|█         | 7/64 [00:04<00:26,  2.12it/s, est. speed input: 4598.96 toks/s, output: 264.29 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:05<00:21,  2.66it/s, est. speed input: 5099.21 toks/s, output: 306.27 toks/s][A
+Processed prompts:  34%|███▍      | 22/64 [00:05<00:02, 16.31it/s, est. speed input: 13742.19 toks/s, output: 996.84 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00, 16.31it/s, est. speed input: 39533.40 toks/s, output: 3057.35 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.32it/s, est. speed input: 39533.40 toks/s, output: 3057.35 toks/s]
+Running LLM batches:  97%|█████████▋| 66/68 [06:28<00:12,  6.01s/it]
+Rendering prompts:   0%|          | 0/64 [00:00<?, ?it/s][A
+Rendering prompts:  23%|██▎       | 15/64 [00:00<00:00, 148.79it/s][A
+Rendering prompts:  48%|████▊     | 31/64 [00:00<00:00, 151.23it/s][A
+Rendering prompts:  73%|███████▎  | 47/64 [00:00<00:00, 151.19it/s][A
+Rendering prompts:  98%|█████████▊| 63/64 [00:00<00:00, 149.93it/s][ARendering prompts: 100%|██████████| 64/64 [00:00<00:00, 150.18it/s]
+
+Processed prompts:   0%|          | 0/64 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/64 [00:02<03:06,  2.96s/it, est. speed input: 1082.76 toks/s, output: 48.36 toks/s][A
+Processed prompts:   3%|▎         | 2/64 [00:03<01:45,  1.70s/it, est. speed input: 1701.38 toks/s, output: 87.26 toks/s][A
+Processed prompts:   5%|▍         | 3/64 [00:03<01:01,  1.00s/it, est. speed input: 2439.87 toks/s, output: 131.59 toks/s][A
+Processed prompts:   6%|▋         | 4/64 [00:04<00:44,  1.33it/s, est. speed input: 2976.01 toks/s, output: 169.63 toks/s][A
+Processed prompts:   9%|▉         | 6/64 [00:04<00:23,  2.48it/s, est. speed input: 4274.68 toks/s, output: 258.24 toks/s][A
+Processed prompts:  12%|█▎        | 8/64 [00:05<00:19,  2.91it/s, est. speed input: 5099.68 toks/s, output: 326.66 toks/s][A
+Processed prompts:  23%|██▎       | 15/64 [00:05<00:05,  8.41it/s, est. speed input: 9371.95 toks/s, output: 669.17 toks/s][A
+Processed prompts: 100%|██████████| 64/64 [00:05<00:00,  8.41it/s, est. speed input: 39594.03 toks/s, output: 3081.13 toks/s][AProcessed prompts: 100%|██████████| 64/64 [00:05<00:00, 12.34it/s, est. speed input: 39594.03 toks/s, output: 3081.13 toks/s]
+Running LLM batches:  99%|█████████▊| 67/68 [06:34<00:06,  6.05s/it]
+Rendering prompts:   0%|          | 0/62 [00:00<?, ?it/s][A
+Rendering prompts:  24%|██▍       | 15/62 [00:00<00:00, 148.15it/s][A
+Rendering prompts:  50%|█████     | 31/62 [00:00<00:00, 151.26it/s][A
+Rendering prompts:  76%|███████▌  | 47/62 [00:00<00:00, 150.69it/s][ARendering prompts: 100%|██████████| 62/62 [00:00<00:00, 150.09it/s]
+
+Processed prompts:   0%|          | 0/62 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s][A
+Processed prompts:   2%|▏         | 1/62 [00:02<02:59,  2.94s/it, est. speed input: 1092.88 toks/s, output: 48.67 toks/s][A
+Processed prompts:   3%|▎         | 2/62 [00:03<01:31,  1.52s/it, est. speed input: 1852.00 toks/s, output: 90.71 toks/s][A
+Processed prompts:   8%|▊         | 5/62 [00:03<00:27,  2.07it/s, est. speed input: 4370.16 toks/s, output: 230.71 toks/s][A
+Processed prompts:  10%|▉         | 6/62 [00:04<00:26,  2.13it/s, est. speed input: 4693.76 toks/s, output: 256.43 toks/s][A
+Processed prompts:  11%|█▏        | 7/62 [00:04<00:24,  2.23it/s, est. speed input: 4995.62 toks/s, output: 284.14 toks/s][A
+Processed prompts:  18%|█▊        | 11/62 [00:04<00:12,  4.23it/s, est. speed input: 7233.40 toks/s, output: 452.98 toks/s][A
+Processed prompts:  26%|██▌       | 16/62 [00:05<00:05,  7.97it/s, est. speed input: 10276.79 toks/s, output: 696.65 toks/s][A
+Processed prompts: 100%|██████████| 62/62 [00:05<00:00,  7.97it/s, est. speed input: 39358.30 toks/s, output: 3017.00 toks/s][AProcessed prompts: 100%|██████████| 62/62 [00:05<00:00, 12.26it/s, est. speed input: 39358.30 toks/s, output: 3017.00 toks/s]
+Running LLM batches: 100%|██████████| 68/68 [06:40<00:00,  6.03s/it]Running LLM batches: 100%|██████████| 68/68 [06:40<00:00,  5.90s/it]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/spawn.py", line 131, in _main
+    prepare(preparation_data)
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_rank_centrality.py", line 77, in <module>
+    comp = LLMComparator(
+           ^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMcomparator.py", line 73, in __init__
+    self.llm = LLM(
+               ^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 382, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(
+           ^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 111, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 101, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 710, in __init__
+    super().__init__(
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 535, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 980, in launch_core_engines
+    local_engine_manager = CoreEngineProcManager(
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 149, in __init__
+    proc.start()
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/process.py", line 121, in start
+    self._popen = self._Popen(self)
+                  ^^^^^^^^^^^^^^^^^
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/context.py", line 289, in _Popen
+    return Popen(process_obj)
+           ^^^^^^^^^^^^^^^^^^
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/popen_spawn_posix.py", line 32, in __init__
+    super().__init__(process_obj)
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/popen_fork.py", line 19, in __init__
+    self._launch(process_obj)
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/popen_spawn_posix.py", line 42, in _launch
+    prep_data = spawn.get_preparation_data(process_obj._name)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/spawn.py", line 164, in get_preparation_data
+    _check_not_importing_main()
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/multiprocessing/spawn.py", line 140, in _check_not_importing_main
+    raise RuntimeError('''
+RuntimeError: 
+        An attempt has been made to start a new process before the
+        current process has finished its bootstrapping phase.
+
+        This probably means that you are not using fork to start your
+        child processes and you have forgotten to use the proper idiom
+        in the main module:
+
+            if __name__ == '__main__':
+                freeze_support()
+                ...
+
+        The "freeze_support()" line can be omitted if the program
+        is not going to be frozen to produce an executable.
+
+        To fix this issue, refer to the "Safe importing of main module"
+        section in https://docs.python.org/3/library/multiprocessing.html
+        
+Traceback (most recent call last):
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_rank_centrality.py", line 77, in <module>
+    comp = LLMComparator(
+           ^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMcomparator.py", line 73, in __init__
+    self.llm = LLM(
+               ^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 382, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 177, in from_engine_args
+    return cls(
+           ^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 111, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 101, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 710, in __init__
+    super().__init__(
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 535, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/apps/common/software/Miniforge3/25.11.0-1/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 998, in launch_core_engines
+    wait_for_engine_startup(
+  File "/projects/simlai1/Viberank/VibeRank/.venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1057, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

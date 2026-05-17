@@ -45,7 +45,7 @@ for model_cfg in models_to_run:
     llm_name = model_cfg["llm_name"]
     run_label = model_cfg["run_label"]
 
-    run_id = f"MIMIC_500_{run_label}_tournament1_seq_run"
+    run_id = f"MIMIC_500_{run_label}_tournament2_seq_run"
     log_path = dataloader.config.responses_dir / f"{run_id}.jsonl"
 
     print("=" * 80)
