@@ -13,6 +13,7 @@ results/logs/
 __pycache__/
 *.py[cod]
 *$py.class
+src/viberank/RankCentrality/parsed_outputs
 
 # Compiled extensions
 *.so
