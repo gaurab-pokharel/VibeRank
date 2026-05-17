@@ -1,9 +1,10 @@
-# %%
+# test_rank_centrality.py
 
 import sys
 from pathlib import Path
 from datetime import datetime
 import gc
+import multiprocessing as mp
 
 sys.path.insert(0, str(Path.cwd().parents[0] / "src"))
 
@@ -18,43 +19,13 @@ except ImportError:
     torch = None
 
 
-# %%
-config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/rc_vispdat.yaml")
-
-dataloader = RankCentralityDataLoader.from_yaml(config_path)
-dataloader.prepare()
-
-
-# %%
-prompt_path = "/projects/simlai1/Viberank/data/raw/hmls/prompt_vulnerability.txt"
-
-models_to_run = [
-    {
-        "llm_name": "qwen",
-        "model_name": "qwen",
-        "run_prefix": "QWEN_TAYVIFPDAT_30x30VulProp",
-    },
-    {
-        "llm_name": "llama7",
-        "model_name": "llama7",
-        "run_prefix": "LLAMA7_TAYVIFPDAT_30x30VulProp",
-    },
-    {
-        "llm_name": "deepseek8B",
-        "model_name": "deepseek8B",
-        "run_prefix": "DEEPSEEK8B_TAYVIFPDAT_30x30VulProp",
-    },
-]
-
-
-# %%
-all_results = {}
-
-for model_cfg in models_to_run:
-    llm_name = model_cfg["llm_name"]
-    model_name = model_cfg["model_name"]
-    run_prefix = model_cfg["run_prefix"]
-
+def run_one_model(
+    dataloader,
+    llm_name,
+    model_name,
+    run_prefix,
+    prompt_path,
+):
     print("\n" + "=" * 80)
     print(f"Starting model: {llm_name}")
     print("=" * 80)
@@ -70,8 +41,6 @@ for model_cfg in models_to_run:
 
     comp_kwargs = dataloader.get_comparator_kwargs()
     comp_kwargs["prompt_path"] = prompt_path
-
-    # Important: remove pairs if comparator does not accept it
     comp_kwargs.pop("pairs", None)
 
     comp = LLMComparator(
@@ -79,11 +48,11 @@ for model_cfg in models_to_run:
         num_samples=dataloader.config.run_settings.get("repeats_per_ordered_pair", 10),
         logger=logger,
         rng_seed=42,
-        llm_name=llm_name,  # qwen / llama7 / deepseek8B
+        llm_name=llm_name,
         timeout=120,
         max_tokens=256,
         temperature=0.1,
-        batch_size=64,     # use this only if your updated LLMComparator has batch_size
+        batch_size=32,
     )
 
     runner = RankCentralityExperimentRunner(
@@ -96,14 +65,12 @@ for model_cfg in models_to_run:
     )
 
     result = runner.run()
-    all_results[model_name] = result
 
     print("\nFinished model:", llm_name)
     print("Log saved to:", log_path)
     print("Result:")
     print(result)
 
-    # Cleanup before loading next vLLM model
     try:
         comp.flush_logs()
     except Exception:
@@ -119,12 +86,59 @@ for model_cfg in models_to_run:
         torch.cuda.empty_cache()
         torch.cuda.ipc_collect()
 
+    return result
 
-# %%
-print("\n" + "=" * 80)
-print("All models completed")
-print("=" * 80)
 
-for model_name, result in all_results.items():
-    print("\nModel:", model_name)
-    print(result)
+def main():
+    config_path = Path(
+        "/projects/simlai1/Viberank/VibeRank/configs/datasets/rc_vispdat.yaml"
+    )
+
+    prompt_path = "/projects/simlai1/Viberank/data/raw/hmls/prompt_vulnerability.txt"
+
+    dataloader = RankCentralityDataLoader.from_yaml(config_path)
+    dataloader.prepare()
+
+    models_to_run = [
+        {
+            "llm_name": "qwen",
+            "model_name": "qwen",
+            "run_prefix": "QWEN_TAYVIFPDAT_DecideHousehold",
+        },
+        {
+            "llm_name": "llama7",
+            "model_name": "llama7",
+            "run_prefix": "LLAMA7_TAYVIFPDAT_DecideHousehold",
+        },
+        {
+            "llm_name": "deepseek8B",
+            "model_name": "deepseek8B",
+            "run_prefix": "DEEPSEEK8B_TAYVIFPDAT_DecideHousehold",
+        },
+    ]
+
+    all_results = {}
+
+    for model_cfg in models_to_run:
+        result = run_one_model(
+            dataloader=dataloader,
+            llm_name=model_cfg["llm_name"],
+            model_name=model_cfg["model_name"],
+            run_prefix=model_cfg["run_prefix"],
+            prompt_path=prompt_path,
+        )
+
+        all_results[model_cfg["model_name"]] = result
+
+    print("\n" + "=" * 80)
+    print("All models completed")
+    print("=" * 80)
+
+    for model_name, result in all_results.items():
+        print("\nModel:", model_name)
+        print(result)
+
+
+if __name__ == "__main__":
+    mp.freeze_support()
+    main()
