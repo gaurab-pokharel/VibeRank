@@ -23,8 +23,8 @@ from viberank.datasets.mimic_rc_dataloader import MIMICRankCentralityDataLoader
 from viberank.comparators.LLMComparatorFullData import LLMComparator
 
 # %%
-config_path = Path("../configs/datasets/mimic_500.yaml")
-
+#config_path = Path("../configs/datasets/mimic_500.yaml")
+config_path = Path("/projects/simlai1/Viberank/VibeRank/configs/datasets/mimic_500.yaml")
 dataloader = MIMICRankCentralityDataLoader.from_yaml(config_path)
 dataloader.set_fraction_pairs(fraction_pairs=0.4)
 dataloader.prepare(seed=10) # change this to change tournament
@@ -45,7 +45,7 @@ len(dataloader._pairs)
 # %%
 comp_kwargs = dataloader.get_comparator_kwargs()
 pairs = comp_kwargs.pop("pairs", None)
-
+comp_kwargs["prompt_path"] = "/projects/simlai1/Viberank/data/raw/mimic/prompt_medical.txt"
 # %%
 comp = LLMComparator(
     **comp_kwargs,
