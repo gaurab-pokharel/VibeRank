@@ -1,0 +1,1052 @@
+JobID: 5516801
+Host: tc-gpu001
+Started: Sun May 17 04:33:43 AM EDT 2026
+Python: /projects/simlai1/Viberank/VibeRank/.venv/bin/python
+Python 3.12.12
+Sun May 17 04:33:43 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:C8:00.0 Off |                    0 |
+| N/A   31C    P0             63W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+INFO 05-17 04:33:59 [utils.py:233] non-default args: {'disable_log_stats': True, 'model': 'Qwen/Qwen2.5-7B-Instruct'}
+INFO 05-17 04:34:00 [model.py:549] Resolved architecture: Qwen2ForCausalLM
+INFO 05-17 04:34:00 [model.py:1678] Using max model len 32768
+INFO 05-17 04:34:00 [scheduler.py:238] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 05-17 04:34:00 [vllm.py:790] Asynchronous scheduling is enabled.
+(EngineCore pid=2614905) INFO 05-17 04:34:02 [core.py:105] Initializing a V1 LLM engine (v0.19.0) with config: model='Qwen/Qwen2.5-7B-Instruct', speculative_config=None, tokenizer='Qwen/Qwen2.5-7B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=32768, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=Qwen/Qwen2.5-7B-Instruct, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_images_per_batch': 0, 'compile_sizes': [], 'compile_ranges_endpoints': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}
+(EngineCore pid=2614905) INFO 05-17 04:34:03 [parallel_state.py:1400] world_size=1 rank=0 local_rank=0 distributed_init_method=tcp://10.128.9.201:36677 backend=nccl
+(EngineCore pid=2614905) INFO 05-17 04:34:03 [parallel_state.py:1716] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank N/A, EPLB rank N/A
+(EngineCore pid=2614905) INFO 05-17 04:34:04 [gpu_model_runner.py:4735] Starting to load model Qwen/Qwen2.5-7B-Instruct...
+(EngineCore pid=2614905) INFO 05-17 04:34:05 [cuda.py:334] Using FLASH_ATTN attention backend out of potential backends: ['FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION'].
+(EngineCore pid=2614905) INFO 05-17 04:34:05 [flash_attn.py:596] Using FlashAttention version 2
+(EngineCore pid=2614905) INFO 05-17 04:34:06 [weight_utils.py:848] Prefetching checkpoint files into page cache started (in background)
+(EngineCore pid=2614905) INFO 05-17 04:34:07 [weight_utils.py:825] Prefetching checkpoint files: 10% (1/4)
+(EngineCore pid=2614905) INFO 05-17 04:34:08 [weight_utils.py:825] Prefetching checkpoint files: 20% (2/4)
+(EngineCore pid=2614905) INFO 05-17 04:34:08 [weight_utils.py:825] Prefetching checkpoint files: 30% (3/4)
+(EngineCore pid=2614905) INFO 05-17 04:34:08 [weight_utils.py:825] Prefetching checkpoint files: 40% (4/4)
+(EngineCore pid=2614905) INFO 05-17 04:34:08 [weight_utils.py:843] Prefetching checkpoint files into page cache finished in 2.14s
+(EngineCore pid=2614905) INFO 05-17 04:34:09 [default_loader.py:384] Loading weights took 3.49 seconds
+(EngineCore pid=2614905) INFO 05-17 04:34:10 [gpu_model_runner.py:4820] Model loading took 14.25 GiB memory and 4.574018 seconds
+(EngineCore pid=2614905) INFO 05-17 04:34:14 [backends.py:1051] Using cache directory: /home/mfarabi/.cache/vllm/torch_compile_cache/541638f45c/rank_0_0/backbone for vLLM's torch.compile
+(EngineCore pid=2614905) INFO 05-17 04:34:14 [backends.py:1111] Dynamo bytecode transform time: 3.02 s
+(EngineCore pid=2614905) INFO 05-17 04:34:15 [backends.py:285] Directly load the compiled graph(s) for compile range (1, 8192) from the cache, took 1.079 s
+(EngineCore pid=2614905) INFO 05-17 04:34:15 [decorators.py:303] Directly load AOT compilation from path /home/mfarabi/.cache/vllm/torch_compile_cache/torch_aot_compile/9666a6dc1607644238139c00c9c14681e00b8c1ac3f2162b761b230688397a84/rank_0_0/model
+(EngineCore pid=2614905) INFO 05-17 04:34:15 [monitor.py:48] torch.compile took 4.32 s in total
+(EngineCore pid=2614905) INFO 05-17 04:34:16 [monitor.py:76] Initial profiling/warmup run took 0.28 s
+(EngineCore pid=2614905) INFO 05-17 04:34:25 [kv_cache_utils.py:829] Overriding num_gpu_blocks=0 with num_gpu_blocks_override=512
+(EngineCore pid=2614905) INFO 05-17 04:34:25 [gpu_model_runner.py:5876] Profiling CUDA graph memory: PIECEWISE=51 (largest=512), FULL=35 (largest=256)
+(EngineCore pid=2614905) INFO 05-17 04:34:27 [gpu_model_runner.py:5955] Estimated CUDA graph memory: 0.55 GiB total
+(EngineCore pid=2614905) INFO 05-17 04:34:27 [gpu_worker.py:436] Available KV cache memory: 55.9 GiB
+(EngineCore pid=2614905) INFO 05-17 04:34:27 [gpu_worker.py:470] In v0.19, CUDA graph memory profiling will be enabled by default (VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1), which more accurately accounts for CUDA graph memory during KV cache allocation. To try it now, set VLLM_MEMORY_PROFILER_ESTIMATE_CUDAGRAPHS=1 and increase --gpu-memory-utilization from 0.9000 to 0.9069 to maintain the same effective KV cache size.
+(EngineCore pid=2614905) INFO 05-17 04:34:27 [kv_cache_utils.py:1319] GPU KV cache size: 1,046,736 tokens
+(EngineCore pid=2614905) INFO 05-17 04:34:27 [kv_cache_utils.py:1324] Maximum concurrency for 32,768 tokens per request: 31.94x
+(EngineCore pid=2614905) INFO 05-17 04:34:31 [gpu_model_runner.py:6046] Graph capturing finished in 4 secs, took 0.47 GiB
+(EngineCore pid=2614905) INFO 05-17 04:34:31 [gpu_worker.py:597] CUDA graph pool memory: 0.47 GiB (actual), 0.55 GiB (estimated), difference: 0.07 GiB (15.2%).
+(EngineCore pid=2614905) INFO 05-17 04:34:31 [core.py:283] init engine (profile, create kv cache, warmup model) took 20.74 seconds
+initialized real LLM: Qwen/Qwen2.5-7B-Instruct
+Preparing batched comparison tasks for 49900 pairs...
+Batch size: 64
+Total unfinished LLM calls to run: 49900
+Running batch 1 (1-64/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department"
+Running batch 2 (65-128/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise"
+Running batch 3 (129-192/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 4 (193-256/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is thus prioritized as ESI Level 3.\n<|eot_id|>"
+Running batch 5 (257-320/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 6 (321-384/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 7 (385-448/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 8 (449-512/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is thus considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 9 (513-576/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of angina, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B has a sprained ankle with no signs of severe distress or immediate risk of deterioration. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 10 (577-640/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of heart disease, which indicates a high risk of acute coronary syndrome. This places them in the Emergent (Level 2) category. Patient B has a sprained ankle with no signs of severe distress or other concerning symptoms, placing them in the Urgent (Level 3) category. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 11 (641-704/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning chief complaint of severe abdominal pain, does not present with the same immediate life-threatening signs as Patient A, thus being prioritized at ESI Level 3.\n<|eot_id|>'
+Running batch 12 (705-768/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a more urgent condition, does not present with the same level of immediate life-threatening risk as Patient A.\n<|eot_id|>'
+Running batch 13 (769-832/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a condition such as acute coronary syndrome, a high-risk situation that requires immediate evaluation and treatment. Patient B, while having a more urgent condition, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be prioritized first.\n<|eot_id|>'
+Running batch 14 (833-896/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 15 (897-960/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 16 (961-1024/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 17 (1025-1088/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 18 (1089-1152/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a more urgent complaint of severe abdominal pain, is not showing signs of rapid deterioration or requiring multiple emergency department resources, placing them in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 19 (1153-1216/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 20 (1217-1280/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 21 (1281-1344/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 22 (1345-1408/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise"
+Running batch 23 (1409-1472/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 24 (1473-1536/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 25 (1537-1600/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 26 (1601-1664/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 27 (1665-1728/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed at a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 28 (1729-1792/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same level of immediate risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 29 (1793-1856/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 30 (1857-1920/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 31 (1921-1984/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is thus prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 32 (1985-2048/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 33 (2049-2112/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of angina, which places them in the emergent category due to the potential for acute coronary syndrome. Patient B has a less urgent complaint of a sprained ankle with no signs of severe distress or risk of deterioration. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency'
+Running batch 34 (2113-2176/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department triage decision'
+Running batch 35 (2177-2240/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 36 (2241-2304/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 37 (2305-2368/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 38 (2369-2432/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 39 (2433-2496/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 40 (2497-2560/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 41 (2561-2624/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 42 (2625-2688/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and is experiencing shortness of breath, which suggests a potential acute coronary syndrome. This condition requires immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of abdominal pain, does not present with the same level of immediate risk and is therefore prioritized at ESI Level 3.\n<|eot_id|>'
+Running batch 43 (2689-2752/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 44 (2753-2816/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed at a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 45 (2817-2880/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning chief complaint of severe abdominal pain, does not present with the same immediate life-threatening signs as Patient A, thus being prioritized at ESI Level 3.\n<|eot_id|>'
+Running batch 46 (2881-2944/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 47 (2945-3008/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 48 (3009-3072/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 49 (3073-3136/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 50 (3137-3200/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that requires prompt evaluation. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 51 (3201-3264/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 52 (3265-3328/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 53 (3329-3392/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 54 (3393-3456/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency'
+Running batch 55 (3457-3520/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 56 (3521-3584/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 57 (3585-3648/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 58 (3649-3712/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 59 (3713-3776/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 60 (3777-3840/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 61 (3841-3904/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 62 (3905-3968/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|>"
+Running batch 63 (3969-4032/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and a history of heart disease, which indicates a high risk of acute coronary syndrome. This necessitates a higher ESI level compared to Patient B, who has a less urgent complaint of a sprained ankle. Given the potential for rapid deterioration in Patient A, they should be seen first.\n<|eot_id|>'
+Running batch 64 (4033-4096/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 65 (4097-4160/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 66 (4161-4224/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 67 (4225-4288/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is thus considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 68 (4289-4352/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 69 (4353-4416/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a fever and cough, does not present with the same level of urgency as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 70 (4417-4480/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the Emergent (Level 2) category. Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the Urgent (Level 3) category. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 71 (4481-4544/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of angina, which places them in the emergent category due to the potential for acute coronary syndrome. Patient B has a sprained ankle, which is less urgent and would be classified as less urgent or less than urgent. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise'
+Running batch 72 (4545-4608/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be prioritized first.\n<|eot_id|>'
+Running batch 73 (4609-4672/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 74 (4673-4736/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk. Therefore, Patient A should be prioritized first.\n<|eot_id|>'
+Running batch 75 (4737-4800/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, on the other hand, has a less urgent complaint of a sprained ankle and is stable, requiring only a Level 3 ESI classification.\n<|eot_id|>'
+Running batch 76 (4801-4864/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 77 (4865-4928/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B, while also in pain, has a less urgent complaint of a sprained ankle. Therefore, Patient A is prioritized first.\n<|eot_id|>'
+Running batch 78 (4929-4992/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with symptoms that would necessitate immediate life-saving intervention or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 79 (4993-5056/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of difficulty breathing and is experiencing severe shortness of breath, which indicates a high risk of respiratory failure and requires immediate intervention. Patient B, while having a concerning complaint of chest pain, does not have any other symptoms or risk factors that would elevate their ESI level to 1. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 80 (5057-5120/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 81 (5121-5184/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 82 (5185-5248/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 83 (5249-5312/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 84 (5313-5376/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present an immediate life-threatening situation.\n<|eot_id|>"
+Running batch 85 (5377-5440/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is therefore prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 86 (5441-5504/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 87 (5505-5568/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 88 (5569-5632/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 89 (5633-5696/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of heart disease, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 90 (5697-5760/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that requires prompt evaluation. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 91 (5761-5824/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B, while also in pain, has a less urgent complaint of a sprained ankle. Therefore, Patient A is prioritized first.\n<|eot_id|>'
+Running batch 92 (5825-5888/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 93 (5889-5952/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the Emergent (Level 2) category. Patient B, while having a headache, does not present with any life-threatening symptoms and is in the Urgent (Level 3) category. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 94 (5953-6016/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle, while painful, does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|>"
+Running batch 95 (6017-6080/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a concerning complaint of abdominal pain, does not have the same immediate risk factors as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 96 (6081-6144/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 97 (6145-6208/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 98 (6209-6272/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 99 (6273-6336/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed at a lower priority.\n<|eot_id|>'
+Running batch 100 (6337-6400/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 101 (6401-6464/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with signs of immediate life-threatening conditions and can be managed at a lower priority.\n<|eot_id|>'
+Running batch 102 (6465-6528/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 103 (6529-6592/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is therefore considered urgent (Level 3).<|eot_text|> \n<|eot_id|>'
+Running batch 104 (6593-6656/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is therefore considered urgent (Level 3). Given the potential for a time-sensitive emergency in Patient A, they should be seen first.\n<|eot_id|>'
+Running batch 105 (6657-6720/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 106 (6721-6784/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening signs as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 107 (6785-6848/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any immediate life-threatening symptoms and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 108 (6849-6912/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a more urgent condition, does not present with the same level of immediate life-threatening risk as Patient A.\n<|eot_id|>'
+Running batch 109 (6913-6976/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, is not showing signs of immediate life-threatening conditions and is therefore at a lower ESI level.\n<|eot_id|>'
+Running batch 110 (6977-7040/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 111 (7041-7104/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of heart disease, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B has a sprained ankle with no signs of severe distress or immediate risk of deterioration. Therefore, Patient A should be prioritized first.\n<|eot_id|>'
+Running batch 112 (7105-7168/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is more appropriately classified as ESI Level 3.\n<|eot_id|>"
+Running batch 113 (7169-7232/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is therefore considered urgent (Level 3).<|eot_text|> \n<|eot_id|>'
+Running batch 114 (7233-7296/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed at a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 115 (7297-7360/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 116 (7361-7424/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This requires immediate evaluation and intervention, placing them at a higher acuity level compared to Patient B, who is experiencing a sprained ankle and is stable. \n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department triage decision using the Emergency'
+Running batch 117 (7425-7488/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any life-threatening symptoms and is stable, placing them in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 118 (7489-7552/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 119 (7553-7616/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise"
+Running batch 120 (7617-7680/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, on the other hand, has a less urgent complaint of a sprained ankle and is stable, requiring only a Level 3 ESI classification.\n<|eot_id|>'
+Running batch 121 (7681-7744/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of heart disease, which places them in a high-risk situation and requires immediate attention. Patient B has a sprained ankle, which is less urgent and does not indicate a high risk of deterioration. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 122 (7745-7808/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 123 (7809-7872/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of angina, which places them in the emergent category due to the potential for acute coronary syndrome. Patient B has a sprained ankle, which is less urgent and would be classified as less urgent or less than urgent. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise'
+Running batch 124 (7873-7936/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 125 (7937-8000/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 126 (8001-8064/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 127 (8065-8128/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a more urgent condition, does not present with the same level of immediate life-threatening risk as Patient A.\n<|eot_id|>'
+Running batch 128 (8129-8192/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same level of immediate risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 129 (8193-8256/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 130 (8257-8320/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This presents a high risk of deterioration and requires immediate evaluation and intervention. Patient B, while having a more urgent condition, does not have the same immediate life-threatening symptoms as Patient A.\n<|eot_id|>'
+Running batch 131 (8321-8384/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with signs of immediate life-threatening conditions and is therefore at a lower ESI level.\n<|eot_id|>'
+Running batch 132 (8385-8448/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Given the potential for rapid deterioration in Patient A, they should be seen first.\n<|eot_id|>'
+Running batch 133 (8449-8512/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 134 (8513-8576/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is therefore prioritized as ESI Level 3.\n<|eot_id|>"
+Running batch 135 (8577-8640/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 136 (8641-8704/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is therefore considered urgent (Level 3).<|eot_text|> \n<|eot_id|>'
+Running batch 137 (8705-8768/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 138 (8769-8832/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 139 (8833-8896/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is therefore prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 140 (8897-8960/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of heart disease, which indicates a high risk of acute coronary syndrome. This places them in the Emergent (Level 2) category. Patient B has a chief complaint of a sprained ankle, which is considered Less Urgent (Level 4). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 141 (8961-9024/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 142 (9025-9088/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 143 (9089-9152/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 144 (9153-9216/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 145 (9217-9280/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed with a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 146 (9281-9344/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 147 (9345-9408/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a more urgent condition, does not present with the same level of immediate life-threatening risk as Patient A.\n<|eot_id|>'
+Running batch 148 (9409-9472/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 149 (9473-9536/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This presents a high risk of deterioration and requires immediate evaluation and intervention. Patient B, while having a more urgent condition, does not have the same immediate life-threatening symptoms as Patient A.\n<|eot_id|>'
+Running batch 150 (9537-9600/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 151 (9601-9664/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is more appropriately classified as ESI Level 3.\n<|eot_id|>"
+Running batch 152 (9665-9728/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This presents a high-risk situation that should not wait, placing them at ESI Level 1. Patient B, while having a more urgent complaint, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 153 (9729-9792/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 154 (9793-9856/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 155 (9857-9920/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 156 (9921-9984/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department"
+Running batch 157 (9985-10048/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 158 (10049-10112/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 159 (10113-10176/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is therefore prioritized at ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 160 (10177-10240/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with"
+Running batch 161 (10241-10304/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 162 (10305-10368/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is therefore prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 163 (10369-10432/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is therefore prioritized at ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 164 (10433-10496/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 165 (10497-10560/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 166 (10561-10624/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 167 (10625-10688/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 168 (10689-10752/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a condition such as acute coronary syndrome, a high-risk situation that requires immediate evaluation and treatment. Patient B, while having a more urgent condition, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 169 (10753-10816/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is therefore prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 170 (10817-10880/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed as an ESI Level 3.\n<|eot_id|>'
+Running batch 171 (10881-10944/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 172 (10945-11008/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a condition such as acute coronary syndrome, a high-risk situation that requires immediate evaluation and treatment. Patient B's chief complaint of a sprained ankle does not indicate a life-threatening or time-sensitive condition, making Patient A the higher priority.\n<|eot_id|>"
+Running batch 173 (11009-11072/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 174 (11073-11136/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 175 (11137-11200/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 176 (11201-11264/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 177 (11265-11328/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 178 (11329-11392/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 179 (11393-11456/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 180 (11457-11520/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 181 (11521-11584/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 182 (11585-11648/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 183 (11649-11712/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is thus in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 184 (11713-11776/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with symptoms that would necessitate immediate life-saving intervention or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 185 (11777-11840/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 186 (11841-11904/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 187 (11905-11968/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 188 (11969-12032/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Given the potential for rapid deterioration in Patient A, they should be seen first.\n<|eot_id|>'
+Running batch 189 (12033-12096/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 190 (12097-12160/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is therefore considered urgent (Level 3).<|eot_text|> \n<|eot_id|>'
+Running batch 191 (12161-12224/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B has a less urgent complaint of a minor laceration, which is not life-threatening and does not require immediate intervention. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 192 (12225-12288/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 193 (12289-12352/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 194 (12353-12416/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants a higher level of urgency compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department triage decision using the Emergency Severity Index'
+Running batch 195 (12417-12480/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 196 (12481-12544/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a high fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 197 (12545-12608/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and a history of angina, which indicates a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B has a less urgent complaint of a sprained ankle with no signs of severe distress or risk of deterioration, placing them in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 198 (12609-12672/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 199 (12673-12736/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 200 (12737-12800/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 201 (12801-12864/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 202 (12865-12928/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 203 (12929-12992/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 204 (12993-13056/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with symptoms that would necessitate immediate life-saving intervention or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 205 (13057-13120/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 206 (13121-13184/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 207 (13185-13248/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 208 (13249-13312/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 209 (13313-13376/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is therefore prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 210 (13377-13440/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|>"
+Running batch 211 (13441-13504/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 212 (13505-13568/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 213 (13569-13632/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is thus prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 214 (13633-13696/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who has a less urgent complaint of a possible fracture. Given the potential for rapid deterioration in Patient A, they should be seen first.\n<|eot_id|>'
+Running batch 215 (13697-13760/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any life-threatening symptoms and is stable, placing them in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 216 (13761-13824/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is therefore prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 217 (13825-13888/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with signs of immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|>'
+Running batch 218 (13889-13952/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a"
+Running batch 219 (13953-14016/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 220 (14017-14080/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is thus prioritized as ESI Level 3.\n<|eot_id|>"
+Running batch 221 (14081-14144/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a concerning complaint of abdominal pain, does not present with the same level of immediate risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 222 (14145-14208/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 223 (14209-14272/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate a life-threatening or time-sensitive condition. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 224 (14273-14336/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 225 (14337-14400/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle is less urgent and does not present the same immediate clinical risk as Patient A's symptoms.\n<|eot_id|>"
+Running batch 226 (14401-14464/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a more urgent condition, does not present with the same level of immediate life-threatening risk as Patient A.\n<|eot_id|>'
+Running batch 227 (14465-14528/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is thus prioritized as ESI Level 3.\n<|eot_id|>"
+Running batch 228 (14529-14592/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 229 (14593-14656/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed as an ESI Level 3.\n<|eot_id|>'
+Running batch 230 (14657-14720/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 231 (14721-14784/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is thus prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 232 (14785-14848/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is classified as ESI Level 3.\n<|eot_id|>"
+Running batch 233 (14849-14912/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed at a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 234 (14913-14976/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is thus prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 235 (14977-15040/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 236 (15041-15104/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with symptoms that would necessitate immediate life-saving intervention. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 237 (15105-15168/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with symptoms that suggest an immediate life-threatening condition, thus an ESI Level 3 classification is appropriate.\n<|eot_id|>'
+Running batch 238 (15169-15232/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with"
+Running batch 239 (15233-15296/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a minor laceration, which is less urgent.\n<|eot_id|>"
+Running batch 240 (15297-15360/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 241 (15361-15424/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 242 (15425-15488/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 243 (15489-15552/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with symptoms that would necessitate immediate life-saving intervention or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 244 (15553-15616/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with signs of immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|>'
+Running batch 245 (15617-15680/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 246 (15681-15744/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with symptoms that would necessitate immediate life-saving intervention or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 247 (15745-15808/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|>"
+Running batch 248 (15809-15872/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a more urgent condition, does not present with the same level of immediate life-threatening risk as Patient A.\n<|eot_id|>'
+Running batch 249 (15873-15936/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 250 (15937-16000/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 251 (16001-16064/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 252 (16065-16128/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 253 (16129-16192/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 254 (16193-16256/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department triage"
+Running batch 255 (16257-16320/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint, does not present with the same level of immediate risk as Patient A.\n<|eot_id|>'
+Running batch 256 (16321-16384/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed at a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 257 (16385-16448/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate a life-threatening or time-sensitive emergency. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department"
+Running batch 258 (16449-16512/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 259 (16513-16576/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 260 (16577-16640/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is classified as ESI Level 3.\n<|eot_id|>"
+Running batch 261 (16641-16704/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a condition such as acute coronary syndrome, a high-risk situation that requires immediate evaluation and intervention. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and can be managed as a less urgent case.\n<|eot_id|>"
+Running batch 262 (16705-16768/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with signs of immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|>'
+Running batch 263 (16769-16832/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 264 (16833-16896/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 265 (16897-16960/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 266 (16961-17024/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 267 (17025-17088/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 268 (17089-17152/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 269 (17153-17216/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 270 (17217-17280/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 271 (17281-17344/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 272 (17345-17408/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of difficulty breathing and is experiencing severe shortness of breath, which indicates a potential respiratory emergency requiring immediate attention. Patient B, while having a concerning complaint of chest pain, does not have any other symptoms or risk factors that would elevate their ESI level to 1. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 273 (17409-17472/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise'
+Running batch 274 (17473-17536/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 275 (17537-17600/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 276 (17601-17664/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 277 (17665-17728/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B, while also experiencing chest pain, does not have the same level of distress or other concerning symptoms that would elevate their ESI level to emergent. Therefore, Patient A should be prioritized first.\n<|eot_id|>'
+Running batch 278 (17729-17792/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise"
+Running batch 279 (17793-17856/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 280 (17857-17920/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is in the urgent category (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 281 (17921-17984/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 282 (17985-18048/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 283 (18049-18112/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed with a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 284 (18113-18176/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Given the potential for rapid deterioration in Patient A, they should be seen first.\n<|eot_id|>'
+Running batch 285 (18177-18240/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 286 (18241-18304/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 287 (18305-18368/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department"
+Running batch 288 (18369-18432/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 289 (18433-18496/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 290 (18497-18560/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 291 (18561-18624/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 292 (18625-18688/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of heart disease, which places them in a high-risk situation and requires immediate attention. Patient B, while also experiencing chest pain, does not have a history of heart disease and is not in the same level of immediate risk. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise'
+Running batch 293 (18689-18752/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and a history of heart disease, which indicates a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be prioritized first.\n<|eot_id|>"
+Running batch 294 (18753-18816/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 295 (18817-18880/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 296 (18881-18944/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 297 (18945-19008/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 298 (19009-19072/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a fever and cough, does not present with the same level of immediate clinical risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 299 (19073-19136/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 300 (19137-19200/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 301 (19201-19264/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 302 (19265-19328/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a high fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 303 (19329-19392/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B's chief complaint of a sprained ankle does not indicate any immediate life-threatening conditions and is classified as ESI Level 3.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 304 (19393-19456/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be managed at a lower priority.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department'
+Running batch 305 (19457-19520/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 classification. Patient B, while having a fever and cough, does not present with any life-threatening symptoms and can be classified as ESI Level 3.\n<|eot_id|>'
+Running batch 306 (19521-19584/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 307 (19585-19648/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Given the potential for rapid deterioration in Patient A, they should be seen first.\n<|eot_id|>'
+Running batch 308 (19649-19712/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potentially life-threatening condition such as acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 309 (19713-19776/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not indicate any immediate life-threatening conditions. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 310 (19777-19840/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 311 (19841-19904/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is thus prioritized at ESI Level 3.\n<|eot_id|>"
+Running batch 312 (19905-19968/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 313 (19969-20032/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition. Therefore, Patient A should be prioritized first.\n<|eot_id|>"
+Running batch 314 (20033-20096/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This places them in the emergent category (Level 2). Patient B, while having a headache, does not present with any signs of immediate life-threatening conditions and is considered urgent (Level 3). Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 315 (20097-20160/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that requires prompt evaluation. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition or high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 316 (20161-20224/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath. Therefore, Patient A should be seen first.\n<|eot_id|>"
+Running batch 317 (20225-20288/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants a higher ESI level compared to Patient B, who is experiencing abdominal pain and is stable. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department triage decision using the Emergency Severity Index'
+Running batch 318 (20289-20352/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 319 (20353-20416/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 320 (20417-20480/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 321 (20481-20544/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate ESI Level 1 priority. Patient B's chief complaint of a sprained ankle does not indicate an immediate life-threatening condition and is thus prioritized as ESI Level 3.\n<|eot_id|>"
+Running batch 322 (20545-20608/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a more urgent complaint, does not present with the same level of immediate risk as Patient A.\n<|eot_id|>'
+Running batch 323 (20609-20672/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 324 (20673-20736/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 325 (20737-20800/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle is less urgent and does not indicate a high-risk situation. Therefore, Patient A should be seen first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency"
+Running batch 326 (20801-20864/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome, a time-sensitive emergency. Patient B's chief complaint is a sprained ankle, which is less urgent and does not present the same immediate risk as chest pain and shortness of breath.\n<|eot_id|>"
+Running batch 327 (20865-20928/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: "Decision: Patient A.\nPatient A ESI: Level 2.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and shortness of breath, which could indicate a potential acute coronary syndrome, a high-risk situation that should not wait. Patient B's chief complaint of a sprained ankle does not indicate a life-threatening or time-sensitive emergency. Therefore, Patient A should be prioritized first.\n<|eot_id|> \n<|begin_of_text|>\n<|start_header_id|>system<|end_header_id|>\nYou are assisting with a pairwise emergency department"
+Running batch 328 (20929-20992/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of severe chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This presents a high risk of rapid deterioration and requires immediate evaluation and intervention. Patient B, while having a concerning complaint of abdominal pain, does not present with the same level of immediate clinical risk as Patient A.\n<|eot_id|>'
+Running batch 329 (20993-21056/49900)
+DEBUG len(raw_responses): 64
+DEBUG first raw response: 'Decision: Patient A.\nPatient A ESI: Level 1.\nPatient B ESI: Level 3.\nReasoning: Patient A has a chief complaint of chest pain and is experiencing shortness of breath, which could indicate a potential acute coronary syndrome. This warrants an immediate evaluation and intervention, placing them at ESI Level 1. Patient B, while having a concerning complaint of severe abdominal pain, does not present with the same immediate life-threatening risk as Patient A. Therefore, Patient A should be seen first.\n<|eot_id|>'
+Running batch 330 (21057-21120/49900)

@@ -1,0 +1,31 @@
+(EngineCore pid=2784224) <frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore pid=2784224) <frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+(EngineCore pid=2784224) Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+(EngineCore pid=2784224) Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:05,  1.67s/it]
+(EngineCore pid=2784224) Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:02<00:02,  1.26s/it]
+(EngineCore pid=2784224) Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:03<00:01,  1.09s/it]
+(EngineCore pid=2784224) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.26it/s]
+(EngineCore pid=2784224) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.03it/s]
+(EngineCore pid=2784224) 
+(EngineCore pid=2784224) Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:00<00:02, 16.94it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   8%|▊         | 4/51 [00:00<00:02, 17.21it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 6/51 [00:00<00:02, 18.27it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:00<00:02, 18.75it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:00<00:01, 20.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:00<00:01, 21.31it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:00<00:01, 22.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:00<00:01, 23.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:01<00:01, 24.50it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 26/51 [00:01<00:00, 25.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:00, 25.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:01<00:00, 25.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:01<00:00, 26.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▋  | 39/51 [00:01<00:00, 27.92it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 43/51 [00:01<00:00, 28.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:01<00:00, 30.47it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 31.31it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 25.59it/s]
+(EngineCore pid=2784224) Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   9%|▊         | 3/35 [00:00<00:01, 26.90it/s]Capturing CUDA graphs (decode, FULL):  17%|█▋        | 6/35 [00:00<00:01, 27.37it/s]Capturing CUDA graphs (decode, FULL):  26%|██▌       | 9/35 [00:00<00:00, 27.72it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 12/35 [00:00<00:00, 28.14it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 15/35 [00:00<00:00, 28.53it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▍    | 19/35 [00:00<00:00, 29.50it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 23/35 [00:00<00:00, 30.65it/s]Capturing CUDA graphs (decode, FULL):  77%|███████▋  | 27/35 [00:00<00:00, 31.92it/s]Capturing CUDA graphs (decode, FULL):  89%|████████▊ | 31/35 [00:01<00:00, 33.57it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:01<00:00, 35.04it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:01<00:00, 31.54it/s]
+Traceback (most recent call last):
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_MIMIC_full.py", line 75, in <module>
+    result = runner.run()
+             ^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/experiments/rank_centrality.py", line 61, in run
+    result = self.comparator.compare_items(self.dataloader.pairs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 525, in compare_items
+    prompt = self.get_prompt(left_item, right_item)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 210, in get_prompt
+    household_block = self.build_household_block(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 197, in build_household_block
+    left_label: self.load_item_data(item_i),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 183, in load_item_data
+    with open(item_path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc_responses/_selected_jsons/31002427.json'

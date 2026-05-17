@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_MIMIC_full.py", line 21, in <module>
+    dataloader = MIMICRankCentralityDataLoader.from_yaml(config_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/datasets/mimic_rc_dataloader.py", line 100, in from_yaml
+    return cls(MIMICRankCentralityConfig.from_yaml(config_path))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/datasets/mimic_rc_dataloader.py", line 30, in from_yaml
+    with open(config_path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../configs/datasets/mimic_500.yaml'

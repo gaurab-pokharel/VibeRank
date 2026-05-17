@@ -1,0 +1,31 @@
+(EngineCore pid=2617534) <frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.cudart module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.runtime module instead.
+(EngineCore pid=2617534) <frozen importlib._bootstrap_external>:1301: FutureWarning: The cuda.nvrtc module is deprecated and will be removed in a future release, please switch to use the cuda.bindings.nvrtc module instead.
+(EngineCore pid=2617534) Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+(EngineCore pid=2617534) Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:03,  1.06s/it]
+(EngineCore pid=2617534) Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:01<00:01,  1.05it/s]
+(EngineCore pid=2617534) Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:02<00:00,  1.10it/s]
+(EngineCore pid=2617534) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.17it/s]
+(EngineCore pid=2617534) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:03<00:00,  1.12it/s]
+(EngineCore pid=2617534) 
+(EngineCore pid=2617534) Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:00<00:02, 17.94it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:02, 19.61it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:00<00:02, 20.33it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:00<00:01, 21.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:00<00:01, 22.83it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:00<00:01, 24.06it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:00<00:01, 26.29it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:01<00:00, 26.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:01<00:00, 28.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▍   | 33/51 [00:01<00:00, 29.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 37/51 [00:01<00:00, 30.53it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 41/51 [00:01<00:00, 31.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 45/51 [00:01<00:00, 33.10it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 49/51 [00:01<00:00, 32.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:01<00:00, 28.02it/s]
+(EngineCore pid=2617534) Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 4/35 [00:00<00:00, 31.76it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:00<00:00, 31.75it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 12/35 [00:00<00:00, 32.46it/s]Capturing CUDA graphs (decode, FULL):  46%|████▌     | 16/35 [00:00<00:00, 32.89it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 20/35 [00:00<00:00, 34.37it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 24/35 [00:00<00:00, 35.70it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 28/35 [00:00<00:00, 36.79it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 33/35 [00:00<00:00, 38.20it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:00<00:00, 35.95it/s]
+Traceback (most recent call last):
+  File "/projects/simlai1/Viberank/VibeRank/tests/test_MIMIC_full.py", line 75, in <module>
+    result = runner.run()
+             ^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/experiments/rank_centrality.py", line 61, in run
+    result = self.comparator.compare_items(self.dataloader.pairs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 525, in compare_items
+    prompt = self.get_prompt(left_item, right_item)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 210, in get_prompt
+    household_block = self.build_household_block(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 197, in build_household_block
+    left_label: self.load_item_data(item_i),
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/projects/simlai1/Viberank/VibeRank/src/viberank/comparators/LLMComparatorFullData.py", line 183, in load_item_data
+    with open(item_path, "r", encoding="utf-8") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc_responses/_selected_jsons/33596234.json'
