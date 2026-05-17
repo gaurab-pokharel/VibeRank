@@ -1,9 +1,11 @@
 # configs/mimic_rank_centrality.yaml
 
 dataset_name: "mimic_triage"
-raw_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/raw/mimic"
-processed_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/rank_centrality/mimic"
+#raw_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/raw/mimic"
+#processed_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/rank_centrality/mimic"
 
+raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/mimic
+processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/rank_centrality/mimic
 
 prompt_filename: "prompt_medical.txt"
 selected_patients_filename: "medical_cohort_500_proportional.csv"
