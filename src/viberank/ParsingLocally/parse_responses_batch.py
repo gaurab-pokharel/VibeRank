@@ -468,7 +468,7 @@ def parse_vulnerability_jsonl_to_csv(
 
 
 
-inputs = [
+"""inputs = [
 
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/AIES_vispdat_QWEN_NewFixedLoggerRun1SeedFixed.jsonl",
 
@@ -488,9 +488,19 @@ inputs = [
 
     "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/AIES_tayvispdat_qwen_NewFixedLoggerRun1SeedFixed.jsonl",
 
+]"""
+
+inputs = [
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/DS_VIFPDAT_DecideHousehold_20260516_031128.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/llama_VIFPDAT_DecideHousehold_20260516_030657.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/qwen_VIFPDAT_DecideHousehold_20260516_030129.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/DS_VIFSPDAT_DecideHousehold_20260515_202305.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/LLAMA_VIFSPDAT_DecideHousehold_20260515_201602.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/QWEN_VIFSPDAT_DecideHousehold_20260515_201358.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DS_TAYVIFPDAT_DecideHousehold_20260516_175846.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/LLAMA_TAYVIFPDAT_DecideHousehold_20260516_180025.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/QWEN_TAYVIFPDAT_DecideHousehold_20260516_180612.jsonl",
 ]
-
-
 
 for input_path in inputs:
 

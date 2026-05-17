@@ -6,8 +6,8 @@ processed_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - share
 
 
 prompt_filename: "prompt_medical.txt"
-selected_patients_filename: "medical_cohort_30.csv"
-json_dirname: "medical_jsons"
+selected_patients_filename: "medical_cohort_500_proportional.csv"
+json_dirname: "medical_jsons_proportional_500"
 responses_dirname: "rc_responses"
 flat_selected_dirname: "_selected_jsons"
 clear_flat_selected_dir: true

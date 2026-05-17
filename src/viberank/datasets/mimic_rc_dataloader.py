@@ -9,7 +9,7 @@ import random
 
 import pandas as pd
 import yaml
-
+import math
 
 @dataclass
 class MIMICRankCentralityConfig:
@@ -92,6 +92,9 @@ class MIMICRankCentralityDataLoader:
         self._items: list[str] | None = None
         self._pairs: list[tuple[str, str]] | None = None
 
+    def set_fraction_pairs(self,fraction_pairs):
+        self.fraction_pairs = fraction_pairs
+
     @classmethod
     def from_yaml(cls, config_path: str | Path) -> "MIMICRankCentralityDataLoader":
         return cls(MIMICRankCentralityConfig.from_yaml(config_path))
@@ -167,13 +170,40 @@ class MIMICRankCentralityDataLoader:
         return self._items
 
     def build_pairs(self, seed: int | None = 42) -> list[tuple[str, str]]:
-        """C(n, 2) unordered pairs over all selected items, shuffled."""
+        """
+        Build unordered C(n, 2) pairs over selected items.
+
+        If self.fraction_pairs is:
+        - 1 or None: use all pairs
+        - between 0 and 1: randomly keep that fraction of pairs
+        """
+
         items = self.get_items()
         pairs = list(combinations(items, 2))
+
+        rng = random.Random(seed)
+
         if seed is not None:
-            random.Random(seed).shuffle(pairs)
+            rng.shuffle(pairs)
+
+        fraction_pairs = getattr(self, "fraction_pairs", 1)
+
+        if fraction_pairs is None:
+            fraction_pairs = 1
+
+        if not (0 < fraction_pairs <= 1):
+            raise ValueError(
+                f"fraction_pairs must be in (0, 1], got {fraction_pairs}"
+            )
+
+        if fraction_pairs < 1:
+            num_pairs_to_keep = math.ceil(len(pairs) * fraction_pairs)
+            pairs = pairs[:num_pairs_to_keep]
+
         self._pairs = pairs
         return self._pairs
+    
+   
 
     @property
     def pairs(self) -> list[tuple[str, str]]:
@@ -191,10 +221,10 @@ class MIMICRankCentralityDataLoader:
 
     # ── orchestration ─────────────────────────────────────────────
 
-    def prepare(self) -> None:
+    def prepare(self,seed) -> None:
         self.load_selected_patients()
         self.prepare_flat_selected_jsons()
-        self.build_pairs()
+        self.build_pairs(seed=seed)
         self.config.responses_dir.mkdir(parents=True, exist_ok=True)
 
     def get_comparator_kwargs(self) -> dict[str, Any]:
