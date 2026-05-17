@@ -1,0 +1,20 @@
+# configs/mimic_rank_centrality.yaml
+
+dataset_name: "mimic_triage"
+raw_root: "/Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/raw/mimic"
+processed_root: "/Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/rank_centrality/mimic"
+
+
+prompt_filename: "prompt_medical.txt"
+selected_patients_filename: "medical_cohort_30.csv"
+json_dirname: "medical_jsons"
+responses_dirname: "rc_responses"
+flat_selected_dirname: "_selected_jsons"
+clear_flat_selected_dir: true
+
+selected_filters:
+  drop_missing_stay_id: true
+  drop_missing_acuity: true
+
+run_settings:
+  repeats_per_ordered_pair: 1

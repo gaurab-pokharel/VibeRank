@@ -1,0 +1,21 @@
+# ── required (no defaults) ──
+dataset_name: "mimic_triage"
+raw_root: "/Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/raw/mimic"
+processed_root: "/Users/gaurabpokharel/Library/CloudStorage/Box-Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/pairwise_comparisons/mimic"
+
+# ── optional (have defaults in the dataclass) ──
+prompt_filename: "prompt_medical.txt"          # default: "prompt.txt"
+selected_patients_filename: "medical_cohort_10.csv"  # default: "medical_cohort_30.csv"
+json_dirname: "medical_jsons"                  # default: "medical_jsons"
+responses_dirname: "responses"                 # default: "responses"
+flat_selected_dirname: "_selected_jsons"       # default: "_selected_jsons"
+tie_sheet_mode: "full_ordered_matrix"          # default: "full_ordered_matrix"
+clear_flat_selected_dir: true                  # default: true
+
+# ── optional dicts ──
+selected_filters:
+  drop_missing_stay_id: true                   # default: true
+  drop_missing_acuity: true                    # default: true
+
+run_settings:
+  repeats_per_ordered_pair: 10
