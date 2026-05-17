@@ -66,7 +66,7 @@ def parse_vulnerability_jsonl_to_csv(
     def build_messages(raw_response: str):
         text = preprocess_text(raw_response)
 
-        return [
+        """return [ # this is the vulnerability prompt
             {
                 "role": "system",
                 "content": (
@@ -98,6 +98,49 @@ def parse_vulnerability_jsonl_to_csv(
                     "Household 1 is deemed more vulnerable\n"
                     "Household 2 is deemed more vulnerable\n"
                     "Household indeterminate is deemed more vulnerable\n"
+                    "- Do not output anything else.\n"
+                    "- Do not use markdown.\n"
+                    "- Do not use bullet points.\n"
+                    "- Do not use quotes.\n"
+                    "- Do not explain your answer.\n\n"
+                    "TEXT TO PARSE:\n"
+                    f"<<<\n{text}\n>>>"
+                ),
+            },
+        ]"""
+        return [
+            {
+                "role": "system",
+                "content": (
+                    "You are a deterministic information extraction system. "
+                    "Your task is to read messy text and extract only the final determination "
+                    "about which household is selected or prioritized for Transitional Housing. "
+                    "Return only the required output format. "
+                    "Do not explain, summarize, justify, or add extra words."
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    "Extract the final Transitional Housing selection decision from the text below.\n\n"
+                    "There are exactly two households:\n"
+                    "1. Household 1\n"
+                    "2. Household 2\n\n"
+                    "Determine which household is ultimately selected or prioritized for Transitional Housing.\n\n"
+                    "DECISION RULES:\n"
+                    "- The text may include reasoning, repetition, corrections, or multiple mentions.\n"
+                    "- Use the final explicit decision in the text if one is present.\n"
+                    "- If the text only gives reasoning, infer the final Transitional Housing selection from that reasoning.\n"
+                    "- If the text says one household should receive Emergency Shelter, infer that the other household is selected for Transitional Housing when appropriate.\n"
+                    "- Ignore irrelevant text and special tokens such as <|eot_id|>.\n"
+                    "- If no clear final decision can be determined, output "
+                    "'Household indeterminate is selected for Transitional Housing'.\n\n"
+                    "OUTPUT RULES:\n"
+                    "- Output exactly one line.\n"
+                    "- Output exactly in one of these forms:\n"
+                    "Household 1 is selected for Transitional Housing\n"
+                    "Household 2 is selected for Transitional Housing\n"
+                    "Household indeterminate is selected for Transitional Housing\n"
                     "- Do not output anything else.\n"
                     "- Do not use markdown.\n"
                     "- Do not use bullet points.\n"
