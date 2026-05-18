@@ -2,7 +2,7 @@
 
 dataset_name: "mimic_triage"
 #raw_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/raw/mimic"
-#processed_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/rank_centrality/mimic"
+#processed_root: "C:/Users/ShafkatFarabi/Box/WashU-ICA-SFT-Working Folder - shared/Sandboxes/Gaurab Pokharel/VibeRank/processed/rank_centrality/mimic"c
 
 raw_root: /projects/simlai1/Viberank/data/VibeRank/raw/mimic
 processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/rank_centrality/mimic
