@@ -10,9 +10,9 @@ processed_root: /projects/simlai1/Viberank/data/VibeRank/processed/rank_centrali
 
 #prompt_filename: prompt_vulnerability.txt
 
-prompt_filename: prompt_vulnerability.txt  #prompt_vulnerability.txt
+prompt_filename: prompt.txt #prompt_vulnerability.txt  #prompt_vulnerability.txt
 
-selected_households_filename: selected_households_proportional.csv
+selected_households_filename: selected_households.csv
 responses_dirname: rc_responses
 flat_selected_dirname: _selected_jsons
 clear_flat_selected_dir: true

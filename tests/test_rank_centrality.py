@@ -94,7 +94,7 @@ def main():
         "/projects/simlai1/Viberank/VibeRank/configs/datasets/rc_vispdat.yaml"
     )
 
-    prompt_path = "/projects/simlai1/Viberank/data/raw/hmls/prompt_vulnerability.txt"
+    prompt_path = "/projects/simlai1/Viberank/data/raw/hmls/prompt.txt"
 
     dataloader = RankCentralityDataLoader.from_yaml(config_path)
     dataloader.prepare()
@@ -103,17 +103,17 @@ def main():
         {
             "llm_name": "qwen",
             "model_name": "qwen",
-            "run_prefix": "QWEN_TAYVISPDAT_vul30X30fixed",
+            "run_prefix": "QWEN_TAYVISPDAT_choosehousehold30X30equal",
         },
         {
             "llm_name": "llama7",
             "model_name": "llama7",
-            "run_prefix": "LLAMA7_TAYVISPDAT_vul30X30fixed",
+            "run_prefix": "LLAMA7_TAYVISPDAT_choosehousehold30X30equal",
         },
         {
             "llm_name": "deepseek8B",
             "model_name": "deepseek8B",
-            "run_prefix": "DEEPSEEK8B_TAYVISPDAT_vul30X30fixed",
+            "run_prefix": "DEEPSEEK8B_TAYVISPDAT_choosehousehold30X30equal",
         },
     ]
 
