@@ -491,15 +491,15 @@ def parse_vulnerability_jsonl_to_csv(
 ]"""
 
 inputs = [
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/DS_VIFPDAT_DecideHousehold_20260516_031128.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/llama_VIFPDAT_DecideHousehold_20260516_030657.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/qwen_VIFPDAT_DecideHousehold_20260516_030129.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/DS_VIFSPDAT_DecideHousehold_20260515_202305.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/LLAMA_VIFSPDAT_DecideHousehold_20260515_201602.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/QWEN_VIFSPDAT_DecideHousehold_20260515_201358.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DS_TAYVIFPDAT_DecideHousehold_20260516_175846.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/LLAMA_TAYVIFPDAT_DecideHousehold_20260516_180025.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/QWEN_TAYVIFPDAT_DecideHousehold_20260516_180612.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/DEEPSEEK8B_VISPDAT_vul30X30fixed_20260517_080619.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/LLAMA7_VISPDAT_vul30X30fixed_20260517_075754.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VISPDAT/rc_responses/QWEN_VISPDAT_vul30X30fixed_20260517_074832.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/DEEPSEEK8B_VIFSPDAT_vul30X30fixed_20260517_080043.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/LLAMA7_VIFSPDAT_vul30X30fixed_20260517_074806.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/VIFSPDAT/rc_responses/QWEN_VIFSPDAT_vul30X30fixed_20260517_073808.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/DEEPSEEK8B_TAYVISPDAT_vul30X30fixed_20260517_082220.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/LLAMA7_TAYVISPDAT_vul30X30fixed_20260517_081403.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/hmls/TAYVISPDAT/rc_responses/QWEN_TAYVISPDAT_vul30X30fixed_20260517_080450.jsonl",
 ]
 
 for input_path in inputs:

@@ -1,0 +1,95 @@
+JobID: 5520233
+Host: tc-gpu004
+Started: Sun May 17 10:33:08 PM EDT 2026
+Python: /projects/simlai1/Viberank/VibeRank/.venv/bin/python
+Python 3.12.12
+Sun May 17 22:33:08 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.105.08             Driver Version: 580.105.08     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  |   00000000:8B:00.0 Off |                    0 |
+| N/A   35C    P0             62W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+IN : /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_DEEPSEEK_prop_seq_run.jsonl
+OUT: /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_DEEPSEEK_prop_seq_run_parsed.csv
+
+Parsing
+/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_DEEPSEEK_prop_seq_run.jsonl
+Loaded 435 response rows
+Parsed 32/435 rows
+Parsed 64/435 rows
+Parsed 96/435 rows
+Parsed 128/435 rows
+Parsed 160/435 rows
+Parsed 192/435 rows
+Parsed 224/435 rows
+Parsed 256/435 rows
+Parsed 288/435 rows
+Parsed 320/435 rows
+Parsed 352/435 rows
+Parsed 384/435 rows
+Parsed 416/435 rows
+Parsed 435/435 rows
+Saved parsed results to: /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_DEEPSEEK_prop_seq_run_parsed.csv
+Failed parses: 0/435
+
+IN : /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_LLAMA7_prop_seq_run.jsonl
+OUT: /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_LLAMA7_prop_seq_run_parsed.csv
+
+Parsing
+/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_LLAMA7_prop_seq_run.jsonl
+Loaded 435 response rows
+Parsed 32/435 rows
+Parsed 64/435 rows
+Parsed 96/435 rows
+Parsed 128/435 rows
+Parsed 160/435 rows
+Parsed 192/435 rows
+Parsed 224/435 rows
+Parsed 256/435 rows
+Parsed 288/435 rows
+Parsed 320/435 rows
+Parsed 352/435 rows
+Parsed 384/435 rows
+Parsed 416/435 rows
+Parsed 435/435 rows
+Saved parsed results to: /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_LLAMA7_prop_seq_run_parsed.csv
+Failed parses: 0/435
+
+IN : /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_QWEN_prop_seq_run.jsonl
+OUT: /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_QWEN_prop_seq_run_parsed.csv
+
+Parsing
+/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_QWEN_prop_seq_run.jsonl
+Loaded 435 response rows
+Parsed 32/435 rows
+Parsed 64/435 rows
+Parsed 96/435 rows
+Parsed 128/435 rows
+Parsed 160/435 rows
+Parsed 192/435 rows
+Parsed 224/435 rows
+Parsed 256/435 rows
+Parsed 288/435 rows
+Parsed 320/435 rows
+Parsed 352/435 rows
+Parsed 384/435 rows
+Parsed 416/435 rows
+Parsed 435/435 rows
+Saved parsed results to: /projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_QWEN_prop_seq_run_parsed.csv
+Failed parses: 0/435
+Finished: Sun May 17 10:34:04 PM EDT 2026

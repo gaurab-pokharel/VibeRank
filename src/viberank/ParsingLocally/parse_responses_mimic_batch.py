@@ -259,9 +259,9 @@ def parse_mimic_priority_jsonl_to_csv(
 
 
 inputs = [
-    "/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc_responses/MIMIC_500_DEEPSEEK_tournament1_seq_run.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc_responses/MIMIC_500_LLAMA7_tournament1_seq_run.jsonl",
-    "/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc_responses/MIMIC_500_QWEN_tournament1_seq_run.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_DEEPSEEK_prop_seq_run.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_LLAMA7_prop_seq_run.jsonl",
+    "/projects/simlai1/Viberank/data/VibeRank/raw/mimic/mimic_triage/rc30X30_responses/MIMIC_30X30_QWEN_prop_seq_run.jsonl",
 ]
 
 for input_path in inputs:
